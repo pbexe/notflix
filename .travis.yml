@@ -11,3 +11,6 @@ install: "make"
 # command to run tests
 script:
     - make test
+
+notifications:
+webhooks: https://outlook.office.com/webhook/bdb0bd59-0d8c-47bb-a4d2-39c214ff86f8@bdb74b30-9568-4856-bdbf-06759778fcbc/TravisCI/4b786c6e05e34b08b0f9a815ee293a0d/ca89773f-0219-4e2c-ad5b-c5d9648302a8
