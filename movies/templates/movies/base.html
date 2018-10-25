@@ -4,46 +4,55 @@
     <meta charset="UTF-8">
     <title>{% block title %}Notflix{% endblock %}</title>
     {% load staticfiles %}
+<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'movies/style.css' %}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-<nav>
-
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
     <!-- header-->
-    <div>
-        <button type="button" data-toggle="collapse" data-target="#topNavBar">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
         </button>
-        <a href="{% url 'movies:index' %}">Notflix</a>
+        <a class="navbar-brand" href="{% url 'movies:index' %}">Notflix</a>
 
     </div>
 
     <!-- items-->
-    <div>
-        <ul>
-            <li class="{% block movies_active %}{% endblock %}"><a href="{% url 'movies:index' %}"><span></span>&nbsp; Movies</a></li>
+    <div class="collapse navbar-collapse" id="topNavBar">
+        <ul class="nav navbar-nav">
+            <li class="{% block movies_active %}{% endblock %}"><a
+                    href="{% url 'movies:index' %}">
+                <span class="glyphicon glyphicon-cd" aria-hidden="true">
+                </span>&nbsp; Movies</a></li>
 
         </ul>
 
-    <form role="search" method="get" action="{% url 'movies:index' %}">
-        <div>
+    <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'movies:index' %}">
+        <div class="form-group">
             <input type="text" class="form-control" name="q" value="{{ request.GET.q }}">
         </div>
-        <button type="submit" >Search</button>
+        <button type="submit" class="btn btn-default">Search</button>
     </form>
 
-    <ul>
+    <ul class="nav navbar-nav navbar-right">
         <li>
             <a href="{% url 'movies:create_movie' %}">
-                <span> &nbsp; Add Movie</span>
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"> &nbsp; Add Movie</span>
             </a>
         </li>
     </ul>
     </div>
-
+</div>
 </nav>
 {% block body %}
 {% endblock %}

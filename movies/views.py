@@ -3,6 +3,8 @@ from django.shortcuts import render, get_object_or_404
 from .forms import MovieForm
 from .models import Movie
 from django.db.models import Q
+from django.http import JsonResponse
+
 
 
 
@@ -53,5 +55,20 @@ def index(request):
         })
     else:
         return render(request, 'movies/index.html', {'movies': movies})
+
+def favorite(request, movie_id):
+    movie = get_object_or_404(Movie, pk=movie_id)
+    try:
+        if movie.is_favorite:
+            movie.is_favorite = False
+        else:
+            movie.is_favorite = True
+        movie.save()
+    except (KeyError, Movie.DoesNotExist):
+        return JsonResponse({'success': False})
+    else:
+        return JsonResponse({'success': True})
+
+
 
 

@@ -2,5 +2,47 @@
 {% block albums_active %}active{% endblock %}
 
 {% block body %}
+<div>
+<div>
+    <h2>Movies </h2>
+</div>
+    {% if movies %}
+            {% for movie in movies %}
+
+                <a href="{% url 'movies:detail' movie.id %}">
+                            <img src="{{ movie.movie_logo.url }}" >
+                </a>
+
+                <div >
+                            <h2>{{ movie.movie_title }}</h2>
+                            <h4>{{ movie.genre }}</h4>
+
+                            <!-- View Details -->
+                            <a href="{% url 'movies:detail' movie.id %}"  role="button">View Details</a>
+
+
+
+                            <!-- Favorite Album -->
+                            <a href="{% url 'movies:favorite' movie.id %}"  role="button">
+                            </a>
+
+                        </div>
+            {% endfor %}
+        {% else %}
+        <div>
+                <br>
+                <a href="{% url 'movies:create_movie' %}">
+                    <button type="button" >
+                        <span ></span>&nbsp; Add a Movie
+                    </button>
+                </a>
+            </div>
+    {% endif %}
+
+</div>
+
+    <!-- if the customer searches and there are movies to display -->
+
+
 
 {% endblock %}

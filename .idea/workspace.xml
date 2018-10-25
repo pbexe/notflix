@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4a637c8-92f5-4014-8d97-0440a4036242" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies/templates/movies/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies/templates/movies/create_movie.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies/templates/movies/detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies/templates/movies/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notflix/settings.py" afterPath="$PROJECT_DIR$/notflix/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notflix/urls.py" afterPath="$PROJECT_DIR$/notflix/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies/static/movies/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/templates/movies/base.html" afterPath="$PROJECT_DIR$/movies/templates/movies/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/templates/movies/index.html" afterPath="$PROJECT_DIR$/movies/templates/movies/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/urls.py" afterPath="$PROJECT_DIR$/movies/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/views.py" afterPath="$PROJECT_DIR$/movies/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/notflix/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+              <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
               <folding>
                 <element signature="e#1#33#0" expanded="true" />
               </folding>
@@ -42,22 +36,10 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="37" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="9" selection-end-column="37" />
+            <state relative-caret-position="60">
+              <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movies/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,8 +48,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            <state relative-caret-position="135">
+              <caret line="9" column="71" lean-forward="false" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -75,15 +57,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/movies/templates/movies/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="16" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+            <state relative-caret-position="146">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
-                <element signature="e#664#670#0#HTML" expanded="true" />
-                <element signature="e#1054#1060#0#HTML" expanded="true" />
+                <element signature="e#1520#1526#0#HTML" expanded="true" />
+                <element signature="e#2072#2078#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movies/static/movies/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,8 +83,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+            <state relative-caret-position="-489">
+              <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
               <folding>
                 <element signature="e#1#55#0" expanded="true" />
               </folding>
@@ -100,12 +92,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/templates/movies/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-              <folding />
+            <state relative-caret-position="675">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding>
+                <element signature="e#1074#1080#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -149,6 +143,7 @@
       <list>
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -165,11 +160,12 @@
         <option value="$PROJECT_DIR$/movies/forms.py" />
         <option value="$PROJECT_DIR$/movies/templates/movies/create_movie.html" />
         <option value="$PROJECT_DIR$/movies/templates/movies/detail.html" />
-        <option value="$PROJECT_DIR$/movies/templates/movies/base.html" />
         <option value="$PROJECT_DIR$/notflix/urls.py" />
-        <option value="$PROJECT_DIR$/movies/urls.py" />
         <option value="$PROJECT_DIR$/movies/views.py" />
+        <option value="$PROJECT_DIR$/movies/urls.py" />
         <option value="$PROJECT_DIR$/movies/templates/movies/index.html" />
+        <option value="$PROJECT_DIR$/movies/static/movies/style.css" />
+        <option value="$PROJECT_DIR$/movies/templates/movies/base.html" />
       </list>
     </option>
   </component>
@@ -235,6 +231,12 @@
               <item name="notflix" type="b2602c69:ProjectViewProjectNode" />
               <item name="notflix" type="462c0819:PsiDirectoryNode" />
               <item name="movies" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="notflix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notflix" type="462c0819:PsiDirectoryNode" />
+              <item name="movies" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -267,6 +269,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -559,7 +562,7 @@
     <entry file="file://$PROJECT_DIR$/movies/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -592,30 +595,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movies/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="9" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notflix/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
           <folding>
             <element signature="e#1#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/movies/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/movies/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+        <state relative-caret-position="-489">
+          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
           <folding>
             <element signature="e#1#55#0" expanded="true" />
           </folding>
@@ -624,30 +627,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/movies/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        <state relative-caret-position="135">
+          <caret line="9" column="71" lean-forward="false" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movies/templates/movies/base.html">
+    <entry file="file://$PROJECT_DIR$/movies/templates/movies/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="16" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+        <state relative-caret-position="675">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <element signature="e#664#670#0#HTML" expanded="true" />
-            <element signature="e#1054#1060#0#HTML" expanded="true" />
+            <element signature="e#1074#1080#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movies/templates/movies/index.html">
+    <entry file="file://$PROJECT_DIR$/movies/static/movies/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        <state relative-caret-position="30">
+          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movies/templates/movies/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="e#1520#1526#0#HTML" expanded="true" />
+            <element signature="e#2072#2078#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
