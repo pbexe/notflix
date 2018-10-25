@@ -32,7 +32,7 @@
         <ul class="nav navbar-nav">
             <li class="{% block movies_active %}{% endblock %}"><a
                     href="{% url 'movies:index' %}">
-                <span class="glyphicon glyphicon-cd" aria-hidden="true">
+                <span class="glyphicon glyphicon-film" aria-hidden="true">
                 </span>&nbsp; Movies</a></li>
 
         </ul>
@@ -44,13 +44,7 @@
         <button type="submit" class="btn btn-default">Search</button>
     </form>
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a href="{% url 'movies:create_movie' %}">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"> &nbsp; Add Movie</span>
-            </a>
-        </li>
-    </ul>
+
     </div>
 </div>
 </nav>

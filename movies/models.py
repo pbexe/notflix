@@ -8,6 +8,8 @@ class Movie(models.Model):
     liked = models.BooleanField(default=False)
     description = models.TextField(blank=True, null=True)
     release_date = models.DateField()
+    price = models.DecimalField(decimal_places=2, max_digits=10)
+    #had to create on more field for video for trailer
 
     def __str__(self):
         return self.movie_title + '-' + self.genre
