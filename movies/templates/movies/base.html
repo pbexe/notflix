@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Notflix{% endblock %}</title>
+    {% load staticfiles %}
+</head>
+
+<body>
+
+<nav>
+
+    <!-- header-->
+    <div>
+        <button type="button" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+        </button>
+        <a href="{% url 'movies:index' %}">Notflix</a>
+
+    </div>
+
+    <!-- items-->
+    <div>
+        <ul>
+            <li class="{% block movies_active %}{% endblock %}"><a href="{% url 'movies:index' %}"><span></span>&nbsp; Movies</a></li>
+
+        </ul>
+
+    <form role="search" method="get" action="{% url 'movies:index' %}">
+        <div>
+            <input type="text" class="form-control" name="q" value="{{ request.GET.q }}">
+        </div>
+        <button type="submit" >Search</button>
+    </form>
+
+    <ul>
+        <li>
+            <a href="{% url 'movies:create_movie' %}">
+                <span> &nbsp; Add Movie</span>
+            </a>
+        </li>
+    </ul>
+    </div>
+
+</nav>
+{% block body %}
+{% endblock %}
+</body>
+</html>
