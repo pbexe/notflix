@@ -9,7 +9,9 @@ python:
 install: "make"
 
 # command to run tests
+
 script:
+    - pipenv check
     - make test
 
 notifications:
