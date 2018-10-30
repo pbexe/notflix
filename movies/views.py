@@ -59,10 +59,10 @@ def index(request):
 def favorite(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     try:
-        if movie.is_favorite:
-            movie.is_favorite = False
+        if movie.liked:
+            movie.liked = False
         else:
-            movie.is_favorite = True
+            movie.liked = True
         movie.save()
     except (KeyError, Movie.DoesNotExist):
         return JsonResponse({'success': False})
