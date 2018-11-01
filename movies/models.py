@@ -21,6 +21,9 @@ class Movie(models.Model):
     def __str__(self):
         return self.movie_title + '-' + self.genre
 
+    def total_likes(self):
+        return self.likes.count()
+
 
 class Rental(models.Model):
     owner = models.ForeignKey(

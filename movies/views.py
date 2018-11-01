@@ -44,7 +44,8 @@ def detail(request, movie_id):
     if movie.likes.filter(id=request.user.id).exists():
         is_liked = True
     return render(request, 'movies/detail.html', {'movie': movie,
-                                                  'is_liked': is_liked})
+                                                  'is_liked': is_liked,
+                                                  'total_likes': movie.total_likes()})
 
 def index(request):
     movies = Movie.objects.filter()
