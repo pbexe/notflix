@@ -61,7 +61,7 @@ def index(request):
     else:
         return render(request, 'movies/index.html', {'movies': movies})
 
-"""def favorite(request, movie_id):
+def favorite(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     try:
         if movie.liked:
@@ -72,7 +72,7 @@ def index(request):
     except (KeyError, Movie.DoesNotExist):
         return JsonResponse({'success': False})
     else:
-        return JsonResponse({'success': True})"""
+        return JsonResponse({'success': True})
 
 
 
