@@ -11,10 +11,7 @@
                 <h1>{{ movie.movie_title }}</h1>
                 <h2><a>{{ movie.genre }}</a></h2>
                 <p class="price">${{ movie.price }}</p>
-                <a href="{% url 'movies:favorite' movie.id %}" class="btn-favorite">
-                    <span class="glyphicon glyphicon-star"  {% if movie.liked %}active{% endif %}>
-                    </span>
-                </a>
+
                 <form action="{% url 'movies:like_movie' %}" method="post">
                     {% csrf_token %}
                     {% if is_liked %}
