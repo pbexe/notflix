@@ -4,6 +4,7 @@ from .forms import MovieForm
 from .models import Movie
 from django.db.models import Q
 from django.http import JsonResponse
+from django.http import HttpResponseRedirect
 
 
 
@@ -39,7 +40,11 @@ def create_movie(request):
 
 def detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
-    return render(request, 'movies/detail.html', {'movie': movie})
+    is_liked = False
+    if movie.likes.filter(id=request.user.id).exists():
+        is_liked = True
+    return render(request, 'movies/detail.html', {'movie': movie,
+                                                  'is_liked': is_liked})
 
 def index(request):
     movies = Movie.objects.filter()
@@ -68,6 +73,23 @@ def favorite(request, movie_id):
         return JsonResponse({'success': False})
     else:
         return JsonResponse({'success': True})
+
+
+
+def like_movie(request):
+    movie = get_object_or_404(Movie, id=request.POST.get('movie_id'))
+    is_liked = False
+    if movie.likes.filter(id=request.user.id).exists():
+        movie.likes.remove(request.user)
+        is_liked = False
+    else:
+        movie.likes.add(request.user)
+        is_liked = True
+    return HttpResponseRedirect(movie.get_absolute_url())
+
+
+
+
 
 
 

@@ -4,21 +4,28 @@
 
 {% block body %}
     <div class="container-fluid movies-container">
-    <div class="panel panel-default">
-                    <div class="panel-body">
+        <div class="panel panel-default">
+            <div class="panel-body">
 
-        <img src="{{ movie.movie_logo.url }}" >
-        <h1>{{ movie.movie_title }}</h1>
-        <h2><a>{{ movie.genre }}</a></h2>
-        <p class="price">${{ movie.price }}</p>
-        <a href="{% url 'movies:favorite' movie.id %}" class="btn-favorite">
-            <span class="glyphicon glyphicon-star"  {% if movie.liked %}active{% endif %}>
+                <img src="{{ movie.movie_logo.url }}" >
+                <h1>{{ movie.movie_title }}</h1>
+                <h2><a>{{ movie.genre }}</a></h2>
+                <p class="price">${{ movie.price }}</p>
+                <a href="{% url 'movies:favorite' movie.id %}" class="btn-favorite">
+                    <span class="glyphicon glyphicon-star"  {% if movie.liked %}active{% endif %}>
+                    </span>
+                </a>
+                <form action="{% url 'movies:like_movie' %}" method="post">
+                    {% csrf_token %}
+                    {% if is_liked %}
+                        <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-danger">Dislike</button>
+                    {% else %}
+                        <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-primary">Like</button>
+                    {% endif %}
 
-            </span>
-        </a>
-<br>
-        {{ movie.description }}
-    </div>
-    </div>
+                </form>
+                <br>{{ movie.description }}
+            </div>
+        </div>
     </div>
 {% endblock %}
