@@ -1,5 +1,7 @@
 from django.contrib.auth.models import Permission, User
 from django.db import models
+from django.urls import reverse
+
 
 class Movie(models.Model):
     movie_title = models.CharField(max_length=500)
@@ -9,10 +11,18 @@ class Movie(models.Model):
     description = models.TextField(blank=True, null=True)
     release_date = models.DateField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
+    likes = models.ManyToManyField(User, related_name='likes', blank=True)
     #had to create on more field for video for trailer
+
+    def get_absolute_url(self):
+        return reverse('movies:detail', args=[str(self.id)])
+
 
     def __str__(self):
         return self.movie_title + '-' + self.genre
+
+    def total_likes(self):
+        return self.likes.count()
 
 
 class Rental(models.Model):
