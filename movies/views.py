@@ -41,11 +41,20 @@ def create_movie(request):
 def detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     is_liked = False
+    is_disliked = False
+
     if movie.likes.filter(id=request.user.id).exists():
         is_liked = True
+        is_disliked = False
+
+    if movie.dislikes.filter(id=request.user.id).exists():
+        is_disliked = True
+        is_liked = False
     return render(request, 'movies/detail.html', {'movie': movie,
                                                   'is_liked': is_liked,
-                                                  'total_likes': movie.total_likes()})
+                                                  'is_disliked': is_disliked,
+                                                  'total_likes': movie.total_likes(),
+                                                  'total_dislikes': movie.total_dislikes()})
 
 def index(request):
     movies = Movie.objects.filter()
@@ -85,7 +94,20 @@ def like_movie(request):
         is_liked = False
     else:
         movie.likes.add(request.user)
+        movie.dislikes.remove(request.user)
         is_liked = True
+    return HttpResponseRedirect(movie.get_absolute_url())
+
+def dislike_movie(request):
+    movie = get_object_or_404(Movie, id=request.POST.get('movie_id'))
+    is_disliked = False
+    if movie.dislikes.filter(id=request.user.id).exists():
+        movie.dislikes.remove(request.user)
+        is_disliked = False
+    else:
+        movie.dislikes.add(request.user)
+        movie.likes.remove(request.user)
+        is_disliked = True
     return HttpResponseRedirect(movie.get_absolute_url())
 
 

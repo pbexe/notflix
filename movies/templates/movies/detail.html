@@ -11,15 +11,26 @@
                 <h1>{{ movie.movie_title }}</h1>
                 <h2><a>{{ movie.genre }}</a></h2>
                 <p class="price">${{ movie.price }}</p>
-                {{ total_likes }} Like{{ total_likes|pluralize }}
+                {{ total_likes }} Like{{ total_likes|pluralize }}<br>
+                {{ total_dislikes }} Dislike{{ total_dislikes|pluralize }}<br>
+
                 <form action="{% url 'movies:like_movie' %}" method="post">
                     {% csrf_token %}
                     {% if is_liked %}
-                        <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-danger">Dislike</button>
+                        <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-danger">Remove Like</button>
                     {% else %}
                         <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-primary">Like</button>
                     {% endif %}
+                </form>
+                <form action="{% url 'movies:dislike_movie' %}" method="post">
+                    {% csrf_token %}
+                    {% if is_disliked %}
+                        <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-danger" >Remove Dislike</button>
+                    {% else %}
+                        <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-danger">Dislike</button>
+                    {% endif %}
 
+                </form>
                 </form>
                 <br>{{ movie.description }}
             </div>

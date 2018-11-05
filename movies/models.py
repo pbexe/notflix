@@ -12,6 +12,8 @@ class Movie(models.Model):
     release_date = models.DateField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
     likes = models.ManyToManyField(User, related_name='likes', blank=True)
+    dislikes = models.ManyToManyField(User, related_name='dislikes', blank=True)
+
     #had to create on more field for video for trailer
 
     def get_absolute_url(self):
@@ -23,6 +25,9 @@ class Movie(models.Model):
 
     def total_likes(self):
         return self.likes.count()
+
+    def total_dislikes(self):
+        return self.dislikes.count()
 
 
 class Rental(models.Model):
