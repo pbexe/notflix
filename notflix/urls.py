@@ -8,7 +8,7 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('movies.urls', namespace='movies')),
-    url(r'^users/', include('users.urls', namespace='users')),
+    url(r'^users/', include('users.urls')),
 ]
 
 if settings.DEBUG:

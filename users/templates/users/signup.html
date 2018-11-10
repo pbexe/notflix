@@ -2,9 +2,9 @@
 
 {% block body %}
   <h2>Sign up</h2>
-  <form method="post">
+  <form class="site-form" action="/users/signup/" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
+    {{ form }}
+    <input type="submit" value="Signup"></input>
   </form>
 {% endblock %}

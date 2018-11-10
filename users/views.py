@@ -1,30 +1,42 @@
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login,logout, authenticate
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
 
-def signup(request):
-    """View that processes the user sign up process
-
-    Based on https://simpleisbetterthancomplex.com/tutorial/2017/02/18/how-to-create-user-sign-up-view.html
-    
-    Arguments:
-        request {obj} -- The request the user has made
-    
-    Returns:
-        redirect/render -- Redirects user on signup, otherwise renders the view
-    """
-
+def signup_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
+            #log the user in
+            user = form.save()
             login(request, user)
-            return redirect(reverse('movies:index'))
+            return redirect('movies:index')
     else:
         form = UserCreationForm()
+
     return render(request, 'users/signup.html', {'form': form})
+
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            #login the user
+            user = form.get_user()
+            login(request, user)
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+
+
+            return redirect('movies:index')
+
+    else:
+        form = AuthenticationForm()
+    return render(request, 'users/login.html', {'form': form})
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return render(request, 'users/logout.html')
+

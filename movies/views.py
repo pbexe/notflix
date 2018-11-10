@@ -5,6 +5,7 @@ from .models import Movie
 from django.db.models import Q
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -38,6 +39,7 @@ def create_movie(request):
     }
     return render(request, 'movies/create_movie.html', context)
 
+@login_required(login_url="/users/login")
 def detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     is_liked = False
