@@ -1,84 +1,78 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}Notflix{% endblock %}</title>
-    {% load staticfiles %}
-<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{% static 'movies/css/style.css' %}"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
+    <link rel="stylesheet" type="text/css" href="{% static 'movies/css/materialize.min.css' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    
 </head>
-
 <body>
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+            <a href="{% url 'movies:index' %}" class="brand-logo"><img class="brand-logo" src="{% static 'movies/img/logo.png' %}" alt=""></a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                {% if user.is_authenticated %}
+                <li><a href="#">Hi {{ user.username }}</a></li>
+                <li> <form class="navbar-form navbar-left" action="{% url 'users:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class=" white-text waves-effect waves-teal btn-flat">Logout</button>
+                </form></li>
+                {% else %}
 
-<nav class="navbar navbar-inverse">
-<div class="container-fluid">
-    <!-- header-->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'movies:index' %}">Notflix</a>
+                <!--These dont need to be forms so need to be converted at some point
+                Also, they need to be added to the mobile collapsed menu-->
 
-    </div>
-
-    <!-- items-->
-    <div class="collapse navbar-collapse" id="topNavBar">
-        <ul class="nav navbar-nav">
-            <li class="{% block movies_active %}{% endblock %}"><a
-                    href="{% url 'movies:index' %}">
-                <span class="glyphicon glyphicon-film" aria-hidden="true">
-                </span>&nbsp; Movies</a></li>
-
-        </ul>
-
-    <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'movies:index' %}">
-        <div class="form-group">
-            <input type="text" class="form-control" name="q" value="{{ request.GET.q }}">
+                <li><a href="#">Hello stranger</a></li>
+                <li><form  action="{% url 'users:signup' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="white-text waves-effect waves-teal btn-flat">Create Account</button>
+              </form></li>
+                <li><form  action="{% url 'users:login' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="white-text waves-effect waves-teal btn-flat">Login</button>
+              </form></li>
+                {% endif %}
+            </ul>
         </div>
-        <button type="submit" class="btn btn-default">Search</button>
-    </form>
-
-        {% if user.is_authenticated %}
-            <ul class="nav navbar-nav">
-            <li class="navbar-form navbar-right">Welcome {{ user.username }}!</li>
-            </ul>
-          <ul>
-              <li>
-                  <form class="navbar-form navbar-left" action="{% url 'users:logout' %}" method="post">
-                  {% csrf_token %}
-                  <button type="submit" class="btn btn-default">Logout</button>
-                  </form>
-              </li>
-          </ul>
-    {% else %}
-            <ul class="nav navbar-nav">
-                <li class="navbar-form navbar-right">Welcome Guest!</li>
-            </ul>
-            <form class="navbar-form navbar-left" action="{% url 'users:signup' %}" method="post">
-                  {% csrf_token %}
-                  <button type="submit" class="btn btn-default">Create Account</button>
-            </form>
-            <form class="navbar-form navbar-left" action="{% url 'users:login' %}" method="post">
-                  {% csrf_token %}
-                  <button type="submit" class="btn btn-default">Login</button>
-            </form>
-
-
-    {% endif %}
-
-
+    </nav>
+    
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="#">Need to make mobile menu!!!</a></li>
+    </ul>
+    
+    <div class="container">
+        {% block body %}
+        {% endblock %}
     </div>
-</div>
-</nav>
-{% block body %}
-{% endblock %}
+    
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red">
+            <i class="large material-icons">search</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'movies/js/materialize.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+        });
+        $(document).ready(function(){
+            $('.fixed-action-btn').floatingActionButton();
+        });
+    </script>
 </body>
 </html>

@@ -1,8 +1,9 @@
-img{
-    max-width: 500px;
-    height: 100px;
-}
 .glyphicon-star {
     color: #CCCCCC;
     font-size: 16px;
+}
+
+.brand-logo img {
+    height: 40px;
+    margin: 12px;
 }

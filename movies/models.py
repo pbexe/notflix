@@ -42,7 +42,7 @@ class Rental(models.Model):
     expiration = models.DateTimeField()
 
     def __str__(self):
-        return self.owner.get_full_name() + ": " + self.movie.movie_title 
+        return self.owner.get_full_name() + ": " + self.movie.movie_title
         
 
 
