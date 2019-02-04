@@ -1,0 +1,55 @@
+{% extends "movies/base.html" %}
+
+{% block title %}
+Checkout
+{% endblock %}
+
+{% block content %}
+<h1>Checkout</h1>
+
+<div class="order-info">
+    <h3>Your order</h3>
+    <ul>
+        {% for item in cart %}
+        <li>{{ item.movie.title }} <span>£{{ item.total_price }}</span></li>
+        {% endfor %}
+    </ul>
+    <p>Total: £{{ cart.get_total_price }}</p>
+</div>
+
+<div class="checkout">
+
+    <h3>Your order will be delivered to:</h3>
+
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+    <p>{{ user.profile.address }}</p>
+    <p>{{ user.profile.city }},</p>
+    <p>{{ user.profile.postcode }} </p>
+
+    <h3>Payment details:</h3>
+        <form action="." method="post">
+            {% for field in form %}
+            <table>
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                </tr>
+                <tr>
+                 <td> {{ field }}</td>
+                 <td> {{ field.errors }}</td>
+             </tr>
+             <tr>
+                
+                
+             </tr>
+         </table>
+         {% endfor %}
+
+         <p><input type="submit" value="Place Order"></p>
+         {% csrf_token %}
+     </form>
+     
+ </p>
+</div>
+
+
+{% endblock %}
