@@ -4,6 +4,12 @@ from django.urls import reverse
 
 
 class Movie(models.Model):
+    """Model representing a movie in the DB
+    
+    Arguments:
+        models {obj} -- Inherits from Django model class
+    """
+
     movie_title = models.CharField(max_length=500)
     genre = models.CharField(max_length=100)
     movie_logo = models.FileField()
@@ -17,20 +23,49 @@ class Movie(models.Model):
     #had to create on more field for video for trailer
 
     def get_absolute_url(self):
+        """Absolute url so it can be permalinked
+        
+        Returns:
+            URL -- The absolute URL
+        """
+
         return reverse('movies:detail', args=[str(self.id)])
 
 
     def __str__(self):
+        """String representation of instance
+        
+        Returns:
+            str -- The title + genre
+        """
+
         return self.movie_title + '-' + self.genre
 
     def total_likes(self):
+        """Returns the total likes of the instance of the movie
+        
+        Returns:
+            int -- Total likes
+        """
+
         return self.likes.count()
 
     def total_dislikes(self):
+        """Returns the total dislikes of the instance of the movie
+        
+        Returns:
+            int -- Total dislikes
+        """
         return self.dislikes.count()
 
 
 class Rental(models.Model):
+    """Model of many to many user to movie rental
+    
+    Arguments:
+        models {obj} -- Inherits from the Django model class
+    """
+
     owner = models.ForeignKey(
         User,
         on_delete=models.CASCADE
@@ -42,6 +77,11 @@ class Rental(models.Model):
     expiration = models.DateTimeField()
 
     def __str__(self):
+        """String representation of instance
+        
+        Returns:
+            str -- The renters full name + movie title
+        """
         return self.owner.get_full_name() + ": " + self.movie.movie_title
         
 

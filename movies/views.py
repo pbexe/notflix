@@ -17,8 +17,21 @@ IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 
 def create_movie(request):
+    """View used with movie creation
+    
+    Arguments:
+        request {obj} -- The request
+    
+    Returns:
+        render -- Either the movie creation page or the movie details depending
+                  on whether the movie has already been created or not
+    """
+
+    # Create a form for creating a movie
     form = MovieForm(request.POST or None, request.FILES or None)
+    # Check if the submitted form is valid
     if form.is_valid():
+        # If it is, take appropriate measures
         movie = form.save(commit=False)
         #movie.user = request.user
         movie.movie_logo = request.FILES['movie_logo']
@@ -37,10 +50,21 @@ def create_movie(request):
     context = {
         "form": form,
     }
+    # If the form isn't valid, ie get request, serve the form.
     return render(request, 'movies/create_movie.html', context)
 
 @login_required(login_url="/users/login")
 def detail(request, movie_id):
+    """View showing details of a movie. The user must be logged in
+    
+    Arguments:
+        request {obj} -- The request
+        movie_id {int} -- The primary key of the movie queried
+    
+    Returns:
+        render -- The details of the movie
+    """
+
     movie = get_object_or_404(Movie, pk=movie_id)
     is_liked = False
     is_disliked = False
@@ -59,6 +83,15 @@ def detail(request, movie_id):
                                                   'total_dislikes': movie.total_dislikes()})
 
 def index(request):
+    """Directory of the site
+    
+    Arguments:
+        request {request} -- The request
+    
+    Returns:
+        render -- The home page
+    """
+
     movies = Movie.objects.filter()
     movie_results = Movie.objects.all()
     query = request.GET.get('q')
@@ -74,6 +107,16 @@ def index(request):
         return render(request, 'movies/index.html', {'movies': movies})
 
 def favorite(request, movie_id):
+    """The view that handles the user favourite request
+    
+    Arguments:
+        request {obj} -- The request
+        movie_id {int} -- The id of the movie to favourite
+    
+    Returns:
+        JsonResponse -- A response back to the web page
+    """
+
     movie = get_object_or_404(Movie, pk=movie_id)
     try:
         if movie.liked:
@@ -89,6 +132,15 @@ def favorite(request, movie_id):
 
 
 def like_movie(request):
+    """The view that handles the user liking the movie
+    
+    Arguments:
+        request {obj} -- The request
+    
+    Returns:
+        HttpResponseRedirect -- Redirect to the liked movie
+    """
+
     movie = get_object_or_404(Movie, id=request.POST.get('movie_id'))
     is_liked = False
     if movie.likes.filter(id=request.user.id).exists():
@@ -101,6 +153,15 @@ def like_movie(request):
     return HttpResponseRedirect(movie.get_absolute_url())
 
 def dislike_movie(request):
+    """The view that handles the user disliking the movie
+    
+    Arguments:
+        request {obj} -- The request
+    
+    Returns:
+        HttpResponseRedirect -- Redirect to the disliked movie
+    """
+
     movie = get_object_or_404(Movie, id=request.POST.get('movie_id'))
     is_disliked = False
     if movie.dislikes.filter(id=request.user.id).exists():

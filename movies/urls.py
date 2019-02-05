@@ -3,6 +3,7 @@ from . import views
 
 app_name = 'movies'
 
+# Regexes of all of the views. The first regex to match the url is then used
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^(?P<movie_id>[0-9]+)/$', views.detail, name='detail'),
