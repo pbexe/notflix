@@ -6,6 +6,8 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from cart.forms import CartAddProductForm
+
 
 
 
@@ -66,6 +68,7 @@ def detail(request, movie_id):
     """
 
     movie = get_object_or_404(Movie, pk=movie_id)
+    cart_movie_form = CartAddProductForm()
     is_liked = False
     is_disliked = False
 
@@ -80,7 +83,8 @@ def detail(request, movie_id):
                                                   'is_liked': is_liked,
                                                   'is_disliked': is_disliked,
                                                   'total_likes': movie.total_likes(),
-                                                  'total_dislikes': movie.total_dislikes()})
+                                                  'total_dislikes': movie.total_dislikes(),
+                                                  'cart_movie_form': cart_movie_form})
 
 def index(request):
     """Directory of the site

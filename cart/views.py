@@ -6,15 +6,15 @@ from .forms import CartAddProductForm
 
 
 @require_POST
-def cart_add(request, bike_id):
+def cart_add(request, movie_id):
     cart = Cart(request)
-    movie = get_object_or_404(Movie, id=bike_id)
+    movie = get_object_or_404(Movie, id=movie_id)
     form = CartAddProductForm(request.POST)
     if form.is_valid():
         cd = form.cleaned_data
-        cart.add(movie=movie)
-                # quantity=cd['quantity'],
-                # update_quantity=cd['update'])
+        cart.add(movie=movie,
+                 quantity=cd['quantity'],
+                 update_quantity=cd['update'])
     return redirect('cart:cart_detail')
 
 

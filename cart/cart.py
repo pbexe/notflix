@@ -34,7 +34,7 @@ class Cart(object):
 
         for item in self.cart.values():
             item['price'] = Decimal(item['price'])
-            item['total_price'] = item['price'] #* item['quantity']
+            item['total_price'] = item['price'] * item['quantity']
             yield item
 
     def add(self, movie, quantity=1, update_quantity=False):
@@ -45,10 +45,10 @@ class Cart(object):
         if movie_id not in self.cart:
             self.cart[movie_id] = {'quantity': 0,
                                       'price': str(movie.price)}
-       # if update_quantity:
-       #     self.cart[movie_id]['quantity'] = quantity
-       # else:
-       #     self.cart[bike_id]['quantity'] += quantity
+        if update_quantity:
+            self.cart[movie_id]['quantity'] = quantity
+        else:
+            self.cart[movie_id]['quantity'] += quantity
         self.save()
 
     def remove(self, movie):

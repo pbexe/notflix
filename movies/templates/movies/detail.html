@@ -33,12 +33,12 @@
                 </form>
                 </form>
                 <br>{{ movie.description }}
-                <form action="{% url "cart:cart_add" movie.id %}" method="post">
-            {{cart_movie_form}}
-            {% csrf_token %}
-            <input type="submit" value="Add to cart">
+                <form action="{% url 'cart:cart_add' movie.id %}" method="post">
+        	{{cart_movie_form}}
+        	{% csrf_token %}
+        	<input type="submit" value="Add to cart">
+                </form>
 
-        </form>
             </div>
         </div>
     </div>
