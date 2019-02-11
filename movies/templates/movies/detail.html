@@ -33,12 +33,21 @@
                 </form>
                 </form>
                 <br>{{ movie.description }}
-                <form action="{% url 'cart:cart_add' movie.id %}" method="post">
-        	{{cart_movie_form}}
-        	{% csrf_token %}
-        	<input type="submit" value="Add to cart">
-                </form>
 
+            {% if cart %}
+                <form action="{% url 'cart:cart_detail' %}" method="post">
+                {{cart_movie_form}}
+                    {% csrf_token %}
+                    <label>Movie already in cart</label>
+                    <input type="submit" value="View cart">
+                </form>
+            {% else %}
+                <form action="{% url 'cart:cart_add' movie.id %}" method="post">
+        	        {{cart_movie_form}}
+                    {% csrf_token %}
+                    <input type="submit" value="Add to cart">
+                </form>
+            {% endif %}
             </div>
         </div>
     </div>
