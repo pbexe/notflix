@@ -1,17 +1,35 @@
 {% extends 'movies/base.html' %}
 
 {% block body %}
-  <h2>Login</h2>
-  <form class="site-form" action="{% url 'users:login' %}" method="post">
+{#  <h2>Login</h2>#}
+{#  <form class="site-form" action="{% url 'users:login' %}" method="post">#}
+{#    {% csrf_token %}#}
+{#    {{ form }}#}
+{#      {% if request.GET.next %}#}
+{#           <p>Your account doesn't have access to this page. To proceed,#}
+{#      please login with an account that has access.</p>#}
+{#        <input type="hidden" name="next" value="{{ request.GET.next }}">#}
+{#      {% endif %}#}
+{#    <input type="submit" value="Login"> </input>#}
+{#  </form>#}
+
+<div style="float:left;">
+    <h3>Registered users:</h3>
+<form method="post">
     {% csrf_token %}
-    {{ form }}
-      {% if request.GET.next %}
-           <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
-        <input type="hidden" name="next" value="{{ request.GET.next }}">
-      {% endif %}
-    <input type="submit" value="Login"> </input>
-  </form>
+        {{ form.as_p }}
+        <p>
+        <input type="submit" value="Login">
+        </p>
+    </form>
+</div>
+<div style="float:left;padding-left: 160px;">
+    <h3>New Customers: </h3>
+<form action="{% url 'users:signup'%}"><br>
 
+    <input type="submit" value="Sign up" />
 
+</form>
+
+</div>
 {% endblock %}

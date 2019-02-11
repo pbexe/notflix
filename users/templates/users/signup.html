@@ -1,10 +1,26 @@
 {% extends 'movies/base.html' %}
 
 {% block body %}
-  <h2>Sign up</h2>
-  <form class="site-form" action="/users/signup/" method="post">
+{#  <h2>Sign up</h2>#}
+{#  <form class="site-form" action="/users/signup/" method="post">#}
+{#    {% csrf_token %}#}
+{#    {{ form }}#}
+{#    <input type="submit" value="Signup"></input>#}
+{#  </form>#}
+
+    <h2>Registration</h2>
+  <form method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Signup"></input>
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+
+    <p><input type="submit" value="Register"></p>
   </form>
 {% endblock %}

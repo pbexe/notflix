@@ -2,7 +2,7 @@ from django.contrib.auth import login,logout, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect
 from django.urls import reverse
-
+from .forms import SignUpForm
 
 def signup_view(request):
     """The view that handles sign ups
@@ -15,15 +15,21 @@ def signup_view(request):
     """
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
-            #log the user in
             user = form.save()
+            user.refresh_from_db()
+            user.profile.address = form.cleaned_data.get('address')
+            user.profile.city = form.cleaned_data.get('city')
+            user.profile.postcode = form.cleaned_data.get('postcode')
+            user.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('movies:index')
+            return redirect('/')
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
 
     return render(request, 'users/signup.html', {'form': form})
 
@@ -51,17 +57,4 @@ def login_view(request):
     else:
         form = AuthenticationForm()
     return render(request, 'users/login.html', {'form': form})
-
-def logout_view(request):
-    """The view that handles logouts
-    
-    Arguments:
-        request {request} -- The request
-    
-    Returns:
-        render -- The logged out page
-    """
-    if request.method == 'POST':
-        logout(request)
-        return render(request, 'users/logout.html')
 

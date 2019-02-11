@@ -10,7 +10,7 @@
                 <th>Image</th>
                 <th>Movie</th>
                 <th>Remove</th>
-                <th>Unit price</th>                
+{#                <th>Unit price</th>                #}
                 <th>Price</th>
             </tr>
         </thead>
@@ -27,13 +27,13 @@
 
                 <td><a href="{% url "cart:cart_remove" movie.id %}">Remove</a></td>
                 <td class="num">${{ item.price }}</td>
-                <td class="num">${{ item.total_price }}</td>
+{#                <td class="num">${{ item.total_price }}</td>#}
             </tr>
             {% endwith %}
         {% endfor %}
         <tr class="total">
             <td>Total</td>
-            <td colspan="3"></td>
+            <td colspan="2"></td>
             <td class="num">${{ cart.get_total_price }}</td>
         </tr>
         </tbody>
