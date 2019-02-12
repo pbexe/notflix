@@ -23,8 +23,8 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, related_name='item')
-    movie = models.ForeignKey(Movie, related_name='order_item')
+    order = models.ForeignKey(Order, related_name='item', on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, related_name='order_item', on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
