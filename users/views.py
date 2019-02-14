@@ -3,6 +3,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import SignUpForm
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib import messages
+
+from django.contrib.auth import update_session_auth_hash
+
 
 
 def signup_view(request):
@@ -75,3 +80,22 @@ def logout_view(request):
         logout(request)
         return render(request, 'users/logout.html')
 
+def detail_view(request):
+
+    return render(request, 'users/user_details.html')
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return render(request, 'users/password_changed.html')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'users/password_change.html', {
+        'form': form
+    })

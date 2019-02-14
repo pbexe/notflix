@@ -29,7 +29,7 @@
 
                 </li>
                 {% if user.is_authenticated %}
-                <li><a href="#">Hi {{ user.username }}</a></li>
+                <li><a href={% url 'users:details' %}>Hi {{ user.username }} </a></li>
                 <li> <form class="navbar-form navbar-left" action="{% url 'users:logout' %}" method="post">
                     {% csrf_token %}
                     <button type="submit" class=" white-text waves-effect waves-teal btn-flat">Logout</button>
