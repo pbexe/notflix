@@ -23,4 +23,13 @@
 
     <p><input type="submit" value="Register"></p>
   </form>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('#id_date_birth');
+    var instances = M.Datepicker.init(elems, {
+      'format': 'yyyy-mm-dd'
+    });
+  });
+
+  </script>
 {% endblock %}
