@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, get_object_or_404
 from .forms import MovieForm
-from .models import Movie
+from .models import Movie, Genre
 from django.db.models import Q
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
@@ -86,7 +86,7 @@ def detail(request, movie_id):
                                                   'total_dislikes': movie.total_dislikes(),
                                                   'cart_movie_form': cart_movie_form})
 
-def index(request):
+def index(request, genre_slug=None):
     """Directory of the site
     
     Arguments:
@@ -96,9 +96,15 @@ def index(request):
         render -- The home page
     """
 
+    genre = None
+    genres = Genre.objects.all()
     movies = Movie.objects.filter()
+    # movies = Movie.objects.filter()
     movie_results = Movie.objects.all()
     query = request.GET.get('q')
+    if genre_slug:
+        genre = get_object_or_404(Genre, slug=genre_slug)
+        movies = movies.filter(genre=genre)
     if query:
         movies = movies.filter(
             Q(movie_title__icontains = query)
@@ -108,7 +114,9 @@ def index(request):
             'movies': movies,
         })
     else:
-        return render(request, 'movies/index.html', {'movies': movies})
+        return render(request, 'movies/index.html', {'genre': genre,
+                                                    'genres': genres,
+                                                    'movies': movies})
 
 def favorite(request, movie_id):
     """The view that handles the user favourite request
@@ -176,11 +184,4 @@ def dislike_movie(request):
         movie.likes.remove(request.user)
         is_disliked = True
     return HttpResponseRedirect(movie.get_absolute_url())
-
-
-
-
-
-
-
 

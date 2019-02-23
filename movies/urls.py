@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^(?P<movie_id>[0-9]+)/favorite/$', views.favorite, name='favorite'),
     url(r'^like/$', views.like_movie, name='like_movie'),
     url(r'^dislike/$', views.dislike_movie, name='dislike_movie'),
+    url(r'^(?P<genre_slug>[-\w]+)/$', views.index, name = 'movie_list_by_genre'),
 
 ]

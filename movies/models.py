@@ -2,6 +2,20 @@ from django.contrib.auth.models import Permission, User
 from django.db import models
 from django.urls import reverse
 
+class Genre(models.Model):
+    genre = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50, db_index=True, unique=True)
+
+    class Meta:
+        ordering = ('genre',)
+        verbose_name = 'genre'
+        verbose_name_plural = 'genres'
+
+    def __str__(self):
+        return self.genre
+
+    def get_absolute_url(self):
+        return reverse('movies:movie_list_by_genre', args=[self.slug])
 
 class Movie(models.Model):
     """Model representing a movie in the DB
@@ -9,9 +23,8 @@ class Movie(models.Model):
     Arguments:
         models {obj} -- Inherits from Django model class
     """
-
+    genre = models.ForeignKey(Genre, related_name='movies')
     movie_title = models.CharField(max_length=500)
-    genre = models.CharField(max_length=100)
     movie_logo = models.FileField()
     liked = models.BooleanField(default=False)
     description = models.TextField(blank=True, null=True)
@@ -29,7 +42,7 @@ class Movie(models.Model):
             URL -- The absolute URL
         """
 
-        return reverse('movies:detail', args=[str(self.id)])
+        return reverse('movies:detail', args=[self.id])
 
 
     def __str__(self):
@@ -39,7 +52,7 @@ class Movie(models.Model):
             str -- The title + genre
         """
 
-        return self.movie_title + '-' + self.genre
+        return self.movie_title
 
     def total_likes(self):
         """Returns the total likes of the instance of the movie

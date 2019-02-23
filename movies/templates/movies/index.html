@@ -1,48 +1,64 @@
 {% extends 'movies/base.html' %}
-{% block albums_active %}active{% endblock %}
+{#{% block albums_active %}active{% endblock %}#}
 
 {% block body %}
-<div>
-<div>
-    <h2>Movies </h2>
-</div>
-    {% if movies %}
-            {% for movie in movies %}
+    <body>
+{#div for sidebar#}
+    <div >
+        <h3>Genres</h3>
+        <ul>
+            <li {% if not genre %}class="selected"{% endif %}>
+                <a href="{% url "movies:index" %}">All</a>
+            </li>
+        {% for c in genres %}
+            <a href="{{ c.name }}">{{ c.name }}</a>
+            <li {% if genre.slug == c.slug %}class="selected"{% endif %}>
+                <a href="{{ c.get_absolute_url }}">{{ c }}</a>
 
-                <a href="{% url 'movies:detail' movie.id %}">
-                            <img src="{{ movie.movie_logo.url }}" >
-                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
 
-                <div >
-                            <h2>{{ movie.movie_title }}</h2>
-                            <h4>{{ movie.genre }}</h4>
+        <div class="main">
+            <h2>Movies </h2>
+            {% if movies %}
+                    {% for movie in movies %}
 
-                            <!-- View Details -->
-                            <a href="{% url 'movies:detail' movie.id %}"  role="button">View Details</a>
+                        <a href="{% url 'movies:detail' movie.id %}">
+                                    <img src="{{ movie.movie_logo.url }}" >
+                        </a>
+
+                        <div >
+                                    <h2>{{ movie.movie_title }}</h2>
+                                    <h4>{{ movie.genre }}</h4>
+
+                                    <!-- View Details -->
+                                    <a href="{% url 'movies:detail' movie.id %}"  role="button">View Details</a>
 
 
 
-                            <!-- Favorite Album -->
-                            <a href="{% url 'movies:favorite' movie.id %}"  role="button">
-                            </a>
+                                    <!-- Favorite Album -->
+                                    <a href="{% url 'movies:favorite' movie.id %}"  role="button">
+                                    </a>
 
                         </div>
-            {% endfor %}
-        {% else %}
-        <div>
-                <br>
-                <a href="{% url 'movies:create_movie' %}">
-                    <button type="button" class="btn red waves-effect waves-light">
-                        <span ></span>&nbsp; Add a Movie
-                    </button>
-                </a>
-            </div>
-    {% endif %}
+                    {% endfor %}
+            {% else %}
+                <div>
+                        <br>
+                        <a href="{% url 'movies:create_movie' %}">
+                            <button type="button" class="btn red waves-effect waves-light">
+                                <span ></span>&nbsp; Add a Movie
+                            </button>
+                        </a>
+                </div>
+            {% endif %}
 
-</div>
+        </div>
 
     <!-- if the customer searches and there are movies to display -->
-
+    </body>
 
 
 {% endblock %}
