@@ -118,6 +118,17 @@ def index(request, genre_slug=None):
                                                     'genres': genres,
                                                     'movies': movies})
 
+def recommend(request):
+    """Dummy recommendation algorithm
+    -------- THIS IS NOT A VIEW --------
+
+    Arguments:
+        request {obj} -- request information for recommendation
+    """
+
+    movies = Movie.objects.order_by('?')[:100]
+
+
 def favorite(request, movie_id):
     """The view that handles the user favourite request
     
