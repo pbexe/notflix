@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\miles\\.virtualenvs\\notflix-EKRWPq8g\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\miles\\.virtualenvs\\notflix-EKRWPq8g\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": true
 }

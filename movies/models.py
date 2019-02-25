@@ -23,7 +23,7 @@ class Movie(models.Model):
     Arguments:
         models {obj} -- Inherits from Django model class
     """
-    genre = models.ForeignKey(Genre, related_name='movies')
+    genre = models.ForeignKey(Genre, related_name='movies', on_delete=models.PROTECT)
     movie_title = models.CharField(max_length=500)
     movie_logo = models.FileField()
     liked = models.BooleanField(default=False)
