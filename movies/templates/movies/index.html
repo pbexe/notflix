@@ -23,7 +23,30 @@
         <div class="main">
             <h2>Movies </h2>
             {% if movies %}
+             <div class="row">
                     {% for movie in movies %}
+
+
+                     
+    <div class="col s12 m7 l6">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ movie.movie_logo.url }}">
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">thumb_up_alt</i></a>
+        </div>
+        <div class="card-content">
+        <span class="card-title">{{ movie.movie_title }}</span>
+          <p>{{ movie.description }}</p>
+        </div>
+        <div class="card-action">
+          <a href="{% url 'movies:detail' movie.id %}">Go to Movie</a>
+        </div>
+      </div>
+    </div>
+
+
+
+{% comment %} 
 
                         <a href="{% url 'movies:detail' movie.id %}">
                                     <img src="{{ movie.movie_logo.url }}" >
@@ -42,8 +65,9 @@
                                     <a href="{% url 'movies:favorite' movie.id %}"  role="button">
                                     </a>
 
-                        </div>
+                        </div> {% endcomment %}
                     {% endfor %}
+                      </div>
             {% else %}
                 <div>
                         <br>
