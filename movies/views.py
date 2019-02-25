@@ -98,7 +98,7 @@ def index(request, genre_slug=None):
 
     genre = None
     genres = Genre.objects.all()
-    movies = Movie.objects.filter()
+    movies = recommend(request)
     # movies = Movie.objects.filter()
     movie_results = Movie.objects.all()
     query = request.GET.get('q')
@@ -119,7 +119,8 @@ def index(request, genre_slug=None):
                                                     'movies': movies})
 
 def recommend(request):
-    """Dummy recommendation algorithm
+    """Dummy recommendation algorithm which returns random movies
+
     -------- THIS IS NOT A VIEW --------
 
     Arguments:
@@ -127,6 +128,7 @@ def recommend(request):
     """
 
     movies = Movie.objects.order_by('?')[:100]
+    return movies
 
 
 def favorite(request, movie_id):
