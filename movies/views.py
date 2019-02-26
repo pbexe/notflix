@@ -127,7 +127,7 @@ def recommend(request):
         request {obj} -- request information for recommendation
     """
 
-    movies = Movie.objects.order_by('?')[:100]
+    movies = Movie.objects.order_by('?')
     return movies
 
 

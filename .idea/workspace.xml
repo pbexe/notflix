@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e4a637c8-92f5-4014-8d97-0440a4036242" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/templates/cart/detail.html" afterPath="$PROJECT_DIR$/cart/templates/cart/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/orders/views.py" afterPath="$PROJECT_DIR$/orders/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users/templates/users/user_details.html" afterPath="$PROJECT_DIR$/users/templates/users/user_details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vscode/settings.json" afterPath="$PROJECT_DIR$/.vscode/settings.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/views.py" afterPath="$PROJECT_DIR$/movies/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/movies/templates/movies/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+              <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -36,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/movies/templates/movies/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+              <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -46,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/cart/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -56,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/cart/templates/cart/detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="301">
-              <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+              <caret line="25" column="48" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -75,8 +75,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/orders/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="341">
+              <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -123,6 +123,18 @@
               <caret line="106" column="30" lean-forward="false" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="30" />
               <folding>
                 <element signature="e#1#55#0" expanded="true" />
+                <marker date="1551189614794" expanded="true" signature="3841:4097" ph="..." />
+                <marker date="1551189614794" expanded="true" signature="4132:4716" ph="..." />
+                <marker date="1551189614794" expanded="true" signature="4137:4386" ph="&quot;&quot;&quot;The view that handles the user favourite request...&quot;&quot;&quot;" />
+                <marker date="1551189614794" expanded="true" signature="4446:4568" ph="..." />
+                <marker date="1551189614794" expanded="true" signature="4744:5330" ph="..." />
+                <marker date="1551189614794" expanded="true" signature="4749:4942" ph="&quot;&quot;&quot;The view that handles the user liking the movie...&quot;&quot;&quot;" />
+                <marker date="1551189614794" expanded="true" signature="5090:5156" ph="..." />
+                <marker date="1551189614794" expanded="true" signature="5166:5272" ph="..." />
+                <marker date="1551189614794" expanded="true" signature="5359:5966" ph="..." />
+                <marker date="1551189614794" expanded="true" signature="5364:5563" ph="&quot;&quot;&quot;The view that handles the user disliking the movie...&quot;&quot;&quot;" />
+                <marker date="1551189614794" expanded="true" signature="5717:5789" ph="..." />
+                <marker date="1551189614794" expanded="true" signature="5799:5908" ph="..." />
               </folding>
             </state>
           </provider>
@@ -450,9 +462,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="935" height="824" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23292273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23292273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -806,6 +817,18 @@
           <caret line="106" column="30" lean-forward="false" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="30" />
           <folding>
             <element signature="e#1#55#0" expanded="true" />
+            <marker date="1551189614794" expanded="true" signature="3841:4097" ph="..." />
+            <marker date="1551189614794" expanded="true" signature="4132:4716" ph="..." />
+            <marker date="1551189614794" expanded="true" signature="4137:4386" ph="&quot;&quot;&quot;The view that handles the user favourite request...&quot;&quot;&quot;" />
+            <marker date="1551189614794" expanded="true" signature="4446:4568" ph="..." />
+            <marker date="1551189614794" expanded="true" signature="4744:5330" ph="..." />
+            <marker date="1551189614794" expanded="true" signature="4749:4942" ph="&quot;&quot;&quot;The view that handles the user liking the movie...&quot;&quot;&quot;" />
+            <marker date="1551189614794" expanded="true" signature="5090:5156" ph="..." />
+            <marker date="1551189614794" expanded="true" signature="5166:5272" ph="..." />
+            <marker date="1551189614794" expanded="true" signature="5359:5966" ph="..." />
+            <marker date="1551189614794" expanded="true" signature="5364:5563" ph="&quot;&quot;&quot;The view that handles the user disliking the movie...&quot;&quot;&quot;" />
+            <marker date="1551189614794" expanded="true" signature="5717:5789" ph="..." />
+            <marker date="1551189614794" expanded="true" signature="5799:5908" ph="..." />
           </folding>
         </state>
       </provider>
@@ -813,7 +836,7 @@
     <entry file="file://$PROJECT_DIR$/movies/templates/movies/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+          <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -821,7 +844,7 @@
     <entry file="file://$PROJECT_DIR$/movies/templates/movies/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+          <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -829,7 +852,7 @@
     <entry file="file://$PROJECT_DIR$/cart/templates/cart/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
-          <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+          <caret line="25" column="48" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -871,15 +894,15 @@
     <entry file="file://$PROJECT_DIR$/cart/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/orders/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="341">
+          <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
