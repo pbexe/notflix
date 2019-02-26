@@ -19,6 +19,19 @@
             <a href="{% url 'movies:index' %}" class="brand-logo"><img class="brand-logo" src="{% static 'movies/img/logo.png' %}" alt=""></a>
             <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
+
+                <li>
+                    {% with total_items=cart|length %}
+                        {% if cart|length > 0 %}
+
+                            <a href={% url 'cart:cart_detail' %}>
+                                {{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}
+                            </a>
+                        {% else %}
+                            Your cart is empty.
+                        {% endif %}
+                    {% endwith %}
+                </li>
                 <li>
                     <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'movies:index' %}">
                         <div>
