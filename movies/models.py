@@ -26,12 +26,9 @@ class Movie(models.Model):
     genre = models.ForeignKey(Genre, related_name='movies', on_delete=models.PROTECT)
     movie_title = models.CharField(max_length=500)
     movie_logo = models.FileField()
-    liked = models.BooleanField(default=False)
     description = models.TextField(blank=True, null=True)
     release_date = models.DateField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
-    likes = models.ManyToManyField(User, related_name='likes', blank=True)
-    dislikes = models.ManyToManyField(User, related_name='dislikes', blank=True)
 
     #had to create on more field for video for trailer
 
@@ -96,6 +93,56 @@ class Rental(models.Model):
             str -- The renters full name + movie title
         """
         return self.owner.get_full_name() + ": " + self.movie.movie_title
+
+
+class Like(models.Model):
+    """Model of many to many user to movie likes
+    
+    Arguments:
+        models {obj} -- Inherits from the Django model class
+    """
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+    movie = models.ForeignKey(
+        Movie,
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        """String representation of instance
+        
+        Returns:
+            str -- The users full name + movie title
+        """
+        return self.user.get_full_name() + " likes " + self.movie.movie_title
+        
+
+class Dislike(models.Model):
+    """Model of many to many user to movie likes
+    
+    Arguments:
+        models {obj} -- Inherits from the Django model class
+    """
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+    movie = models.ForeignKey(
+        Movie,
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        """String representation of instance
+        
+        Returns:
+            str -- The users full name + movie title
+        """
+        return self.user.get_full_name() + " likes " + self.movie.movie_title
         
 
 
