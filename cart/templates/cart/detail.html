@@ -23,7 +23,7 @@
                         <img src="{% if movie.image %}{{ movie.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                     </a>
                 </td>
-                <td>{{ movie.title }}</td>
+                <td>{{ movie.movie_title }}</td>
 
                 <td><a href="{% url "cart:cart_remove" movie.id %}">Remove</a></td>
                 <td class="num">${{ item.price }}</td>

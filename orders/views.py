@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from .models import Order, OrderItem
 from .forms import OrderCreateForm
 from cart.cart import Cart
+from movies.models import Movie
+
 
 from django.shortcuts import render
 
@@ -22,13 +24,14 @@ def order_create(request):
             order = form.save(commit=False)
             order.user = current_user_object
             order = form.save()
+
             for item in cart:
                 OrderItem.objects.create(order=order,
                                          movie=item['movie'],
                                          price=item['price'],)
+            cart.remove(movie=item['movie'])
             return render(request, 'order/order/created.html', {'order': order})
 
         else:
             return render(request, 'order/order/create.html', {'form': form})
-
 
