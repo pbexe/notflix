@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, get_object_or_404
 from .forms import MovieForm
-from .models import Movie, Genre
+from .models import Movie, Genre, Like, Dislike
 from django.db.models import Q
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
@@ -72,18 +72,18 @@ def detail(request, movie_id):
     is_liked = False
     is_disliked = False
 
-    if movie.likes.filter(id=request.user.id).exists():
+    if Like.objects.filter(user=request.user.id, movie=movie).exists():
         is_liked = True
         is_disliked = False
 
-    if movie.dislikes.filter(id=request.user.id).exists():
+    if Dislike.objects.filter(user=request.user.id, movie=movie).exists():
         is_disliked = True
         is_liked = False
     return render(request, 'movies/detail.html', {'movie': movie,
                                                   'is_liked': is_liked,
                                                   'is_disliked': is_disliked,
-                                                  'total_likes': movie.total_likes(),
-                                                  'total_dislikes': movie.total_dislikes(),
+                                                  'total_likes': Like.objects.filter(movie=movie).count(),
+                                                  'total_dislikes': Dislike.objects.filter(movie=movie).count(),
                                                   'cart_movie_form': cart_movie_form})
 
 def index(request, genre_slug=None):
@@ -168,12 +168,14 @@ def like_movie(request):
 
     movie = get_object_or_404(Movie, id=request.POST.get('movie_id'))
     is_liked = False
-    if movie.likes.filter(id=request.user.id).exists():
-        movie.likes.remove(request.user)
+    if Like.objects.filter(user=request.user, movie=movie).exists():
+        Like.objects.get(user=request.user, movie=movie).delete()
         is_liked = False
     else:
-        movie.likes.add(request.user)
-        movie.dislikes.remove(request.user)
+        new = Like(user=request.user, movie=movie)
+        new.save()
+        if Dislike.objects.filter(user=request.user, movie=movie).count():
+            Dislike.objects.get(user=request.user, movie=movie).delete()
         is_liked = True
     return HttpResponseRedirect(movie.get_absolute_url())
 
@@ -189,12 +191,14 @@ def dislike_movie(request):
 
     movie = get_object_or_404(Movie, id=request.POST.get('movie_id'))
     is_disliked = False
-    if movie.dislikes.filter(id=request.user.id).exists():
-        movie.dislikes.remove(request.user)
+    if Dislike.objects.filter(user=request.user, movie=movie).exists():
+        Disike.objects.get(user=request.user, movie=movie).delete()
         is_disliked = False
     else:
-        movie.dislikes.add(request.user)
-        movie.likes.remove(request.user)
+        new = Dislike(user=request.user, movie=movie)
+        new.save()
+        if Like.objects.filter(user=request.user, movie=movie).count():
+            Like.objects.get(user=request.user, movie=movie).delete()
         is_disliked = True
     return HttpResponseRedirect(movie.get_absolute_url())
 
