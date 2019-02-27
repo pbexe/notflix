@@ -6,6 +6,12 @@ app_name = 'movies'
 # Regexes of all of the views. The first regex to match the url is then used
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^sort_name_asc/$', views.sort_name_asc, name='sort_name_asc'),
+    url(r'^sort_name_dsc/$', views.sort_name_dsc, name='sort_name_dsc'),
+    url(r'^sort_price_asc/$', views.sort_price_asc, name='sort_price_asc'),
+    url(r'^sort_price_dsc/$', views.sort_price_dsc, name='sort_price_dsc'),
+    url(r'^sort_date_asc/$', views.sort_date_asc, name='sort_date_asc'),
+    url(r'^sort_date_dsc/$', views.sort_date_dsc, name='sort_date_dsc'),
     url(r'^(?P<movie_id>[0-9]+)/$', views.detail, name='detail'),
     url(r'^create_movie/$', views.create_movie, name='create_movie'),
     url(r'^(?P<movie_id>[0-9]+)/favorite/$', views.favorite, name='favorite'),

@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'users',
     'movies.apps.MoviesConfig',
     'orders',
-    'cart', 
+    'cart',
 ]
 
 MIDDLEWARE = [
