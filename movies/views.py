@@ -108,11 +108,14 @@ def index(request, genre_slug=None):
     if query:
         movies = movies.filter(
             Q(movie_title__icontains = query)
-        ).distinct()
+        ).distinct() or movies.filter(Q(description__icontains=query)).distinct() \
+                  or movies.filter(Q(genre__genre__icontains=query)).distinct()  \
+                 or movies.filter(Q(release_date__icontains=query)).distinct()
 
         return render(request, 'movies/index.html', {
             'movies': movies,
         })
+
     else:
         return render(request, 'movies/index.html', {'genre': genre,
                                                     'genres': genres,
