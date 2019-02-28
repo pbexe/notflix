@@ -1,106 +1,77 @@
 {% extends 'movies/base.html' %}
 {#{% block albums_active %}active{% endblock %}#}
 {% block body %}
-    <body>
-{#div for sidebar#}
-    <div >
-        <h3>Genres</h3>
-        <ul>
-            <li {% if not genre %}class="selected"{% endif %}>
-                <a href="{% url "movies:index" %}">All</a>
-            </li>
-        {% for c in genres %}
-            <a href="{{ c.name }}">{{ c.name }}</a>
-            <li {% if genre.slug == c.slug %}class="selected"{% endif %}>
-                <a href="{{ c.get_absolute_url }}">{{ c }}</a>
 
-            </li>
-        {% endfor %}
-        </ul>
-    </div>
-
-    <!-- Dropdown Trigger -->
-    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Sort</a>
-
-    <!-- Dropdown Structure -->
-    <ul id='dropdown1' class='dropdown-content'>
-        <li> <a href="{% url 'movies:sort_name_asc'  %}"><i class="material-icons">keyboard_arrow_up</i>Name</a></li>
-        <li><a href="{% url 'movies:sort_name_dsc'  %}"><i class="material-icons">keyboard_arrow_down</i>Name</a></li>
-
-        <li> <a href="{% url 'movies:sort_price_asc'  %}"><i class="material-icons">keyboard_arrow_up</i>Price</a></li>
-        <li><a href="{% url 'movies:sort_price_dsc'  %}"><i class="material-icons">keyboard_arrow_down</i>Price</a></li>
-
-        <li> <a href="{% url 'movies:sort_date_asc'  %}"><i class="material-icons">keyboard_arrow_up</i>Date</a></li>
-        <li><a href="{% url 'movies:sort_date_dsc'  %}"><i class="material-icons">keyboard_arrow_down</i>Date</a></li>
-
-
-    </ul>
-
-
-        <div class="main">
-            <h2>Movies </h2>
-            {% if movies %}
-             <div class="row">
-                    {% for movie in movies %}
-
-
-                     
-    <div class="col s12 m7 l6">
-      <div class="card">
-        <div class="card-image">
-          <img src="{{ movie.movie_logo.url }}">
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">thumb_up_alt</i></a>
-        </div>
-        <div class="card-content">
-        <span class="card-title">{{ movie.movie_title }}</span>
-          <p>{{ movie.description }}</p>
-
-        </div>
-        <div class="card-action">
-          <a href="{% url 'movies:detail' movie.id %}">Go to Movie</a>
-        </div>
-      </div>
-    </div>
-
-
-
-{% comment %} 
-
-                        <a href="{% url 'movies:detail' movie.id %}">
-                                    <img src="{{ movie.movie_logo.url }}" >
-                        </a>
-
-                        <div >
-                                    <h2>{{ movie.movie_title }}</h2>
-                                    <h4>{{ movie.genre }}</h4>
-
-                                    <!-- View Details -->
-                                    <a href="{% url 'movies:detail' movie.id %}"  role="button">View Details</a>
-
-
-
-                                    <!-- Favorite Album -->
-                                    <a href="{% url 'movies:favorite' movie.id %}"  role="button">
-                                    </a>
-
-                        </div> {% endcomment %}
+<body>
+    {#div for sidebar#}
+    <div class="row">
+        <div class="col s12 m2">
+            <div class="row">
+                <div class="col s12">
+                {% comment %} <h3>Genres</h3> {% endcomment %}
+                <ul>
+                    <li {% if not genre %}class="selected" {% endif %}>
+                        <a href="{% url "movies:index" %}">All</a>
+                    </li>
+                    {% for c in genres %}
+                    <a href="{{ c.name }}">{{ c.name }}</a>
+                    <li {% if genre.slug == c.slug %}class="selected" {% endif %}>
+                        <a href="{{ c.get_absolute_url }}">{{ c }}</a>
+                    </li>
                     {% endfor %}
-                      </div>
-            {% else %}
-                <div>
-                        <br>
-                        <a href="{% url 'movies:create_movie' %}">
-                            <button type="button" class="btn red waves-effect waves-light">
-                                <span ></span>&nbsp; Add a Movie
-                            </button>
-                        </a>
-                </div>
-            {% endif %}
+                </ul>
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Sort</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+                <li> <a href="{% url 'movies:sort_name_asc'  %}"><i class="material-icons">keyboard_arrow_up</i>Name</a></li>
+                <li><a href="{% url 'movies:sort_name_dsc'  %}"><i class="material-icons">keyboard_arrow_down</i>Name</a></li>
 
+                <li> <a href="{% url 'movies:sort_price_asc'  %}"><i class="material-icons">keyboard_arrow_up</i>Price</a></li>
+                <li><a href="{% url 'movies:sort_price_dsc'  %}"><i class="material-icons">keyboard_arrow_down</i>Price</a></li>
+
+                <li> <a href="{% url 'movies:sort_date_asc'  %}"><i class="material-icons">keyboard_arrow_up</i>Date</a></li>
+                <li><a href="{% url 'movies:sort_date_dsc'  %}"><i class="material-icons">keyboard_arrow_down</i>Date</a></li>
+            </ul>
+            </div>
         </div>
-
+        </div>
+        <div class="col s12 m10">
+            <div class="main">
+                {% comment %} <h2>Movies </h2> {% endcomment %}
+                {% if movies %}
+                <div class="row">
+                    {% for movie in movies %}
+                    <div class="col s12 m7 l6">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ movie.movie_logo.url }}">
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">thumb_up_alt</i></a>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">{{ movie.movie_title }}</span>
+                                <p>{{ movie.description }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="{% url 'movies:detail' movie.id %}">Go to Movie</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div>
+                    <br>
+                    <a href="{% url 'movies:create_movie' %}">
+                        <button type="button" class="btn red waves-effect waves-light">
+                            <span></span>&nbsp; Add a Movie
+                        </button>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
     <!-- if the customer searches and there are movies to display -->
-    </body>
-
-
+</body>
 {% endblock %}
