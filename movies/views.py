@@ -232,7 +232,7 @@ def dislike_movie(request):
     movie = get_object_or_404(Movie, id=request.POST.get('movie_id'))
     is_disliked = False
     if Dislike.objects.filter(user=request.user, movie=movie).exists():
-        Disike.objects.get(user=request.user, movie=movie).delete()
+        Dislike.objects.get(user=request.user, movie=movie).delete()
         is_disliked = False
     else:
         new = Dislike(user=request.user, movie=movie)
