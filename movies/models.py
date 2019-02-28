@@ -142,7 +142,7 @@ class Dislike(models.Model):
         Returns:
             str -- The users full name + movie title
         """
-        return self.user.get_full_name() + " likes " + self.movie.movie_title
+        return self.user.get_full_name() + " dislikes " + self.movie.movie_title
         
 
 
