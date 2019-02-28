@@ -7,15 +7,10 @@ from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from cart.forms import CartAddProductForm
-
-
-
-
-
 from django.shortcuts import render
 
-IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
+IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 
 def create_movie(request):
