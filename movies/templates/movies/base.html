@@ -35,7 +35,7 @@
                 <li>
                     <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'movies:index' %}">
                         <div>
-                        <input type="text" name="q" value="{{ request.GET.q }}">
+                        <input type="text" name="q" value="{{ request.GET.q }}" style="color: white;" />>
                         </div>
                       <!-- <button type="submit" class="btn btn-default">Search</button>-->
                     </form>
@@ -81,6 +81,17 @@
         $(document).ready(function(){
             $('.fixed-action-btn').floatingActionButton();
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems, options);
+      });
+
+      // Or with jQuery
+
+      $('.dropdown-trigger').dropdown();
+
     </script>
 </body>
 </html>

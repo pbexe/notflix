@@ -97,13 +97,17 @@ def index(request, genre_slug=None):
     # movies = Movie.objects.filter()
     movie_results = Movie.objects.all()
     query = request.GET.get('q')
+    sort_name = request.GET.get('Sort_Name')
+    sort_price = request.GET.get('Sort_Price')
     if genre_slug:
         genre = get_object_or_404(Genre, slug=genre_slug)
         movies = movies.filter(genre=genre)
     if query:
         movies = movies.filter(
             Q(movie_title__icontains = query)
-        ).distinct()
+        ).distinct() or movies.filter(Q(description__icontains=query)).distinct() \
+                  or movies.filter(Q(genre__genre__icontains=query)).distinct()  \
+                 or movies.filter(Q(release_date__icontains=query)).distinct()
 
         return render(request, 'movies/index.html', {
             'movies': movies,
@@ -113,6 +117,47 @@ def index(request, genre_slug=None):
                                                     'genres': genres,
                                                     'movies': movies})
 
+
+def sort_name_asc(request):
+    genre=None
+    genres = Genre.objects.all()
+    movies = Movie.objects.order_by("movie_title")
+    return render(request, 'movies/index.html', {'genre': genre,
+                                                 'genres': genres,
+                                                 'movies': movies})
+
+def sort_name_dsc(request):
+    genre = None
+    genres = Genre.objects.all()
+    movies = Movie.objects.order_by("-movie_title")
+    return render(request, 'movies/index.html', {'genre': genre, 'genres': genres, 'movies': movies})
+
+def sort_price_asc(request):
+    genre = None
+    genres = Genre.objects.all()
+    movies = Movie.objects.order_by("price")
+    return render(request, 'movies/index.html', {'genre': genre, 'genres': genres, 'movies': movies})
+
+def sort_price_dsc(request):
+    genre = None
+    genres = Genre.objects.all()
+    movies = Movie.objects.order_by("-price")
+    return render(request, 'movies/index.html', {'genre': genre, 'genres': genres, 'movies': movies})
+
+def sort_date_asc(request):
+    genre = None
+    genres = Genre.objects.all()
+    movies = Movie.objects.order_by("release_date")
+    return render(request, 'movies/index.html', {'genre': genre, 'genres': genres, 'movies': movies})
+
+def sort_date_dsc(request):
+    genre = None
+    genres = Genre.objects.all()
+    movies = Movie.objects.order_by("-release_date")
+    return render(request, 'movies/index.html', {'genre': genre, 'genres': genres, 'movies': movies})
+
+
+
 def recommend(request):
     """Dummy recommendation algorithm which returns random movies
 
@@ -120,7 +165,7 @@ def recommend(request):
 
     Arguments:
         request {obj} -- request information for recommendation
-    """
+    """ 
 
     movies = Movie.objects.order_by('?')
     return movies

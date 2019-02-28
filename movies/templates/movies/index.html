@@ -1,6 +1,5 @@
 {% extends 'movies/base.html' %}
 {#{% block albums_active %}active{% endblock %}#}
-
 {% block body %}
     <body>
 {#div for sidebar#}
@@ -20,6 +19,24 @@
         </ul>
     </div>
 
+    <!-- Dropdown Trigger -->
+    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Sort</a>
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+        <li> <a href="{% url 'movies:sort_name_asc'  %}"><i class="material-icons">keyboard_arrow_up</i>Name</a></li>
+        <li><a href="{% url 'movies:sort_name_dsc'  %}"><i class="material-icons">keyboard_arrow_down</i>Name</a></li>
+
+        <li> <a href="{% url 'movies:sort_price_asc'  %}"><i class="material-icons">keyboard_arrow_up</i>Price</a></li>
+        <li><a href="{% url 'movies:sort_price_dsc'  %}"><i class="material-icons">keyboard_arrow_down</i>Price</a></li>
+
+        <li> <a href="{% url 'movies:sort_date_asc'  %}"><i class="material-icons">keyboard_arrow_up</i>Date</a></li>
+        <li><a href="{% url 'movies:sort_date_dsc'  %}"><i class="material-icons">keyboard_arrow_down</i>Date</a></li>
+
+
+    </ul>
+
+
         <div class="main">
             <h2>Movies </h2>
             {% if movies %}
@@ -37,6 +54,7 @@
         <div class="card-content">
         <span class="card-title">{{ movie.movie_title }}</span>
           <p>{{ movie.description }}</p>
+
         </div>
         <div class="card-action">
           <a href="{% url 'movies:detail' movie.id %}">Go to Movie</a>
