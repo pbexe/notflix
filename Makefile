@@ -1,7 +1,7 @@
 init:
 	pip install pipenv
 	pipenv install
-	pipenv clean
+	pipenv uninstall numpy
 
 test:
 	pipenv run python manage.py test
