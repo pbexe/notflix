@@ -1,16 +1,26 @@
 from django import forms
 from django.core.exceptions import ValidationError
-
 from django.contrib.auth.models import User
 from .models import Order
 import re
 import datetime
 
 
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class OrderCreateForm(forms.ModelForm):
+    expiry_date = forms.DateField()
     class Meta:
         model = Order
-        fields = ('cardholder_name', 'card_number', 'expiry_date', 'CVV_code')
+        fields = ('cardholder_name', 'card_number', 'CVV_code')
+
+        widgets = {
+            'expiry_date': DateInput()
+        }
+
+        help_texts = {'expiry_date': "help text", }
 
     # Validate card_number field.  Usage def clean_<FIELD NAME >, i.e. attributes from
     # the model used for this form
@@ -54,12 +64,12 @@ class OrderCreateForm(forms.ModelForm):
         expiry_date = self.cleaned_data['expiry_date']
 
         if not datetime.datetime.strptime(expiry_date, '%m/%Y'):
+
+
             raise forms.ValidationError("Date should be in the format MM/YYYY")
 
+
         return expiry_date
-
-
-
 
 
 

@@ -1,14 +1,14 @@
 from django.db import models
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
-
 from movies.models import Movie
+
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
     card_number = models.CharField(max_length=16)
     cardholder_name = models.CharField(max_length=50)
-    expiry_date = models.CharField(max_length=7)
+    expiry_date = models.DateField(help_text="MM/YYYY")
     CVV_code = models.CharField(max_length=3)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

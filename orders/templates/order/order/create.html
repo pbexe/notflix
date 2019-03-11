@@ -47,6 +47,15 @@ Checkout
          <p><input type="submit" value="Place Order"></p>
          {% csrf_token %}
      </form>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('#id_expiry_date');
+    var instances = M.Datepicker.init(elems, {
+      'format': 'yyyy-mm'
+    });
+  });
+
+  </script>
      
  </p>
 </div>
