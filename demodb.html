@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TMDB API Functionality</title>
+    <meta name="viewport" content="width=device-width">
+    <!-- API version 3 documentation: 
+        https://developers.themoviedb.org/3/search
+        https://developers.themoviedb.org/3/movies
+    -->
+</head>
+<body>
+    <a id="downloadAnchorElem" style="display:none"></a>
+    <h1>TMDB API Functionality</h1>
+    <h2>Poster Path : <span id="myText"></span></h2>
+    <h2>Image Path : <span id="myText2"></span></h2>
+    <h2>PosterLists : <span id="posteroutput"></span></h2>   
+    <p><img id ="myImg" src=""  alt="Imagerino"/></p>
+    <div id="output"></div>
+    END
+    
+    
+    <script>
+        /*************
+        
+        1. To get the config data like image base urls
+        https://api.themoviedb.org/3/configuration?api_key=<APIKEY>
+        
+        2. To fetch a list of movies based on a keyword
+        https://api.themoviedb.org/3/search/movie?api_key=<APIKEY>&query=<keyword>
+        
+        3. To fetch more details about a movie
+        https://api.themoviedb.org/3/movie/<movie-id>?api_key=<APIKEY>
+        *************/
+/*       DOWNLOAD FUNCTION, not used right now.
+            function download(content, fileName, contentType) {
+            var a = document.createElement("a");
+            var file = new Blob([content], {type: contentType});
+            a.href = URL.createObjectURL(file);
+            a.download = fileName;
+            a.click();
+}*/
+        function sleep(milliseconds) {
+  			var start = new Date().getTime();
+  			for (var i = 0; i < 1e7; i++) {
+    			if ((new Date().getTime() - start) > milliseconds){
+      			break;
+    			}
+  			}
+		}
+		function extend(obj, src) {
+    		for (var key in src) {
+        		if (src.hasOwnProperty(key)) obj[key] = src[key];
+    		}
+    		return obj;
+		}
+        let baseURL = 'https://api.themoviedb.org/3/';
+        let configData = null;
+        let APIKEY = '1566460f62c31524510560fc996bfe1c';
+        let baseImageURL = null; 
+        
+        let getConfig = function () {
+            let url = "".concat(baseURL, 'configuration?api_key=', APIKEY); 
+            fetch(url)
+            .then((result)=>{
+                return result.json();
+            })
+            .then((data)=>{
+                baseImageURL = data.images.secure_base_url;
+                configData = data.images;
+                console.log('config:', data);
+                console.log('config fetched');
+                runSearch('a')
+            })
+            .catch(function(err){
+                alert(err);
+            });
+        }
+        
+        let runSearch = function (keyword) {
+           	sleep(5000);
+           	var j =0;
+           	var c=0;
+           	var pathlist = new Array();
+           	var downloadobj = "data:text/json;charset=utf-8,";
+           	var dlAnchorElem = document.getElementById('downloadAnchorElem');
+           	//var downloadobj = {};
+           	for (j=1;j<10;j++){
+           		//setTimeout(function(){
+           			//sleep(10000);
+           			let url = ''.concat(baseURL, 'search/movie?api_key=', APIKEY, '&query=', keyword, '&page=', j);
+            		fetch(url)
+            		.then(result=>result.json())
+            		.then((data)=>{
+                	document.getElementById('output').innerHTML = JSON.stringify(data, null, 4);
+                	var dataStr =  encodeURIComponent(JSON.stringify(data));
+					//downloadobj=  {downloadobj, dataStr};
+					downloadobj = downloadobj + dataStr;
+					if(data.page==9){
+						var dlAnchorElem = document.getElementById('downloadAnchorElem');
+						dlAnchorElem.setAttribute("href",     downloadobj     );
+						dlAnchorElem.setAttribute("download", "test.json");
+						dlAnchorElem.click();	
+					}
+					
+                	var i=0;
+                	for (i=0; i<20;i++){
+                    		let posterpatherino = data.results[i].poster_path;
+                    		let sourcerino = "".concat('https://image.tmdb.org/t/p/w500', posterpatherino);
+                    		document.getElementById("myText").innerHTML = posterpatherino;
+                    		document.getElementById("myText2").innerHTML = sourcerino;
+                    		document.getElementById("myImg").src=sourcerino;
+                    		pathlist[c]=sourcerino;
+                    		c++;
+                    		 //document.addEventListener('DOMContentLoaded', getConfig); 
+                		}
+                	var pathlistData = JSON.stringify(pathlist, null, 4);
+                	document.getElementById('posteroutput').innerHTML = pathlist.join('\n');
+                //download(pathlistData, 'posters_list.txt', 'text/plain')
+               
+            })
+            	.catch(function(err){
+                alert(err);
+            	});
+
+           	//}, 2000)
+           	sleep(10000);
+           	}
+           	//var pathlistData = JSON.stringify(pathlist, null, 4);
+            //document.getElementById('posteroutput').innerHTML = pathlist.join('\n');
+            
+        }
+        
+        document.addEventListener('DOMContentLoaded', getConfig);
+        /*******************************
+        SAMPLE SEARCH RESULTS DATA
+        { "vote_count": 2762, 
+            "id": 578, 
+            "video": false, 
+            "vote_average": 7.5, 
+            "title": "Jaws", 
+            "popularity": 16.273358, 
+            "poster_path": "/l1yltvzILaZcx2jYvc5sEMkM7Eh.jpg", 
+            "original_language": "en", 
+            "original_title": "Jaws", 
+            "genre_ids": [ 27, 53, 12 ], 
+            "backdrop_path": "/slkPgAt1IQgxZXNrazEcOzhAK8f.jpg", 
+            "adult": false, 
+            "overview": "An insatiable great white shark terrorizes the townspeople of Amity Island, The police chief, an oceanographer and a grizzled shark hunter seek to destroy the bloodthirsty beast.", 
+            "release_date": "1975-06-18" 
+        }
+        *******************************/
+    </script>
+</body>
+</html>
