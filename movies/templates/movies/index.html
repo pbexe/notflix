@@ -45,7 +45,7 @@
                     <div class="col s12 m7 l6">
                         <div class="card">
                             <div class="card-image">
-                                <img class="movielogos" src="{{ movie.movie_logo.url }}" style="height: 160pt; width: 240pt">
+                               <a href="{% url 'movies:detail' movie.id %}"><img id="index-img" class="movielogos" src="{{ movie.movie_logo.url }}" > </a>
                             </div>
 
                             <div class="card-content">
