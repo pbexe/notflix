@@ -7,11 +7,13 @@
         <div class="panel panel-default">
             <div class="panel-body">
 
-                <img id="myImg" src="{{ movie.movie_logo.url }}" >
-                <h1>{{ movie.movie_title }}</h1>
-                <h2><a>{{ movie.genre }}</a></h2>
-                <p class="price">${{ movie.price }}</p>
-                {{ total_likes }} Like{{ total_likes|pluralize }}<br>
+                <img id="detail-img" src="{{ movie.movie_logo.url }}" >
+                <h1>Title:{{ movie.movie_title }}</h1>
+                <h2>Genre:{{ movie.genre }}</h2>
+                <h3 class="price">Price: ${{ movie.price }}</h3>
+
+                <div id="buttons-movie">
+                    {{ total_likes }} Like{{ total_likes|pluralize }}
                 {{ total_dislikes }} Dislike{{ total_dislikes|pluralize }}<br>
 
                 <form action="{% url 'movies:like_movie' %}" method="post">
@@ -38,17 +40,18 @@
                 <form action="{% url 'cart:cart_detail' %}" method="post">
                 {{cart_movie_form}}
                     {% csrf_token %}
-                    <label>Movie already in cart</label>
-                    <input type="submit" value="View cart">
+                    <p>Movie already in cart</p>
+                    <button id="cart-btn" type="submit" value="View cart" class="btn waves-effect waves-light">View Cart</button>
                 </form>
             {% else %}
                 <form action="{% url 'cart:cart_add' movie.id %}" method="post">
         	        {{cart_movie_form}}
                     {% csrf_token %}
-                    <input type="submit" value="Add to cart">
+                    <button id="cart-btn" type="submit" value="Add to cart" class="btn waves-effect waves-light">Add to Cart</button>
                 </form>
             {% endif %}
             </div>
+        </div>
         </div>
     </div>
 {% endblock %}

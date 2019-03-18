@@ -13,12 +13,19 @@
     height: 30px;
 }
 
-#myImg {
+
+
+#detail-img {
     margin: 20px;
     border: 20px;
     width: 420px;
     height: 350px;
+    float: left;
 
+}
+
+#buttons-movie{
+    float: left;
 }
 
 #index-img {
@@ -26,6 +33,11 @@
     height: 260px;
     margin: 20px;
 }
+
+/*#cart-btn{*/
+    /*margin: 10px;*/
+    /*padding: 10px;*/
+/*}*/
 .main {
   /* margin-left: 160px; Same as the width of the sidenav */
   /* font-size: 28px; Increased text to enable scrolling */
