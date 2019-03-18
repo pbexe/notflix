@@ -66,7 +66,45 @@
     </nav>
     
     <ul class="sidenav" id="mobile-nav">
-        <li><a href="#">Need to make mobile menu!!!</a></li>
+        <li>{% with total_items=cart|length %}
+                        {% if cart|length > 0 %}
+
+                            <a href={% url 'cart:cart_detail' %}>
+                                {{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}
+                            </a>
+                        {% else %}
+                            Your cart is empty.
+                        {% endif %}
+                    {% endwith %}</li>
+
+        <li>Search:
+            <form  style="float: right" role="search" method="get" action="{% url 'movies:index' %}">
+            <input type="text" name="q" value="{{ request.GET.q }}" style="color: black;float: right" />
+            </form>
+        </li>
+        {% if user.is_authenticated %}
+            <li style="float: left"><a href={% url 'users:details' %}>Hi {{ user.username }} </a></li>
+            <li> <form class="navbar-form navbar-left" action="{% url 'users:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class=" black-text waves-effect waves-teal btn-flat">Logout</button>
+                </form>
+            </li>
+        {% else %}
+            <li><form  action="{% url 'users:signup' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="black-text waves-effect waves-red btn-flat">Create Account</button>
+              </form>
+            </li>
+            <li>
+                <form  action="{% url 'users:login' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="black-text waves-effect waves-red btn-flat">Login</button>
+                </form>
+            </li>
+        {% endif %}
+
+
+
     </ul>
     
     <div class="container">
