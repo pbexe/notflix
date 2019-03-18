@@ -45,8 +45,10 @@
         {% csrf_token %}
         <button id="cart-btn" type="submit" value="Continue Shopping" class="btn #f44336 red"><i class="material-icons">shopping_cart</i>Continue Shoping</button>
     </form>
+    {% if cart %}
     <form action="{% url "orders:order_create" %}" method="post">
         {% csrf_token %}
         <button id="cart-btn" type="submit" value="Checkout" class="btn #f44336 red"><i class="material-icons">shop</i>Checkout</button>
     </form>
+    {% endif %}
 {% endblock %}
