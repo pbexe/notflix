@@ -11,6 +11,9 @@ def cart_add(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
     form = CartAddProductForm(request.POST)
 
+    # if movie_id in cart.cart.get(movie_id):
+    #     return redirect('cart:cart_detail')
+
     if form.is_valid():
         cd = form.cleaned_data
         cart.add(movie=movie)

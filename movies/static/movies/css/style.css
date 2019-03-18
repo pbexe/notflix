@@ -24,14 +24,36 @@
 
 }
 
+#cart-img{
+    margin: 10px;
+    border: 10px;
+    width: 220px;
+    height: 150px;
+}
+
 #buttons-movie{
     float: left;
 }
 
 #index-img {
-    width: 360px;
-    height: 260px;
-    margin: 20px;
+    width: 200pt;
+    height: 120pt;
+    margin: 20pt;
+
+    float: left;
+}
+/*.card {*/
+    /*width: 200px;*/
+    /*height: 150px;*/
+/*}*/
+/*.card-image.index-img img{*/
+    /*width: 80%;*/
+    /*height: 50%;*/
+/*}*/
+#cart-btn {
+    margin: 10px;
+
+
 }
 
 /*#cart-btn{*/

@@ -8,7 +8,7 @@
         <thead>
             <tr>
                 <th>Image</th>
-                <th>Movie</th>
+                <th>Movie Title</th>
                 <th>Remove</th>
 {#                <th>Unit price</th>                #}
                 <th>Price</th>
@@ -17,10 +17,12 @@
         <tbody>
         {% for item in cart %}
             {% with movie=item.movie %}
+
             <tr>
                 <td>
                     <a href="{{ movie.get_absolute_url }}">
-                        <img src="{% if movie.image %}{{ movie.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                        <img id="cart-img" src="{{ movie.movie_logo.url }}" >
+{#                        <img src="{% if movie.image %}{{ movie.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">#}
                     </a>
                 </td>
                 <td>{{ movie.movie_title }}</td>
@@ -38,11 +40,13 @@
         </tr>
         </tbody>
     </table>
-    
-    <p class="text-right">
-        <a href="{% url "movies:index" %}" class="button light">Continue shopping</a>
-        <a href="{% url "orders:order_create" %}" class="button">Checkout!</a>
 
-       
-    </p>
+    <form action="{% url "movies:index" %}" method="post">
+        {% csrf_token %}
+        <button id="cart-btn" type="submit" value="Continue Shopping" class="btn #f44336 red"><i class="material-icons">shopping_cart</i>Continue Shoping</button>
+    </form>
+    <form action="{% url "orders:order_create" %}" method="post">
+        {% csrf_token %}
+        <button id="cart-btn" type="submit" value="Checkout" class="btn #f44336 red"><i class="material-icons">shop</i>Checkout</button>
+    </form>
 {% endblock %}

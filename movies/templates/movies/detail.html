@@ -36,20 +36,43 @@
                 </form>
                 <br>{{ movie.description }}
 
-            {% if cart %}
-                <form action="{% url 'cart:cart_detail' %}" method="post">
-                {{cart_movie_form}}
-                    {% csrf_token %}
-                    <p>Movie already in cart</p>
-                    <button id="cart-btn" type="submit" value="View cart" class="btn waves-effect waves-light">View Cart</button>
-                </form>
-            {% else %}
+{#                    {% if cart %}#}
+{#                        {% else %}#}
+{#                        <form action="{% url 'cart:cart_add' movie.id %}" method="post">#}
+{#        	        {{cart_movie_form}}#}
+{#                    {% csrf_token %}#}
+{#                    <button type="submit" class="btn #f44336 red"><i class="material-icons">add_shopping_cart</i> Add to Cart</button>#}
+{#                </form>#}
+{#                    {% endif %}#}
+{#                <br>#}
+{#                <i>movies in cart:</i>#}
+{#{% for item in cart %}#}
+{#            {% with moviesInCart=item.movie %}#}
+{#                {{ item.movie.id }}#}
+{#{% endwith %}#}
+{#                {% endfor %}#}
+{##}
+{##}
+{##}
+{##}
+{#            {% if item.movie.id in cart == movie.id  %}#}
+{##}
+{#                <form action="{% url 'cart:cart_detail' %}" method="post">#}
+{#                {{cart_movie_form}}#}
+{#                    {% csrf_token %}#}
+{#                    <p>Movie already in cart</p>#}
+{#                    <button id="cart-btn" type="submit" value="View cart" class="btn #f44336 red"><i class="material-icons">shopping_cart</i> View Cart</button>#}
+{#                {{ break }}#}
+{#                </form>#}
+{#            {% else %}#}
                 <form action="{% url 'cart:cart_add' movie.id %}" method="post">
         	        {{cart_movie_form}}
                     {% csrf_token %}
-                    <button id="cart-btn" type="submit" value="Add to cart" class="btn waves-effect waves-light">Add to Cart</button>
+                    <button type="submit" class="btn #f44336 red"><i class="material-icons">add_shopping_cart</i> Add to Cart</button>
                 </form>
-            {% endif %}
+{#            {% endif %}#}
+
+
             </div>
         </div>
         </div>

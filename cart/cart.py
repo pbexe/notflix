@@ -45,6 +45,9 @@ class Cart(object):
         if movie_id not in self.cart:
             self.cart[movie_id] = {'quantity': 0,
                                       'price': str(movie.price)}
+        elif movie_id in self.cart:
+            self.cart[movie_id] = {'quantity': 0,
+                                   'price': str(movie.price)}
         if update_quantity:
             self.cart[movie_id]['quantity'] = quantity
         else:
