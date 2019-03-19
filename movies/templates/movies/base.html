@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'movies/css/style.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'movies/css/materialize.min.css' %}"/>
     <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
-
+    
     
     
 </head>
@@ -20,27 +20,29 @@
             <a href="{% url 'movies:index' %}" class="brand-logo"><img class="brand-logo" src="{% static 'movies/img/logo.png' %}" alt=""></a>
             <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-
+                
                 <li>
                     {% with total_items=cart|length %}
-                        {% if cart|length > 0 %}
-
-                            <a href={% url 'cart:cart_detail' %}>
-                                {{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}
-                            </a>
-                        {% else %}
-                            Your cart is empty.
-                        {% endif %}
+                    {% if cart|length > 0 %}
+                    
+                    <a href={% url 'cart:cart_detail' %}>
+                        {{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}
+                    </a>
+                    {% else %}
+                    <a href={% url 'cart:cart_detail' %}>
+                        <i class="material-icons">shopping_cart</i>
+                    </a>
+                    {% endif %}
                     {% endwith %}
                 </li>
                 <li>
                     <form class="navbar-form navbar-left search white-text" role="search" method="get" action="{% url 'movies:index' %}">
                         <div>
-                        <input type="text" name="q" value="{{ request.GET.q }}" style="color: white;" />>
+                            <input type="text" name="q" value="{{ request.GET.q }}" style="color: white;" placeholder="Search" />
                         </div>
-                      <!-- <button type="submit" class="btn btn-default">Search</button>-->
+                        <!-- <button type="submit" class="btn btn-default">Search</button>-->
                     </form>
-
+                    
                 </li>
                 {% if user.is_authenticated %}
                 <li><a href={% url 'users:details' %}>Hi {{ user.username }} </a></li>
@@ -49,62 +51,62 @@
                     <button type="submit" class=" white-text waves-effect waves-teal btn-flat">Logout</button>
                 </form></li>
                 {% else %}
-
+                
                 <!--These dont need to be forms so need to be converted at some point
-                Also, they need to be added to the mobile collapsed menu-->
-                <li><form  action="{% url 'users:signup' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="white-text waves-effect waves-red btn-flat">Create Account</button>
-              </form></li>
-                <li><form  action="{% url 'users:login' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="white-text waves-effect waves-red btn-flat">Login</button>
-              </form></li>
+                    Also, they need to be added to the mobile collapsed menu-->
+                    <li><form  action="{% url 'users:signup' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="white-text waves-effect waves-red btn-flat">Create Account</button>
+                    </form></li>
+                    <li><form  action="{% url 'users:login' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="white-text waves-effect waves-red btn-flat">Login</button>
+                    </form></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        
+        <ul class="sidenav" id="mobile-nav">
+            <li>{% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                
+                <a href={% url 'cart:cart_detail' %}>
+                    {{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}
+                </a>
+                {% else %}
+                Your cart is empty.
                 {% endif %}
-            </ul>
-        </div>
-    </nav>
-    
-    <ul class="sidenav" id="mobile-nav">
-        <li>{% with total_items=cart|length %}
-                        {% if cart|length > 0 %}
-
-                            <a href={% url 'cart:cart_detail' %}>
-                                {{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}
-                            </a>
-                        {% else %}
-                            Your cart is empty.
-                        {% endif %}
-                    {% endwith %}</li>
-
-        <li>Search:
-            <form  style="float: right" role="search" method="get" action="{% url 'movies:index' %}">
-            <input type="text" name="q" value="{{ request.GET.q }}" style="color: black;float: right" />
-            </form>
-        </li>
-        {% if user.is_authenticated %}
-            <li style="float: left"><a href={% url 'users:details' %}>Hi {{ user.username }} </a></li>
-            <li> <form class="navbar-form navbar-left" action="{% url 'users:logout' %}" method="post">
+                {% endwith %}</li>
+                
+                <li>Search:
+                    <form  style="float: right" role="search" method="get" action="{% url 'movies:index' %}">
+                        <input type="text" name="q" value="{{ request.GET.q }}" style="color: black;float: right" />
+                    </form>
+                </li>
+                {% if user.is_authenticated %}
+                <li style="float: left"><a href={% url 'users:details' %}>Hi {{ user.username }} </a></li>
+                <li> <form class="navbar-form navbar-left" action="{% url 'users:logout' %}" method="post">
                     {% csrf_token %}
                     <button type="submit" class=" black-text waves-effect waves-teal btn-flat">Logout</button>
                 </form>
             </li>
-        {% else %}
+            {% else %}
             <li><form  action="{% url 'users:signup' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="black-text waves-effect waves-red btn-flat">Create Account</button>
-              </form>
-            </li>
-            <li>
-                <form  action="{% url 'users:login' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="black-text waves-effect waves-red btn-flat">Create Account</button>
+            </form>
+        </li>
+        <li>
+            <form  action="{% url 'users:login' %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="black-text waves-effect waves-red btn-flat">Login</button>
-                </form>
-            </li>
+            </form>
+        </li>
         {% endif %}
-
-
-
+        
+        
+        
     </ul>
     
     <div class="container">
