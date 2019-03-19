@@ -34,7 +34,7 @@
                     {% endwith %}
                 </li>
                 <li>
-                    <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'movies:index' %}">
+                    <form class="navbar-form navbar-left search" role="search" method="get" action="{% url 'movies:index' %}">
                         <div>
                         <input type="text" name="q" value="{{ request.GET.q }}" style="color: white;" />>
                         </div>

@@ -43,3 +43,12 @@
     margin: 10px;
 }
 
+.search{
+  height: 64px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.wrapper{
+  margin-top: 2rem;
+}
