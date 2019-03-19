@@ -45,8 +45,8 @@
                             </div>
 
                             <div class="card-content">
-                                <span class="card-title">{{ movie.movie_title }}</span>
-                                <p>{{ movie.price }}</p>
+                                <span class="card-title">{{ movie.movie_title }} <span class="badge new red" data-badge-caption="£{{ movie.price }}"></span></span>
+                                <p class="truncate">{{ movie.description }}</p>
                             </div>
                             <div class="card-action">
                                 <a href="{% url 'movies:detail' movie.id %}">Go to Movie</a>
