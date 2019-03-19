@@ -1,9 +1,5 @@
 {% extends 'movies/base.html' %}
-{#{% block albums_active %}active{% endblock %}#}
 {% block body %}
-
-<body>
-    {#div for sidebar#}
     <div class="row wrapper">
         <div class="col s12 m2">
             <div class="row">
@@ -72,6 +68,12 @@
             </div>
         </div>
     </div>
-    <!-- if the customer searches and there are movies to display -->
-</body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems, {});
+      });
+
+    </script>
 {% endblock %}
