@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/home/miles/.local/share/virtualenvs/notflix-GBy0kpJJ/bin/python",
+    "python.pythonPath": "C:\\Users\\miles\\.virtualenvs\\notflix-EKRWPq8g\\Scripts\\python.exe",
     "python.linting.pylintEnabled": false,
     "python.linting.pep8Enabled": true,
     "python.linting.enabled": true
