@@ -1,35 +1,36 @@
 {% extends 'movies/base.html' %}
 
 {% block body %}
-{#  <h2>Sign up</h2>#}
-{#  <form class="site-form" action="/users/signup/" method="post">#}
-{#    {% csrf_token %}#}
-{#    {{ form }}#}
-{#    <input type="submit" value="Signup"></input>#}
-{#  </form>#}
-
+<div class="row">
+  <div class="col s12 m6 offset-m3">
     <h2>Registration</h2>
-  <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+  <p>
+    {{ field.label_tag }}<br>
+    {{ field }}
+    {% for error in field.errors %}
+    <p style="color: red">{{ error }}</p>
     {% endfor %}
+  </p>
+  {% endfor %}
+  
+  <p><input type="submit" value="Register" class="btn red"></p>
+</form>
+  </div>
+</div>
 
-    <p><input type="submit" value="Register"></p>
-  </form>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('#id_date_birth');
     var instances = M.Datepicker.init(elems, {
-      'format': 'yyyy-mm-dd'
+      'format': 'yyyy-mm-dd',
+      'defaultDate': new Date("January 31 2000 12:30"),
+      'yearRange': 50,
+      'maxDate': new Date()
     });
   });
-
-  </script>
+  
+</script>
 {% endblock %}
