@@ -1,11 +1,10 @@
 {% extends 'movies/base.html' %}
 {% block body %}
     <div class="row wrapper">
-        <div class="col s12 m2">
-            <div class="row">
-                <div class="col s12">
+        <div class="col s12 m2 pushpin side">
+
                 {% comment %} <h3>Genres</h3> {% endcomment %}
-                <ul>
+                <ul class="">
                     <li {% if not genre %}class="selected" {% endif %}>
                         <a href="{% url "movies:index" %}">All</a>
                     </li>
@@ -29,10 +28,9 @@
                 <li> <a href="{% url 'movies:sort_date_asc'  %}"><i class="material-icons">keyboard_arrow_up</i>Date</a></li>
                 <li><a href="{% url 'movies:sort_date_dsc'  %}"><i class="material-icons">keyboard_arrow_down</i>Date</a></li>
             </ul>
-            </div>
+
         </div>
-        </div>
-        <div class="col s12 m10">
+        <div class="col s12 m10 offset-m2">
             <div class="main">
                 {% comment %} <h2>Movies </h2> {% endcomment %}
                 {% if movies %}
@@ -75,5 +73,9 @@
         var instances = M.Dropdown.init(elems, {});
       });
 
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.pushpin');
+    var instances = M.Pushpin.init(elems, {offset: 100});
+  });
     </script>
 {% endblock %}
