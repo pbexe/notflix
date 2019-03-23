@@ -52,3 +52,11 @@
 .wrapper{
   margin-top: 2rem;
 }
+
+.signup{
+    margin-top: 5rem !important;
+}
+
+.signup h3{
+    margin-top: 0px;
+}

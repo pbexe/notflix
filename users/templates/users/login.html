@@ -13,23 +13,32 @@
 {#    <input type="submit" value="Login"> </input>#}
 {#  </form>#}
 
-<div style="float:left;">
-    <h3>Registered users:</h3>
-<form method="post">
-    {% csrf_token %}
-        {{ form.as_p }}
-        <p>
-        <input type="submit" value="Login">
-        </p>
-    </form>
-</div>
-<div style="float:left;padding-left: 160px;">
-    <h3>New Customers: </h3>
-<form action="{% url 'users:signup'%}"><br>
+<div class="row">
+    <div class="col s12 m6 l4 offset-m3 offset-l4">
+        <div>
+            <h3>Login</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="center-align">
+                    
+                    <input type="submit" value="Login" class="btn red">
+                </div>                
+            </form>
+        </div>
+        <div class="card-panel signup z-depth-1">
+            <form action="{% url 'users:signup'%}"><br>
+                <div class="center-align">
+                        <h3>New Customer?</h3>
+                <input type="submit" value="Sign up" class="btn red"/>
 
-    <input type="submit" value="Sign up" />
+            </div>    
+        </form>
+        
+        </div>
+    </div>
+    <!-- <div class="col s12 m5 l4">
 
-</form>
-
+    </div> -->
 </div>
 {% endblock %}
