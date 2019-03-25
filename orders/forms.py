@@ -9,7 +9,7 @@ import datetime
 class OrderCreateForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('cardholder_name', 'card_number', 'expiry_date', 'CVV_code')
+        fields = ('cardholder_name', 'card_number', 'CVV_code', 'expiry_date_month', 'expiry_date_year')
 
 
 
@@ -53,19 +53,6 @@ class OrderCreateForm(forms.ModelForm):
 
         return cardholder_name
 
-    def clean_expiry_date(self):
-        expiry_date = self.cleaned_data['expiry_date']
-
-        if not re.match(r'[0-9]{2}/[0-9]{4}', expiry_date):
-            raise forms.ValidationError("Date should be in the format MM/YYYY")
-
-        # if not datetime.datetime.strptime(expiry_date, '%m/%Y'):
-        #
-        #
-        #     raise forms.ValidationError("Date should be in the format MM/YYYY")
-
-
-        return expiry_date
 
 
 

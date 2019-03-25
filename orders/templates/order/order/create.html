@@ -29,34 +29,25 @@ Checkout
     <h3>Payment details:</h3>
         <form action="." method="post">
             {% for field in form %}
-            <table>
-                <tr>
-                    <td>{{ field.label_tag }}</td>
-                </tr>
-                <tr>
-                 <td> {{ field }}</td>
-                 <td> {{ field.errors }}</td>
-             </tr>
-             <tr>
+{#            <table>#}
+{#                <tr>#}
+                    <p>{{ field.label_tag }}</p>
+{#                </tr>#}
+{#                <tr>#}
+                 <p> {{ field }}</p>
+                 <p> {{ field.errors }}</p>
+{#             </tr>#}
+{#             <tr>#}
                 
                 
-             </tr>
-         </table>
+{#             </tr>#}
+{#         </table>#}
          {% endfor %}
 
          <p><input type="submit" value="Place Order"></p>
          {% csrf_token %}
      </form>
-{#<script>#}
-{#    document.addEventListener('DOMContentLoaded', function() {#}
-{#    var elems = document.querySelectorAll('#id_expiry_date');#}
-{#    var instances = M.Datepicker.init(elems, {#}
-{#      'format': 'yyyy-mm-dd'#}
-{#    });#}
-{#  });#}
-{##}
-{#  </script>#}
-     
+
  </p>
 </div>
 
