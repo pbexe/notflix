@@ -27,28 +27,30 @@ Checkout
     <p>{{ user.profile.postcode }} </p>
 
     <h3>Payment details:</h3>
-        <form action="." method="post">
-            {% for field in form %}
-{#            <table>#}
-{#                <tr>#}
-                    <p>{{ field.label_tag }}</p>
-{#                </tr>#}
-{#                <tr>#}
-                 <p> {{ field }}</p>
-                 <p> {{ field.errors }}</p>
-{#             </tr>#}
-{#             <tr>#}
-                
-                
-{#             </tr>#}
-{#         </table>#}
-         {% endfor %}
 
-{#         <p><input type="submit" value="Place Order"></p>#}
+<form {#  action="." method="post">
+        <table>
+            {% for field in form %}
+            <tr>
+                <th>{{ field.label_tag }}</th>
+                <th>{{ field }}</th>
+                <th>{{ field.errors }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+{#            <p>{{ field.label_tag }}</p>#}
+{#            <p> {{ field }}</p>#}
+{#            <p> {{ field.errors }}</p>#}
+
+
+</br>
+
             <button id="checkout-btn" type="submit" value="submitOrder" class="btn #f44336 red"><i class="material-icons">payment</i>Place Order</button>
 
          {% csrf_token %}
-     </form>
+    </form>
 
  </p>
 </div>

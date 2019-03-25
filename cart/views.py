@@ -35,3 +35,8 @@ def cart_detail(request):
     #    item['update_quantity_form'] = CartAddProductForm(initial={#'quantity': item['quantity'],
     #                                                               'update': True})
     return render(request, 'cart/detail.html', {'cart': cart})
+
+def cart_clear(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect('cart:cart_detail')

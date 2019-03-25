@@ -50,5 +50,10 @@
         {% csrf_token %}
         <button id="cart-btn" type="submit" value="Checkout" class="btn #f44336 red"><i class="material-icons">shop</i>Checkout</button>
     </form>
+
+        <form action="{% url "cart:cart_clear" %}" method="post">
+        {% csrf_token %}
+        <button id="cart-btn" type="submit" value="Clear" class="btn #f44336 red"><i class="material-icons">remove_shopping_cart</i>Clear Cart</button>
+    </form>
     {% endif %}
 {% endblock %}
