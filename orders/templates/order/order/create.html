@@ -44,7 +44,9 @@ Checkout
 {#         </table>#}
          {% endfor %}
 
-         <p><input type="submit" value="Place Order"></p>
+{#         <p><input type="submit" value="Place Order"></p>#}
+            <button id="checkout-btn" type="submit" value="submitOrder" class="btn #f44336 red"><i class="material-icons">payment</i>Place Order</button>
+
          {% csrf_token %}
      </form>
 
