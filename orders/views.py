@@ -15,7 +15,7 @@ from django.shortcuts import render
 
 def order_create(request):
     cart = Cart(request)
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         user_id = request.user.id
         current_user_object = User.objects.get(id=user_id)
         form = OrderCreateForm(request.POST)

@@ -141,6 +141,7 @@ STATIC_URL = '/static/'
 #adding cart
 
 CART_SESSION_ID = 'cart'
+SHOP_DEFAULT_CURRENCY = 'GBP'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

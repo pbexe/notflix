@@ -26,7 +26,7 @@
                     {% if cart|length > 0 %}
                     
                     <a href={% url 'cart:cart_detail' %}>
-                        {{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}
+                        {{ total_items }} item{{ total_items|pluralize }}, £{{ cart.get_total_price }}
                     </a>
                     {% else %}
                     <a href={% url 'cart:cart_detail' %}>
