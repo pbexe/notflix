@@ -1,0 +1,12 @@
+BEGIN;
+DELETE FROM "django_session";
+DELETE FROM "auth_group";
+DELETE FROM "import_data_movie";
+DELETE FROM "auth_user";
+DELETE FROM "auth_permission";
+DELETE FROM "django_admin_log";
+DELETE FROM "auth_user_groups";
+DELETE FROM "auth_user_user_permissions";
+DELETE FROM "auth_group_permissions";
+DELETE FROM "django_content_type";
+COMMIT;
