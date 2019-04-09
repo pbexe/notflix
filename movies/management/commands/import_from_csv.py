@@ -1,38 +1,48 @@
 """
-Import json data from JSON file to Datababse
+Import json data from CSV file to Datababse
 """
 import os
-import json
+import csv
 from movies.models import Movie
 from django.core.management.base import BaseCommand
 from datetime import datetime
 from notflix.settings import BASE_DIR
-from django.core.files import File
 
 
 class Command(BaseCommand):
-    def import_movie_from_file(self):
-        data_folder = os.path.join(BASE_DIR, 'movies', 'resources/json_file')
+    def import_movie_from_csv_file(self):
+        data_folder = os.path.join(BASE_DIR, 'movies', 'resources/csv_file')
+        print(data_folder, 'data_folder')
         for data_file in os.listdir(data_folder):
             with open(os.path.join(data_folder, data_file), encoding='utf-8') as data_file:
-                data = json.loads(data_file.read())
-                print(data)
+                data = csv.reader(data_file)
                 for data_object in data:
-                    genre = data_object.get('genre', None)
-                    movie_title = data_object.get('movie_title', None)
-                    movie_logo = data_object.get('movie_logo', None)
-                    description = data_object.get('description', None)
-                    release_date = data_object.get('release_date', None)
-                    price = data_object.get('price', None)
+                    # title = data_object[2]
+                    # url = data_object[3]
+                    # release_year = datetime.now()
+
+                    genre = data_object[0],
+                    movie_title = data_object[1],
+                    movie_logo = data_object[2],
+                    id = data_object[3],
+                    description = data_object[4],
+                    release_date = data_object[5],
+                    price = data_object[6],
 
                     try:
                         movie, created = Movie.objects.get_or_create(
+                            # title=title,
+                            # url=url,
+                            # release_year=release_year
                             genre=genre,
                             movie_title=movie_title,
                             movie_logo=movie_logo,
+                            # id=id,
                             description=description,
                             release_date=release_date,
-                            price=price,
+                            price=price
+
+
 
                         )
                         if created:
@@ -49,5 +59,5 @@ class Command(BaseCommand):
         """
         Call the function to import data
         """
-        self.import_movie_from_file()
+        self.import_movie_from_csv_file()
 

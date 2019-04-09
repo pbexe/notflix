@@ -1,0 +1,18 @@
+{% extends 'movies/base.html' %}
+{% block body %}
+{% if messages %}
+
+    {% for message in messages %}
+        <div> {{ message|safe}}</div>
+    {% endfor %}
+{% else %}
+    {{ order }}
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Upload file</label>
+    <input type="file" name="file">
+    <p>only csv files</p>
+    <button type="submit">Upload</button>
+    </form>
+{% endif %}
+{% endblock %}

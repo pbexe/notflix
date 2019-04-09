@@ -1,4 +1,6 @@
-
+import csv, io
+from django.contrib import messages
+from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404
 from .forms import MovieForm
 from .models import Movie, Genre, Like, Dislike
@@ -157,6 +159,44 @@ def sort_date_dsc(request):
     return render(request, 'movies/index.html', {'genre': genre, 'genres': genres, 'movies': movies})
 
 
+# @permission_required('admin.can.add_log_entry')
+def movie_upload(request):
+    template = 'movies/movie_upload.html'
+
+    prompt = {
+        'order' : 'Order of csv should be first name, last name, email and ip address'
+    }
+    if request.method == "GET":
+        return render(request, template)
+
+    csv_file = request.FILES['file']
+    #check if it's a csv
+    if not csv_file.name.endswith('.csv'):
+        messages.error(request, 'Not a csv file')
+
+    data_set = csv_file.read().decode('UTF-8')
+    io_string = io.StringIO(data_set)
+    next(io_string)
+    for column in csv.reader(io_string, delimiter=',', quotechar="|"):
+        _, created = Movie.objects.update_or_create( #contact is the model
+
+          #  "genre", "movie_title", "movie_logo", "id", "description", "release_date", "price"
+            genre=column[0],
+            movie_title = column[1],
+            movie_logo = column[2],
+            id = column[3],
+            description = column[4],
+            release_date = column[5],
+            price = column[6]
+
+
+        )
+
+        context = {}
+        return render(request, template, context)
+
+
+
 
 def recommend(request):
     """Dummy recommendation algorithm which returns random movies
@@ -241,4 +281,5 @@ def dislike_movie(request):
             Like.objects.get(user=request.user, movie=movie).delete()
         is_disliked = True
     return HttpResponseRedirect(movie.get_absolute_url())
+
 

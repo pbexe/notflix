@@ -1,4 +1,5 @@
-[{
+[
+  {
   "genre": "Comedy",
   "movie_title": "Plácido",
   "movie_logo": "https://robohash.org/doloremdoloremquenihil.jpg?size=50x50&set=set1",
@@ -6,7 +7,7 @@
   "description": "Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.\n\nAenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
   "release_date": "2005-02-10",
   "price": 7.55
-}, {
+  }, {
   "genre": "Drama|Romance",
   "movie_title": "All the Right Moves",
   "movie_logo": "https://robohash.org/similiquevelveniam.jpg?size=50x50&set=set1",
