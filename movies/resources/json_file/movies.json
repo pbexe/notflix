@@ -1,17 +1,801 @@
-[
-  {
-    "vote_count":188,
-    "id":464504,
-    "video":false,
-    "vote_average":5.5,
-    "title":"A Madea Family Funeral",
-    "popularity":74.736,
-    "poster_path":"/bOiHlY5JD8GLp7BvWdHkfEftzhQ.jpg",
-    "original_language":"en",
-    "original_title":"A Madea Family Funeral",
-    "genre_ids":[35],"backdrop_path":"/piGjUloiaq6qTpaDLisyDyEsx9i.jpg",
-    "adult":false,"overview":"A joyous family reunion becomes a hilarious nightmare as Madea and the crew travel to backwoods Georgia, where they find themselves unexpectedly planning a funeral that might unveil unpleasant family secrets.",
-    "release_date":"2019-03-01",
-    "price":"10.23"
-  }
-]
+[{
+  "genre": "Comedy",
+  "movie_title": "Plácido",
+  "movie_logo": "https://robohash.org/doloremdoloremquenihil.jpg?size=50x50&set=set1",
+  "id": 1,
+  "description": "Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.\n\nAenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
+  "release_date": "2005-02-10",
+  "price": 7.55
+}, {
+  "genre": "Drama|Romance",
+  "movie_title": "All the Right Moves",
+  "movie_logo": "https://robohash.org/similiquevelveniam.jpg?size=50x50&set=set1",
+  "id": 2,
+  "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+  "release_date": "1992-11-13",
+  "price": 4.27
+}, {
+  "genre": "Action|Crime|Thriller",
+  "movie_title": "Replacement Killers, The",
+  "movie_logo": "https://robohash.org/etipsumtotam.jpg?size=50x50&set=set1",
+  "id": 3,
+  "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+  "release_date": "2003-05-31",
+  "price": 3.61
+}, {
+  "genre": "Drama",
+  "movie_title": "Boy Upside Down",
+  "movie_logo": "https://robohash.org/idrepellatveritatis.jpg?size=50x50&set=set1",
+  "id": 4,
+  "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.\n\nMorbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.",
+  "release_date": "1994-05-31",
+  "price": 6.91
+}, {
+  "genre": "Crime|Drama|Mystery",
+  "movie_title": "Endeavour",
+  "movie_logo": "https://robohash.org/iustoenimquidem.jpg?size=50x50&set=set1",
+  "id": 5,
+  "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.\n\nCurabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+  "release_date": "2008-03-07",
+  "price": 4.25
+}, {
+  "genre": "Comedy|Thriller",
+  "movie_title": "Divorcing Jack",
+  "movie_logo": "https://robohash.org/velitsapienteeum.jpg?size=50x50&set=set1",
+  "id": 6,
+  "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",
+  "release_date": "1997-04-10",
+  "price": 3.87
+}, {
+  "genre": "Western",
+  "movie_title": "Tall T, The",
+  "movie_logo": "https://robohash.org/undevoluptatemdolores.jpg?size=50x50&set=set1",
+  "id": 7,
+  "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
+  "release_date": "2001-05-08",
+  "price": 4.07
+}, {
+  "genre": "Action|Comedy|Crime|Drama",
+  "movie_title": "Beverly Hills Cop",
+  "movie_logo": "https://robohash.org/debitisdistinctioblanditiis.jpg?size=50x50&set=set1",
+  "id": 8,
+  "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+  "release_date": "2006-03-07",
+  "price": 7.08
+}, {
+  "genre": "Adventure|Animation|Children|Fantasy",
+  "movie_title": "We're Back! A Dinosaur's Story",
+  "movie_logo": "https://robohash.org/aliasvoluptasassumenda.jpg?size=50x50&set=set1",
+  "id": 9,
+  "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+  "release_date": "2004-01-02",
+  "price": 9.78
+}, {
+  "genre": "Drama|Western",
+  "movie_title": "Night in Old Mexico, A",
+  "movie_logo": "https://robohash.org/sednullaillo.jpg?size=50x50&set=set1",
+  "id": 10,
+  "description": "Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.\n\nAenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+  "release_date": "2015-09-30",
+  "price": 7.27
+}, {
+  "genre": "Comedy",
+  "movie_title": "Marmaduke",
+  "movie_logo": "https://robohash.org/necessitatibusdelectuseligendi.jpg?size=50x50&set=set1",
+  "id": 11,
+  "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nProin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+  "release_date": "1997-06-29",
+  "price": 3.21
+}, {
+  "genre": "Comedy",
+  "movie_title": "Smile",
+  "movie_logo": "https://robohash.org/rerumquaefuga.jpg?size=50x50&set=set1",
+  "id": 12,
+  "description": "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
+  "release_date": "1999-01-05",
+  "price": 4.99
+}, {
+  "genre": "Drama",
+  "movie_title": "Life for Sale (Kotirauha)",
+  "movie_logo": "https://robohash.org/minimaadodio.jpg?size=50x50&set=set1",
+  "id": 13,
+  "description": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.\n\nDonec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+  "release_date": "2009-12-10",
+  "price": 1.79
+}, {
+  "genre": "Crime|Drama|Romance|Thriller",
+  "movie_title": "Barocco",
+  "movie_logo": "https://robohash.org/quiavoluptatemdistinctio.jpg?size=50x50&set=set1",
+  "id": 14,
+  "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.\n\nMorbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+  "release_date": "2004-07-26",
+  "price": 2.23
+}, {
+  "genre": "Crime|Drama|Thriller",
+  "movie_title": "Shooting Gallery",
+  "movie_logo": "https://robohash.org/providentreprehenderitrecusandae.jpg?size=50x50&set=set1",
+  "id": 15,
+  "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+  "release_date": "2014-05-27",
+  "price": 4.93
+}, {
+  "genre": "Crime|Drama",
+  "movie_title": "American History X",
+  "movie_logo": "https://robohash.org/aperiamiddebitis.jpg?size=50x50&set=set1",
+  "id": 16,
+  "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+  "release_date": "1999-01-06",
+  "price": 9.02
+}, {
+  "genre": "Action|Drama|War",
+  "movie_title": "Waterloo",
+  "movie_logo": "https://robohash.org/voluptatemnullavoluptate.jpg?size=50x50&set=set1",
+  "id": 17,
+  "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
+  "release_date": "1992-02-19",
+  "price": 9.18
+}, {
+  "genre": "Action|Crime|Sci-Fi",
+  "movie_title": "Judge Dredd",
+  "movie_logo": "https://robohash.org/voluptatemeaquevero.jpg?size=50x50&set=set1",
+  "id": 18,
+  "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
+  "release_date": "2007-01-28",
+  "price": 1.14
+}, {
+  "genre": "Comedy|Drama",
+  "movie_title": "Greenfingers",
+  "movie_logo": "https://robohash.org/voluptasrepudiandaelibero.jpg?size=50x50&set=set1",
+  "id": 19,
+  "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+  "release_date": "1993-04-12",
+  "price": 9.82
+}, {
+  "genre": "Comedy",
+  "movie_title": "College",
+  "movie_logo": "https://robohash.org/idaliasqui.jpg?size=50x50&set=set1",
+  "id": 20,
+  "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nEtiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+  "release_date": "1990-09-06",
+  "price": 5.35
+}, {
+  "genre": "Animation|Children",
+  "movie_title": "Christmas Carol: The Movie",
+  "movie_logo": "https://robohash.org/involuptasaut.jpg?size=50x50&set=set1",
+  "id": 21,
+  "description": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.\n\nPellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
+  "release_date": "1994-10-21",
+  "price": 1.41
+}, {
+  "genre": "Comedy|Drama",
+  "movie_title": "Marie and Bruce",
+  "movie_logo": "https://robohash.org/architectolaborumdicta.jpg?size=50x50&set=set1",
+  "id": 22,
+  "description": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\n\nQuisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.\n\nPhasellus in felis. Donec semper sapien a libero. Nam dui.",
+  "release_date": "2007-02-17",
+  "price": 6.89
+}, {
+  "genre": "Comedy",
+  "movie_title": "Manta - Der Film",
+  "movie_logo": "https://robohash.org/ututenim.jpg?size=50x50&set=set1",
+  "id": 23,
+  "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+  "release_date": "2010-01-18",
+  "price": 4.59
+}, {
+  "genre": "Drama",
+  "movie_title": "12 Years a Slave",
+  "movie_logo": "https://robohash.org/voluptatemvoluptasvoluptas.jpg?size=50x50&set=set1",
+  "id": 24,
+  "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+  "release_date": "1993-03-15",
+  "price": 5.1
+}, {
+  "genre": "Comedy",
+  "movie_title": "Woman Chaser, The",
+  "movie_logo": "https://robohash.org/vitaevoluptatibusdolores.jpg?size=50x50&set=set1",
+  "id": 25,
+  "description": "Fusce consequat. Nulla nisl. Nunc nisl.",
+  "release_date": "2016-11-30",
+  "price": 4.58
+}, {
+  "genre": "Action|Adventure|Crime|Drama",
+  "movie_title": "Walking Tall Part II",
+  "movie_logo": "https://robohash.org/doloremipsaexpedita.jpg?size=50x50&set=set1",
+  "id": 26,
+  "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\n\nSuspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.\n\nMaecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
+  "release_date": "2002-03-19",
+  "price": 5.76
+}, {
+  "genre": "Drama",
+  "movie_title": "Remember the Titans",
+  "movie_logo": "https://robohash.org/quodrerumnesciunt.jpg?size=50x50&set=set1",
+  "id": 27,
+  "description": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.\n\nPraesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+  "release_date": "1996-02-07",
+  "price": 7.46
+}, {
+  "genre": "Adventure|Children|Comedy|Fantasy|Romance",
+  "movie_title": "Kid in King Arthur's Court, A",
+  "movie_logo": "https://robohash.org/dictaestsapiente.jpg?size=50x50&set=set1",
+  "id": 28,
+  "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+  "release_date": "1994-02-11",
+  "price": 6.16
+}, {
+  "genre": "Comedy",
+  "movie_title": "God of Cookery (Sik san)",
+  "movie_logo": "https://robohash.org/veritatiseligendia.jpg?size=50x50&set=set1",
+  "id": 29,
+  "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.",
+  "release_date": "2015-05-13",
+  "price": 4.28
+}, {
+  "genre": "Drama|War",
+  "movie_title": "Platoon",
+  "movie_logo": "https://robohash.org/porroquasat.jpg?size=50x50&set=set1",
+  "id": 30,
+  "description": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\n\nPhasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+  "release_date": "2016-05-11",
+  "price": 9.49
+}, {
+  "genre": "Documentary",
+  "movie_title": "DMT: The Spirit Molecule",
+  "movie_logo": "https://robohash.org/expeditaarchitectoquidem.jpg?size=50x50&set=set1",
+  "id": 31,
+  "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+  "release_date": "2009-01-19",
+  "price": 6.63
+}, {
+  "genre": "Drama|Horror|Thriller",
+  "movie_title": "Frontière(s)",
+  "movie_logo": "https://robohash.org/commodietvoluptatibus.jpg?size=50x50&set=set1",
+  "id": 32,
+  "description": "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+  "release_date": "2006-05-10",
+  "price": 3.06
+}, {
+  "genre": "Comedy|Crime|Drama|Romance",
+  "movie_title": "Focus",
+  "movie_logo": "https://robohash.org/aoccaecatimagni.jpg?size=50x50&set=set1",
+  "id": 33,
+  "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nProin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+  "release_date": "2013-09-01",
+  "price": 7.76
+}, {
+  "genre": "Adventure|Comedy",
+  "movie_title": "St Trinian's 2: The Legend of Fritton's Gold",
+  "movie_logo": "https://robohash.org/repudiandaemodiquasi.jpg?size=50x50&set=set1",
+  "id": 34,
+  "description": "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+  "release_date": "2015-07-03",
+  "price": 2.71
+}, {
+  "genre": "Documentary",
+  "movie_title": "Serving Life",
+  "movie_logo": "https://robohash.org/maximeametaut.jpg?size=50x50&set=set1",
+  "id": 35,
+  "description": "Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
+  "release_date": "2005-04-18",
+  "price": 1.97
+}, {
+  "genre": "Adventure|Comedy|Fantasy",
+  "movie_title": "The Gamers",
+  "movie_logo": "https://robohash.org/nihilaccusantiumqui.jpg?size=50x50&set=set1",
+  "id": 36,
+  "description": "In congue. Etiam justo. Etiam pretium iaculis justo.",
+  "release_date": "1994-06-28",
+  "price": 5.95
+}, {
+  "genre": "Drama|Thriller",
+  "movie_title": "Flowers in the Attic",
+  "movie_logo": "https://robohash.org/exquidemducimus.jpg?size=50x50&set=set1",
+  "id": 37,
+  "description": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.\n\nPraesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.\n\nMorbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+  "release_date": "2009-05-20",
+  "price": 4.43
+}, {
+  "genre": "Comedy|Romance",
+  "movie_title": "Questo piccolo grande amore",
+  "movie_logo": "https://robohash.org/quianobisasperiores.jpg?size=50x50&set=set1",
+  "id": 38,
+  "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
+  "release_date": "2007-08-27",
+  "price": 8.04
+}, {
+  "genre": "Drama",
+  "movie_title": "Believer, The",
+  "movie_logo": "https://robohash.org/quaemoditenetur.jpg?size=50x50&set=set1",
+  "id": 39,
+  "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+  "release_date": "2012-05-05",
+  "price": 8.58
+}, {
+  "genre": "Drama",
+  "movie_title": "Oliver Twist",
+  "movie_logo": "https://robohash.org/idcorporisvoluptate.jpg?size=50x50&set=set1",
+  "id": 40,
+  "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\n\nSuspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.\n\nMaecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
+  "release_date": "2014-01-02",
+  "price": 3.8
+}, {
+  "genre": "Children|Drama",
+  "movie_title": "Ace of Hearts",
+  "movie_logo": "https://robohash.org/veniamnecessitatibusnemo.jpg?size=50x50&set=set1",
+  "id": 41,
+  "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.\n\nAliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
+  "release_date": "2016-01-09",
+  "price": 2.13
+}, {
+  "genre": "Sci-Fi|Thriller",
+  "movie_title": "Naked Souls",
+  "movie_logo": "https://robohash.org/vitaeimpeditqui.jpg?size=50x50&set=set1",
+  "id": 42,
+  "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+  "release_date": "2016-06-17",
+  "price": 8.62
+}, {
+  "genre": "Drama",
+  "movie_title": "Ballad of Jack and Rose, The",
+  "movie_logo": "https://robohash.org/omnisadipiscicommodi.jpg?size=50x50&set=set1",
+  "id": 43,
+  "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.\n\nMaecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+  "release_date": "1994-09-10",
+  "price": 8.31
+}, {
+  "genre": "Adventure",
+  "movie_title": "Beyond the Poseidon Adventure",
+  "movie_logo": "https://robohash.org/eiussedvoluptatibus.jpg?size=50x50&set=set1",
+  "id": 44,
+  "description": "Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+  "release_date": "2016-07-28",
+  "price": 8.85
+}, {
+  "genre": "Drama|Thriller",
+  "movie_title": "King and the Clown, The (Wang-ui namja)",
+  "movie_logo": "https://robohash.org/repellendusitaquehic.jpg?size=50x50&set=set1",
+  "id": 45,
+  "description": "In congue. Etiam justo. Etiam pretium iaculis justo.\n\nIn hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+  "release_date": "2002-11-08",
+  "price": 3.1
+}, {
+  "genre": "Crime|Drama|Mystery|Thriller",
+  "movie_title": "Pledge, The",
+  "movie_logo": "https://robohash.org/perspiciatisnonquae.jpg?size=50x50&set=set1",
+  "id": 46,
+  "description": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.\n\nMaecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+  "release_date": "2015-10-19",
+  "price": 5.27
+}, {
+  "genre": "(no genres listed)",
+  "movie_title": "Jay And Silent Bob's Super Groovy Cartoon Movie",
+  "movie_logo": "https://robohash.org/quiconsequaturaccusamus.jpg?size=50x50&set=set1",
+  "id": 47,
+  "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+  "release_date": "2007-08-27",
+  "price": 8.87
+}, {
+  "genre": "Comedy",
+  "movie_title": "Always Tell Your Wife",
+  "movie_logo": "https://robohash.org/eiusoccaecatilaborum.jpg?size=50x50&set=set1",
+  "id": 48,
+  "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nProin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+  "release_date": "1993-07-03",
+  "price": 7.11
+}, {
+  "genre": "Action|Adventure|Comedy",
+  "movie_title": "Legend II, The (Fong Sai Yuk juk jaap)",
+  "movie_logo": "https://robohash.org/fugitperspiciatisest.jpg?size=50x50&set=set1",
+  "id": 49,
+  "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
+  "release_date": "2002-02-14",
+  "price": 7.87
+}, {
+  "genre": "Crime|Horror|Mystery|Romance|Thriller",
+  "movie_title": "Maniac",
+  "movie_logo": "https://robohash.org/earumlaudantiumomnis.jpg?size=50x50&set=set1",
+  "id": 50,
+  "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+  "release_date": "1991-08-02",
+  "price": 2.58
+}, {
+  "genre": "Comedy",
+  "movie_title": "Adventures of a Dentist",
+  "movie_logo": "https://robohash.org/inciduntmagnamdelectus.jpg?size=50x50&set=set1",
+  "id": 51,
+  "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+  "release_date": "1999-01-31",
+  "price": 2.13
+}, {
+  "genre": "Crime|Thriller",
+  "movie_title": "Romeo Is Bleeding",
+  "movie_logo": "https://robohash.org/esteumquasi.jpg?size=50x50&set=set1",
+  "id": 52,
+  "description": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+  "release_date": "2018-07-04",
+  "price": 3.71
+}, {
+  "genre": "Drama",
+  "movie_title": "Jude the Obscure",
+  "movie_logo": "https://robohash.org/quaeratvelitut.jpg?size=50x50&set=set1",
+  "id": 53,
+  "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+  "release_date": "1996-09-21",
+  "price": 8.05
+}, {
+  "genre": "Comedy|Drama|Romance",
+  "movie_title": "P.S. I Love You",
+  "movie_logo": "https://robohash.org/quimolestiasqui.jpg?size=50x50&set=set1",
+  "id": 54,
+  "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+  "release_date": "2007-03-08",
+  "price": 3.44
+}, {
+  "genre": "Adventure|Documentary",
+  "movie_title": "Last Trapper, The (Le dernier trappeur)",
+  "movie_logo": "https://robohash.org/quoeostenetur.jpg?size=50x50&set=set1",
+  "id": 55,
+  "description": "Fusce consequat. Nulla nisl. Nunc nisl.",
+  "release_date": "2005-08-04",
+  "price": 2.67
+}, {
+  "genre": "Drama",
+  "movie_title": "Good Bye (Bé omid é didar)",
+  "movie_logo": "https://robohash.org/etquibusdamquo.jpg?size=50x50&set=set1",
+  "id": 56,
+  "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+  "release_date": "2007-07-01",
+  "price": 2.64
+}, {
+  "genre": "Comedy|Crime",
+  "movie_title": "Fish Called Wanda, A",
+  "movie_logo": "https://robohash.org/recusandaeveldolore.jpg?size=50x50&set=set1",
+  "id": 57,
+  "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+  "release_date": "1996-03-05",
+  "price": 7.43
+}, {
+  "genre": "Fantasy",
+  "movie_title": "Penda's Fen",
+  "movie_logo": "https://robohash.org/inrerumdebitis.jpg?size=50x50&set=set1",
+  "id": 58,
+  "description": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.\n\nPellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.\n\nCum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+  "release_date": "2013-02-02",
+  "price": 8.17
+}, {
+  "genre": "Horror",
+  "movie_title": "Scary or Die",
+  "movie_logo": "https://robohash.org/iustoquout.jpg?size=50x50&set=set1",
+  "id": 59,
+  "description": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.\n\nMorbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.\n\nFusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
+  "release_date": "1992-10-25",
+  "price": 4.56
+}, {
+  "genre": "Drama",
+  "movie_title": "Make It Happen",
+  "movie_logo": "https://robohash.org/itaquecupiditateminima.jpg?size=50x50&set=set1",
+  "id": 60,
+  "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.\n\nMaecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.\n\nCurabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+  "release_date": "1997-02-20",
+  "price": 4.73
+}, {
+  "genre": "Drama|Romance",
+  "movie_title": "Morning Glory",
+  "movie_logo": "https://robohash.org/estvoluptasest.jpg?size=50x50&set=set1",
+  "id": 61,
+  "description": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.\n\nQuisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",
+  "release_date": "1992-12-11",
+  "price": 5.13
+}, {
+  "genre": "Comedy|Drama",
+  "movie_title": "Going All the Way",
+  "movie_logo": "https://robohash.org/atvoluptatemaut.jpg?size=50x50&set=set1",
+  "id": 62,
+  "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+  "release_date": "2018-09-12",
+  "price": 2.81
+}, {
+  "genre": "Comedy",
+  "movie_title": "Stupids, The",
+  "movie_logo": "https://robohash.org/undesuntducimus.jpg?size=50x50&set=set1",
+  "id": 63,
+  "description": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
+  "release_date": "1996-05-21",
+  "price": 4.16
+}, {
+  "genre": "Mystery|Sci-Fi|Thriller",
+  "movie_title": "Baffled!",
+  "movie_logo": "https://robohash.org/nullaautvoluptatem.jpg?size=50x50&set=set1",
+  "id": 64,
+  "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+  "release_date": "2003-01-24",
+  "price": 5.66
+}, {
+  "genre": "Action|Drama|Romance",
+  "movie_title": "Singham",
+  "movie_logo": "https://robohash.org/inciduntnihilpraesentium.jpg?size=50x50&set=set1",
+  "id": 65,
+  "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.\n\nMaecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
+  "release_date": "2016-04-09",
+  "price": 6.39
+}, {
+  "genre": "Comedy|Mystery",
+  "movie_title": "Once Upon a Crime...",
+  "movie_logo": "https://robohash.org/consequaturetofficia.jpg?size=50x50&set=set1",
+  "id": 66,
+  "description": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
+  "release_date": "2005-02-21",
+  "price": 8.52
+}, {
+  "genre": "Documentary",
+  "movie_title": "Food, Inc.",
+  "movie_logo": "https://robohash.org/undeautad.jpg?size=50x50&set=set1",
+  "id": 67,
+  "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.\n\nNulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.\n\nCras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
+  "release_date": "2011-01-21",
+  "price": 6.5
+}, {
+  "genre": "Action|Crime|Drama",
+  "movie_title": "Menace II Society",
+  "movie_logo": "https://robohash.org/rationequout.jpg?size=50x50&set=set1",
+  "id": 68,
+  "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.\n\nAliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
+  "release_date": "2000-05-26",
+  "price": 4.99
+}, {
+  "genre": "Drama",
+  "movie_title": "Paimen, piika ja emäntä",
+  "movie_logo": "https://robohash.org/exercitationemquisvoluptatem.jpg?size=50x50&set=set1",
+  "id": 69,
+  "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
+  "release_date": "2005-08-10",
+  "price": 4.82
+}, {
+  "genre": "Drama",
+  "movie_title": "Imaginary Crimes",
+  "movie_logo": "https://robohash.org/saepequoplaceat.jpg?size=50x50&set=set1",
+  "id": 70,
+  "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nProin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+  "release_date": "2017-12-23",
+  "price": 9.28
+}, {
+  "genre": "Drama|War",
+  "movie_title": "Flight Command",
+  "movie_logo": "https://robohash.org/velnumquamqui.jpg?size=50x50&set=set1",
+  "id": 71,
+  "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.\n\nNulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.",
+  "release_date": "1997-10-07",
+  "price": 9.74
+}, {
+  "genre": "Fantasy|Horror|Thriller",
+  "movie_title": "The Prophecy: Forsaken",
+  "movie_logo": "https://robohash.org/etvoluptatesint.jpg?size=50x50&set=set1",
+  "id": 72,
+  "description": "Phasellus in felis. Donec semper sapien a libero. Nam dui.",
+  "release_date": "2016-07-31",
+  "price": 3.09
+}, {
+  "genre": "Drama",
+  "movie_title": "Patriotism (Yûkoku)",
+  "movie_logo": "https://robohash.org/etestdolor.jpg?size=50x50&set=set1",
+  "id": 73,
+  "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+  "release_date": "2016-06-04",
+  "price": 1.73
+}, {
+  "genre": "Action|Thriller",
+  "movie_title": "Arena",
+  "movie_logo": "https://robohash.org/temporasaepereiciendis.jpg?size=50x50&set=set1",
+  "id": 74,
+  "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
+  "release_date": "2002-12-30",
+  "price": 5.8
+}, {
+  "genre": "Drama|Romance",
+  "movie_title": "Nobody's Children (I figli di nessuno)",
+  "movie_logo": "https://robohash.org/similiqueculpaet.jpg?size=50x50&set=set1",
+  "id": 75,
+  "description": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
+  "release_date": "2012-11-06",
+  "price": 6.51
+}, {
+  "genre": "Action|Horror|Thriller",
+  "movie_title": "Piranha (Piranha 3D)",
+  "movie_logo": "https://robohash.org/aliasatquenisi.jpg?size=50x50&set=set1",
+  "id": 76,
+  "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+  "release_date": "2010-08-13",
+  "price": 3.3
+}, {
+  "genre": "Crime|Drama",
+  "movie_title": "Dillinger Is Dead (Dillinger è morto)",
+  "movie_logo": "https://robohash.org/accusamuseligendiet.jpg?size=50x50&set=set1",
+  "id": 77,
+  "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
+  "release_date": "2002-12-29",
+  "price": 9.25
+}, {
+  "genre": "Comedy|Romance",
+  "movie_title": "Roxanne",
+  "movie_logo": "https://robohash.org/atquequasinihil.jpg?size=50x50&set=set1",
+  "id": 78,
+  "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.\n\nMaecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
+  "release_date": "2010-11-10",
+  "price": 6.16
+}, {
+  "genre": "Comedy",
+  "movie_title": "Gentlemen Broncos",
+  "movie_logo": "https://robohash.org/explicaboasperioressit.jpg?size=50x50&set=set1",
+  "id": 79,
+  "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
+  "release_date": "2010-09-30",
+  "price": 2.29
+}, {
+  "genre": "Comedy|Drama|Thriller",
+  "movie_title": "Not Love, Just Frenzy (Más que amor, frenesí)",
+  "movie_logo": "https://robohash.org/adignissimosvoluptatem.jpg?size=50x50&set=set1",
+  "id": 80,
+  "description": "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.\n\nVestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.\n\nIn congue. Etiam justo. Etiam pretium iaculis justo.",
+  "release_date": "2002-02-24",
+  "price": 8.52
+}, {
+  "genre": "Children|Drama|Thriller",
+  "movie_title": "Drishyam",
+  "movie_logo": "https://robohash.org/expeditadoloribusnon.jpg?size=50x50&set=set1",
+  "id": 81,
+  "description": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.\n\nDonec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+  "release_date": "1995-01-05",
+  "price": 3.96
+}, {
+  "genre": "Drama",
+  "movie_title": "Mother and Son (Mat i syn)",
+  "movie_logo": "https://robohash.org/natusaspernaturaperiam.jpg?size=50x50&set=set1",
+  "id": 82,
+  "description": "Sed ante. Vivamus tortor. Duis mattis egestas metus.\n\nAenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",
+  "release_date": "2009-04-03",
+  "price": 7.25
+}, {
+  "genre": "Comedy|Romance",
+  "movie_title": "I Now Pronounce You Chuck and Larry",
+  "movie_logo": "https://robohash.org/placeatconsequaturdebitis.jpg?size=50x50&set=set1",
+  "id": 83,
+  "description": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.\n\nQuisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.\n\nVestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",
+  "release_date": "1993-03-02",
+  "price": 3.25
+}, {
+  "genre": "Comedy|Documentary|Drama",
+  "movie_title": "What the #$*! Do We Know!? (a.k.a. What the Bleep Do We Know!?)",
+  "movie_logo": "https://robohash.org/molestiasinid.jpg?size=50x50&set=set1",
+  "id": 84,
+  "description": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\n\nPhasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+  "release_date": "1994-12-01",
+  "price": 1.38
+}, {
+  "genre": "Comedy|Horror",
+  "movie_title": "Haunted House, A",
+  "movie_logo": "https://robohash.org/possimusidquaerat.jpg?size=50x50&set=set1",
+  "id": 85,
+  "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+  "release_date": "2013-10-12",
+  "price": 7.03
+}, {
+  "genre": "Drama",
+  "movie_title": "Unexpected Love, An",
+  "movie_logo": "https://robohash.org/dolorutnobis.jpg?size=50x50&set=set1",
+  "id": 86,
+  "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.\n\nMaecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+  "release_date": "2006-01-17",
+  "price": 6.94
+}, {
+  "genre": "Comedy",
+  "movie_title": "Johnny Dangerously",
+  "movie_logo": "https://robohash.org/veritatisetcum.jpg?size=50x50&set=set1",
+  "id": 87,
+  "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
+  "release_date": "2012-01-27",
+  "price": 3.55
+}, {
+  "genre": "Drama",
+  "movie_title": "Sailor Who Fell from Grace with the Sea, The",
+  "movie_logo": "https://robohash.org/adipiscisimiliquequisquam.jpg?size=50x50&set=set1",
+  "id": 88,
+  "description": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.\n\nInteger ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.\n\nNam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
+  "release_date": "2007-12-17",
+  "price": 3.44
+}, {
+  "genre": "Drama",
+  "movie_title": "Uninvited Guest",
+  "movie_logo": "https://robohash.org/assumendapariaturut.jpg?size=50x50&set=set1",
+  "id": 89,
+  "description": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.\n\nQuisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",
+  "release_date": "2007-09-17",
+  "price": 7.98
+}, {
+  "genre": "Comedy|Drama",
+  "movie_title": "White Men Can't Jump",
+  "movie_logo": "https://robohash.org/autfugamolestiae.jpg?size=50x50&set=set1",
+  "id": 90,
+  "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.\n\nDonec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+  "release_date": "2017-02-17",
+  "price": 4.54
+}, {
+  "genre": "Action|Crime|Drama|Thriller",
+  "movie_title": "Raid",
+  "movie_logo": "https://robohash.org/perferendissuntdolor.jpg?size=50x50&set=set1",
+  "id": 91,
+  "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.\n\nMaecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.\n\nCurabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+  "release_date": "2007-09-12",
+  "price": 9.63
+}, {
+  "genre": "Crime|Drama|Film-Noir|Romance|Thriller",
+  "movie_title": "Dark Passage",
+  "movie_logo": "https://robohash.org/inventorequidemcupiditate.jpg?size=50x50&set=set1",
+  "id": 92,
+  "description": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.\n\nPraesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+  "release_date": "1991-06-01",
+  "price": 8.14
+}, {
+  "genre": "Comedy|Drama",
+  "movie_title": "Last Chance: Diary of Comedians, The (Bokutachi no koukan nikki)",
+  "movie_logo": "https://robohash.org/etcorruptitenetur.jpg?size=50x50&set=set1",
+  "id": 93,
+  "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.\n\nMorbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+  "release_date": "2008-09-05",
+  "price": 1.72
+}, {
+  "genre": "Comedy",
+  "movie_title": "Perched on a Tree (Sur un arbre perché)",
+  "movie_logo": "https://robohash.org/optioconsecteturvoluptatem.jpg?size=50x50&set=set1",
+  "id": 94,
+  "description": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.\n\nIn sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+  "release_date": "1993-09-06",
+  "price": 3.26
+}, {
+  "genre": "Action|Fantasy",
+  "movie_title": "Ashura",
+  "movie_logo": "https://robohash.org/inventoreuttotam.jpg?size=50x50&set=set1",
+  "id": 95,
+  "description": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\n\nQuisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+  "release_date": "2005-12-20",
+  "price": 6.19
+}, {
+  "genre": "Horror|Thriller",
+  "movie_title": "Birds, The",
+  "movie_logo": "https://robohash.org/doloreillosequi.jpg?size=50x50&set=set1",
+  "id": 96,
+  "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.\n\nDuis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+  "release_date": "2019-02-04",
+  "price": 1.78
+}, {
+  "genre": "Comedy|Drama|Romance",
+  "movie_title": "I'm Reed Fish",
+  "movie_logo": "https://robohash.org/minimarerumdeserunt.jpg?size=50x50&set=set1",
+  "id": 97,
+  "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.\n\nVestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+  "release_date": "1991-06-13",
+  "price": 3.87
+}, {
+  "genre": "Comedy|Documentary",
+  "movie_title": "Exit Through the Gift Shop",
+  "movie_logo": "https://robohash.org/utestarchitecto.jpg?size=50x50&set=set1",
+  "id": 98,
+  "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
+  "release_date": "2010-09-30",
+  "price": 2.1
+}, {
+  "genre": "Drama|Romance",
+  "movie_title": "The Man Who Played God",
+  "movie_logo": "https://robohash.org/doloreautlabore.jpg?size=50x50&set=set1",
+  "id": 99,
+  "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+  "release_date": "2005-12-15",
+  "price": 4.79
+}, {
+  "genre": "Drama",
+  "movie_title": "Treacle Jr.",
+  "movie_logo": "https://robohash.org/ametconsecteturnon.jpg?size=50x50&set=set1",
+  "id": 100,
+  "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+  "release_date": "1995-08-05",
+  "price": 3.04
+}]
