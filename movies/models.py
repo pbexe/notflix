@@ -24,6 +24,7 @@ class Movie(models.Model):
         models {obj} -- Inherits from Django model class
     """
     genre = models.ForeignKey(Genre, related_name='movies', on_delete=models.PROTECT)
+    # genre = models.CharField(max_length=100)
     movie_title = models.CharField(max_length=500)
     movie_logo = models.FileField()
     description = models.TextField(blank=True, null=True)
@@ -51,22 +52,22 @@ class Movie(models.Model):
 
         return self.movie_title
 
-    def total_likes(self):
-        """Returns the total likes of the instance of the movie
-        
-        Returns:
-            int -- Total likes
-        """
-
-        return self.likes.count()
-
-    def total_dislikes(self):
-        """Returns the total dislikes of the instance of the movie
-        
-        Returns:
-            int -- Total dislikes
-        """
-        return self.dislikes.count()
+    # def total_likes(self):
+    #     """Returns the total likes of the instance of the movie
+    #
+    #     Returns:
+    #         int -- Total likes
+    #     """
+    #
+    #     return self.likes.count()
+    #
+    # def total_dislikes(self):
+    #     """Returns the total dislikes of the instance of the movie
+    #
+    #     Returns:
+    #         int -- Total dislikes
+    #     """
+    #     return self.dislikes.count()
 
 
 class Rental(models.Model):

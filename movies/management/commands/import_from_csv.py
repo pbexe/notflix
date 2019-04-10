@@ -27,7 +27,7 @@ class Command(BaseCommand):
                     id = data_object[3],
                     description = data_object[4],
                     release_date = data_object[5],
-                    price = data_object[6],
+                    price = data_object[6]
 
                     try:
                         movie, created = Movie.objects.get_or_create(
@@ -37,7 +37,7 @@ class Command(BaseCommand):
                             genre=genre,
                             movie_title=movie_title,
                             movie_logo=movie_logo,
-                            # id=id,
+                            id=id,
                             description=description,
                             release_date=release_date,
                             price=price

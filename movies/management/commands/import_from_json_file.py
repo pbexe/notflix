@@ -5,9 +5,7 @@ import os
 import json
 from movies.models import Movie
 from django.core.management.base import BaseCommand
-from datetime import datetime
 from notflix.settings import BASE_DIR
-from django.core.files import File
 
 
 class Command(BaseCommand):
@@ -16,7 +14,6 @@ class Command(BaseCommand):
         for data_file in os.listdir(data_folder):
             with open(os.path.join(data_folder, data_file), encoding='utf-8') as data_file:
                 data = json.loads(data_file.read())
-                print(data)
                 for data_object in data:
                     genre = data_object.get('genre', None)
                     movie_title = data_object.get('movie_title', None)
@@ -32,7 +29,7 @@ class Command(BaseCommand):
                             movie_logo=movie_logo,
                             description=description,
                             release_date=release_date,
-                            price=price,
+                            price=price
 
                         )
                         if created:
