@@ -10,6 +10,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from cart.forms import CartAddProductForm
 from django.shortcuts import render
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 
 IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
@@ -96,6 +98,18 @@ def index(request, genre_slug=None):
     genre = None
     genres = Genre.objects.all()
     movies = recommend(request)
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(movies, 10)
+
+    try:
+        movies = paginator.page(page)
+    except PageNotAnInteger:
+        movies = paginator.page(1)
+    except EmptyPage:
+        movies = paginator.page(paginator.num_pages)
+
+
     # movies = Movie.objects.filter()
     movie_results = Movie.objects.all()
     query = request.GET.get('q')
@@ -114,6 +128,8 @@ def index(request, genre_slug=None):
         return render(request, 'movies/index.html', {
             'movies': movies,
         })
+
+
     else:
         return render(request, 'movies/index.html', {'genre': genre,
                                                     'genres': genres,
