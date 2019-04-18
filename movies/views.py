@@ -98,9 +98,21 @@ def index(request, genre_slug=None):
     genre = None
     genres = Genre.objects.all()
     movies = recommend(request)
+    query = request.GET.get('q')
     if genre_slug:
         genre = get_object_or_404(Genre, slug=genre_slug)
         movies = movies.filter(genre=genre)
+
+    if query:
+        movies = movies.filter(
+            Q(movie_title__icontains = query)
+        ).distinct() or movies.filter(Q(description__icontains=query)).distinct() \
+                  or movies.filter(Q(genre__genre__icontains=query)).distinct()  \
+                 or movies.filter(Q(release_date__icontains=query)).distinct()
+
+        return render(request, 'movies/index.html', {
+            'movies': movies,
+        })
 
     page = request.GET.get('page', 1)
 
@@ -114,19 +126,10 @@ def index(request, genre_slug=None):
         movies = paginator.page(paginator.num_pages)
 
 
-    query = request.GET.get('q')
 
 
-    if query:
-        movies = movies.filter(
-            Q(movie_title__icontains = query)
-        ).distinct() or movies.filter(Q(description__icontains=query)).distinct() \
-                  or movies.filter(Q(genre__genre__icontains=query)).distinct()  \
-                 or movies.filter(Q(release_date__icontains=query)).distinct()
 
-        return render(request, 'movies/index.html', {
-            'movies': movies,
-        })
+
 
 
     else:
