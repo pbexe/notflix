@@ -99,26 +99,31 @@ def index(request, genre_slug=None):
     genres = Genre.objects.all()
     movies = recommend(request)
     query = request.GET.get('q')
-    if genre_slug:
-        genre = get_object_or_404(Genre, slug=genre_slug)
-        movies = movies.filter(genre=genre)
 
-    if query:
-        movies = movies.filter(
-            Q(movie_title__icontains = query)
-        ).distinct() or movies.filter(Q(description__icontains=query)).distinct() \
-                  or movies.filter(Q(genre__genre__icontains=query)).distinct()  \
-                 or movies.filter(Q(release_date__icontains=query)).distinct()
-
-        return render(request, 'movies/index.html', {
-            'movies': movies,
-        })
 
     page = request.GET.get('page', 1)
 
     paginator = Paginator(movies, 10)
 
     try:
+        if genre_slug:
+            genre = get_object_or_404(Genre, slug=genre_slug)
+            movies = movies.filter(genre=genre)
+
+            return render(request, 'movies/index.html', {'genre': genre,
+                                                    'genres': genres,
+                                                    'movies': movies})
+
+        if query:
+            movies = movies.filter(
+                Q(movie_title__icontains=query)
+            ).distinct() or movies.filter(Q(description__icontains=query)).distinct() \
+                     or movies.filter(Q(genre__genre__icontains=query)).distinct() \
+                     or movies.filter(Q(release_date__icontains=query)).distinct()
+
+            return render(request, 'movies/index.html', {
+                'movies': movies,
+            })
         movies = paginator.page(page)
     except PageNotAnInteger:
         movies = paginator.page(1)
