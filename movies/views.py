@@ -98,6 +98,10 @@ def index(request, genre_slug=None):
     genre = None
     genres = Genre.objects.all()
     movies = recommend(request)
+    if genre_slug:
+        genre = get_object_or_404(Genre, slug=genre_slug)
+        movies = movies.filter(genre=genre)
+
     page = request.GET.get('page', 1)
 
     paginator = Paginator(movies, 10)
@@ -110,14 +114,9 @@ def index(request, genre_slug=None):
         movies = paginator.page(paginator.num_pages)
 
 
-    # movies = Movie.objects.filter()
-    movie_results = Movie.objects.all()
     query = request.GET.get('q')
-    sort_name = request.GET.get('Sort_Name')
-    sort_price = request.GET.get('Sort_Price')
-    if genre_slug:
-        genre = get_object_or_404(Genre, slug=genre_slug)
-        movies = movies.filter(genre=genre)
+
+
     if query:
         movies = movies.filter(
             Q(movie_title__icontains = query)
