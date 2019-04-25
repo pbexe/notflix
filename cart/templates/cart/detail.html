@@ -42,23 +42,25 @@
             </tr>
             </tbody>
         </table>
-
-        <form action="{% url "movies:index" %}" method="post">
-            {% csrf_token %}
-            <button id="cart-btn" type="submit" value="Continue Shopping" class="btn #f44336 red"><i class="material-icons">shopping_cart</i>Continue Shoping</button>
-        </form>
-        {% if cart %}
-        <form action="{% url "orders:order_create" %}" method="post">
-            {% csrf_token %}
-            <button id="cart-btn" type="submit" value="Checkout" class="btn #f44336 red"><i class="material-icons">shop</i>Checkout</button>
-        </form>
-
-            <form action="{% url "cart:cart_clear" %}" method="post">
-            {% csrf_token %}
-            <button id="cart-btn" type="submit" value="Clear" class="btn #f44336 red"><i class="material-icons">remove_shopping_cart</i>Clear Cart</button>
-        </form>
-        {% endif %}
     {% else %}
         <h1>Your shopping cart is empty.</h1>
     {% endif %}
+
+    <form action="{% url "movies:index" %}" method="post">
+        {% csrf_token %}
+        <button id="cart-btn" type="submit" value="Continue Shopping" class="btn #f44336 red"><i class="material-icons">shopping_cart</i>Continue Shopping</button>
+    </form>
+
+    {% if cart %}
+    <form action="{% url "orders:order_create" %}" method="post">
+        {% csrf_token %}
+        <button id="cart-btn" type="submit" value="Checkout" class="btn #f44336 red"><i class="material-icons">shop</i>Checkout</button>
+    </form>
+
+        <form action="{% url "cart:cart_clear" %}" method="post">
+        {% csrf_token %}
+        <button id="cart-btn" type="submit" value="Clear" class="btn #f44336 red"><i class="material-icons">remove_shopping_cart</i>Clear Cart</button>
+    </form>
+    {% endif %}
+
 {% endblock %}
