@@ -3,57 +3,62 @@
 {% block title %} Your shopping cart {% endblock %}
 
 {% block body %}
-    <h1>Your shopping cart</h1>
-    <table class="cart">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Movie Title</th>
-                <th>Remove</th>
-{#                <th>Unit price</th>                #}
-                <th>Price</th>
+    {% if cartlength %}
+
+        <h1>Your shopping cart</h1>
+        <table class="cart">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Movie Title</th>
+                    <th>Remove</th>
+    {#                <th>Unit price</th>                #}
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in cart %}
+                {% with movie=item.movie %}
+
+                <tr>
+                    <td>
+                        <a href="{{ movie.get_absolute_url }}">
+                            <img id="cart-img" src="{{ movie.movie_logo.url }}" >
+    {#                        <img src="{% if movie.image %}{{ movie.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">#}
+                        </a>
+                    </td>
+                    <td>{{ movie.movie_title }}</td>
+
+                    <td><a href="{% url "cart:cart_remove" movie.id %}">Remove</a></td>
+                    <td class="num">£{{ item.price }}</td>
+    {#                <td class="num">£{{ item.total_price }}</td>#}
+                </tr>
+                {% endwith %}
+            {% endfor %}
+            <tr class="total">
+                <td>Total</td>
+                <td colspan="2"></td>
+                <td class="num">£{{ cart.get_total_price }}</td>
             </tr>
-        </thead>
-        <tbody>
-        {% for item in cart %}
-            {% with movie=item.movie %}
+            </tbody>
+        </table>
 
-            <tr>
-                <td>
-                    <a href="{{ movie.get_absolute_url }}">
-                        <img id="cart-img" src="{{ movie.movie_logo.url }}" >
-{#                        <img src="{% if movie.image %}{{ movie.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">#}
-                    </a>
-                </td>
-                <td>{{ movie.movie_title }}</td>
+        <form action="{% url "movies:index" %}" method="post">
+            {% csrf_token %}
+            <button id="cart-btn" type="submit" value="Continue Shopping" class="btn #f44336 red"><i class="material-icons">shopping_cart</i>Continue Shoping</button>
+        </form>
+        {% if cart %}
+        <form action="{% url "orders:order_create" %}" method="post">
+            {% csrf_token %}
+            <button id="cart-btn" type="submit" value="Checkout" class="btn #f44336 red"><i class="material-icons">shop</i>Checkout</button>
+        </form>
 
-                <td><a href="{% url "cart:cart_remove" movie.id %}">Remove</a></td>
-                <td class="num">£{{ item.price }}</td>
-{#                <td class="num">£{{ item.total_price }}</td>#}
-            </tr>
-            {% endwith %}
-        {% endfor %}
-        <tr class="total">
-            <td>Total</td>
-            <td colspan="2"></td>
-            <td class="num">£{{ cart.get_total_price }}</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <form action="{% url "movies:index" %}" method="post">
-        {% csrf_token %}
-        <button id="cart-btn" type="submit" value="Continue Shopping" class="btn #f44336 red"><i class="material-icons">shopping_cart</i>Continue Shoping</button>
-    </form>
-    {% if cart %}
-    <form action="{% url "orders:order_create" %}" method="post">
-        {% csrf_token %}
-        <button id="cart-btn" type="submit" value="Checkout" class="btn #f44336 red"><i class="material-icons">shop</i>Checkout</button>
-    </form>
-
-        <form action="{% url "cart:cart_clear" %}" method="post">
-        {% csrf_token %}
-        <button id="cart-btn" type="submit" value="Clear" class="btn #f44336 red"><i class="material-icons">remove_shopping_cart</i>Clear Cart</button>
-    </form>
+            <form action="{% url "cart:cart_clear" %}" method="post">
+            {% csrf_token %}
+            <button id="cart-btn" type="submit" value="Clear" class="btn #f44336 red"><i class="material-icons">remove_shopping_cart</i>Clear Cart</button>
+        </form>
+        {% endif %}
+    {% else %}
+        <h1>Your shopping cart is empty.</h1>
     {% endif %}
 {% endblock %}
