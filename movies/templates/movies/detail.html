@@ -3,51 +3,47 @@
 {% block movies_active %}active{% endblock %}
 
 {% block body %}
-    <div class="container-fluid movies-container">
-        <div class="panel panel-default">
-            <div class="panel-body">
-
-                {% comment %} <img id="detail-img" src="{{ movie.movie_logo.url }}" > {% endcomment %}
-                <img id="detail-img" src="https://placeimg.com/640/480/any?cache={{ movie.id }}" >
-
-                <h1>Title:{{ movie.movie_title }}</h1>
-                <h2>Genre:{{ movie.genre }}</h2>
-                <h3 class="price">Price: £{{ movie.price }}</h3>
-
-                <div id="buttons-movie">
-                    {{ total_likes }} Like{{ total_likes|pluralize }}
-                {{ total_dislikes }} Dislike{{ total_dislikes|pluralize }}<br>
-
-                <form action="{% url 'movies:like_movie' %}" method="post">
-                    {% csrf_token %}
-                    {% if is_liked %}
-                        <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-danger">Remove Like</button>
-                    {% else %}
-                        <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-primary">Like</button>
-                    {% endif %}
-                </form>
-                <form action="{% url 'movies:dislike_movie' %}" method="post">
-                    {% csrf_token %}
-                    {% if is_disliked %}
-                        <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-danger" >Remove Dislike</button>
-                    {% else %}
-                        <button type="submit" name="movie_id" value="{{ movie.id }}" class="btn btn-danger">Dislike</button>
-                    {% endif %}
-
-                </form>
-                </form>
-                <br>{{ movie.description }}
-
-
-                <form action="{% url 'cart:cart_add' movie.id %}" method="post">
-        	        {{cart_movie_form}}
-                    {% csrf_token %}
-                    <button type="submit" class="btn #f44336 red"><i class="material-icons">add_shopping_cart</i> Add to Cart</button>
-                </form>
-
-
-            </div>
-        </div>
-        </div>
+<div class="row">
+    <div class="col s12 m6">
+        <img id="detail-img" src="https://placeimg.com/640/480/any?cache={{ movie.id }}" >
     </div>
+    <div class="col s12 m6">
+        <h3>{{ movie.movie_title }}</h3>
+        <div>
+            <span class="badge new grey left" data-badge-caption="{{ movie.genre }}" style="margin-left: 0px;"></span>
+            <span class="badge new grey left" data-badge-caption="£{{ movie.price }}"></span> <br>
+        </div>
+        <br>
+        <div>
+            <form action="{% url 'movies:like_movie' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                {% if is_liked %}
+                    <button type="submit" name="movie_id" value="{{ movie.id }}" class="waves-effect waves-light btn">Remove Like</button>
+                {% else %}
+                    <button type="submit" name="movie_id" value="{{ movie.id }}" class="waves-effect waves-light btn green">Like</button>
+                {% endif %}
+            </form>
+            <form action="{% url 'movies:dislike_movie' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                {% if is_disliked %}
+                    <button type="submit" name="movie_id" value="{{ movie.id }}" class="waves-effect waves-light btn" >Remove Dislike</button>
+                {% else %}
+                    <button type="submit" name="movie_id" value="{{ movie.id }}" class="waves-effect waves-light btn red">Dislike</button>
+                {% endif %}
+            </form>
+            
+              - {{ total_likes }} Like{{ total_likes|pluralize }}
+            {{ total_dislikes }} Dislike{{ total_dislikes|pluralize }}
+        </div>
+        <div><br>{{ movie.description }}<br>
+
+
+            <form action="{% url 'cart:cart_add' movie.id %}" method="post" style="display:inline;">
+                {{cart_movie_form}}
+                {% csrf_token %}
+                <br>
+                <button type="submit" class="btn #f44336 red"><i class="material-icons">add_shopping_cart</i> Add to Cart</button>
+            </form></div>
+    </div>
+</div>
 {% endblock %}
