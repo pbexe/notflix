@@ -37,13 +37,15 @@
             <div class="row">
                 {% for movie in movies %}
                 <div class="col s12 m7 l6">
-                    <div class="card">
+                    <div class="card large">
                         <div class="card-image">
-                            <a href="{% url 'movies:detail' movie.id %}"><img class="index-img" src="{{ movie.movie_logo.url }}" > </a>
+                            {% comment %} <a href="{% url 'movies:detail' movie.id %}"><img class="index-img" src="{{ movie.movie_logo.url }}" > </a> {% endcomment %}
+                            <a href="{% url 'movies:detail' movie.id %}"><img class="index-img" src="https://placeimg.com/640/480/any?cache={{ movie.id }}" > </a>
+
                         </div>
                         
                         <div class="card-content">
-                            <span class="card-title">{{ movie.movie_title }} <span class="badge new red" data-badge-caption="£{{ movie.price }}"></span></span>
+                            <span class="card-title truncate">{{ movie.movie_title }} <span class="badge new red" data-badge-caption="£{{ movie.price }}"></span></span>
                             <p class="truncate">{{ movie.description }}</p>
                             <p class="truncate">{{ movie.genre }}</p>
                         </div>

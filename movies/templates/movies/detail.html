@@ -7,7 +7,9 @@
         <div class="panel panel-default">
             <div class="panel-body">
 
-                <img id="detail-img" src="{{ movie.movie_logo.url }}" >
+                {% comment %} <img id="detail-img" src="{{ movie.movie_logo.url }}" > {% endcomment %}
+                <img id="detail-img" src="https://placeimg.com/640/480/any?cache={{ movie.id }}" >
+
                 <h1>Title:{{ movie.movie_title }}</h1>
                 <h2>Genre:{{ movie.genre }}</h2>
                 <h3 class="price">Price: £{{ movie.price }}</h3>
