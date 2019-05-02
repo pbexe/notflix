@@ -28,11 +28,8 @@ SECRET_KEY = 'k^vgrdwhzano6q)x)i=w0#h*9r08*-a+@ekwi8(*-qt8*_hj@j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
-# ALLOWED_HOSTS = ['notflix.milesbudden.com']
-=======
-ALLOWED_HOSTS = ['notflix.milesbudden.com', 'localhost']
->>>>>>> 0706d510b6fe470114ffc61c61466bad489259c2
+
+# ALLOWED_HOSTS = ['notflix.milesbudden.com', 'localhost']
 
 
 # Application definition

@@ -62,5 +62,15 @@
         </div>
     {% else %}
         <p>No reviews for this movie yet</p>
+        <h3>Add your review</h3>
+
+        <form action="{% url 'movies:add_review' movie.id %}" method="post" style="display:inline;">
+            {{ form }}
+            {% csrf_token %}
+
+            <br>
+            <button type="submit" class="btn #f44336 red"><i class="material-icons"></i> Add Review</button>
+        </form>
+
     {% endif %}
 {% endblock %}

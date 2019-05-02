@@ -90,7 +90,14 @@ class Review(models.Model):
     pub_date = models.DateTimeField('date published')
     user_name = models.ForeignKey(User,on_delete=models.CASCADE)
     comment = models.CharField(max_length=200)
-    rating = models.IntegerField(choices=RATING_CHOICES)
+    rating = models.IntegerField(choices=RATING_CHOICES, default=4)
+
+class Cluster(models.Model):
+    name = models.CharField(max_length=100)
+    users = models.ManyToManyField(User)
+
+    def get_members(self):
+        return "\n".join([u.username for u in self.users.all()])
 
 class Rental(models.Model):
     """Model of many to many user to movie rental

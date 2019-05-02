@@ -2,7 +2,7 @@ import csv, io
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404
-from .forms import MovieForm
+from .forms import MovieForm, ReviewForm
 from .models import Movie, Genre, Like, Dislike, Review
 from django.db.models import Q
 from django.http import JsonResponse
@@ -11,6 +11,9 @@ from django.contrib.auth.decorators import login_required
 from cart.forms import CartAddProductForm
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .suggestions import update_clusters
+
+import datetime
 
 
 
@@ -312,9 +315,33 @@ def review_list(request):
     return render(request, 'movies/review_list.html', context)
 
 
-def review_detail(request, review_id):
-    review = get_object_or_404(Review, pk=review_id)
-    return render(request, 'movies/review_detail.html', {'review': review})
+# def review_detail(request, review_id):
+#     review = get_object_or_404(Review, pk=review_id)
+#     return render(request, 'movies/review_detail.html', {'review': review})
+#
+from django.urls import reverse
 
+def add_review(request, movie_id):
+    movie = get_object_or_404(Movie, pk=movie_id)
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+        rating = form.cleaned_data['rating']
+        comment = form.cleaned_data['comment']
+        user_name = request.user
+        review = Review()
+        review.movie = movie
+        review.user_name = user_name
+        review.rating = rating
+        review.comment = comment
+        review.pub_date = datetime.datetime.now()
+        review.save()
+        update_clusters()
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        return HttpResponseRedirect(reverse('movies:detail', args=(movie.id,)))
+        # return HttpResponseRedirect(movie.get_absolute_url())
+
+    return render(request, 'movies/detail.html', {'movie': movie, 'form': form})
 
 
