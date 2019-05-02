@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'movies.apps.MoviesConfig',
     'orders',
     'cart',
+    'stats',
 
 
 ]
