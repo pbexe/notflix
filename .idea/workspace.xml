@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4a637c8-92f5-4014-8d97-0440a4036242" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movies/templates/movies/review_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stats/templates/stats/main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testImport/src/django-import-export" afterPath="$PROJECT_DIR$/testImport/src/django-import-export" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/admin.py" afterPath="$PROJECT_DIR$/movies/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/models.py" afterPath="$PROJECT_DIR$/movies/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/templates/movies/detail.html" afterPath="$PROJECT_DIR$/movies/templates/movies/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/urls.py" afterPath="$PROJECT_DIR$/movies/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movies/views.py" afterPath="$PROJECT_DIR$/movies/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vscode/settings.json" afterPath="$PROJECT_DIR$/.vscode/settings.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pipfile" afterPath="$PROJECT_DIR$/Pipfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pipfile.lock" afterPath="$PROJECT_DIR$/Pipfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notflix/settings.py" afterPath="$PROJECT_DIR$/notflix/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notflix/urls.py" afterPath="$PROJECT_DIR$/notflix/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stats/urls.py" afterPath="$PROJECT_DIR$/stats/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stats/views.py" afterPath="$PROJECT_DIR$/stats/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/movies/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="311" column="46" lean-forward="false" selection-start-line="311" selection-start-column="46" selection-end-line="311" selection-end-column="46" />
+            <state relative-caret-position="240">
+              <caret line="306" column="0" lean-forward="false" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -78,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/movies/templates/movies/review_list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+              <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -88,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/movies/templates/movies/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="317">
-              <caret line="109" column="9" lean-forward="true" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
+              <caret line="109" column="9" lean-forward="false" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -108,17 +108,36 @@
         <entry file="file://$PROJECT_DIR$/notflix/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="249">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding />
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding>
+                <marker date="1556808518186" expanded="true" signature="853:1052" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="1072:1435" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="1453:1850" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="1897:2415" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="1903:2412" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="2040:2405" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="2076:2394" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="2466:2540" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="2555:2681" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="2572:2679" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="2684:3163" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="3193:3587" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="3199:3296" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="3304:3391" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="3399:3487" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="3495:3584" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="3590:3709" ph="..." />
+                <marker date="1556808518186" expanded="true" signature="3805:3905" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movies/templates/movies/detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+              <caret line="48" column="24" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -231,10 +250,10 @@
         <option value="$PROJECT_DIR$/notflix/settings.py" />
         <option value="$PROJECT_DIR$/movies/admin.py" />
         <option value="$PROJECT_DIR$/movies/urls.py" />
-        <option value="$PROJECT_DIR$/movies/views.py" />
         <option value="$PROJECT_DIR$/movies/templates/movies/review_list.html" />
         <option value="$PROJECT_DIR$/movies/models.py" />
         <option value="$PROJECT_DIR$/movies/templates/movies/detail.html" />
+        <option value="$PROJECT_DIR$/movies/views.py" />
       </list>
     </option>
   </component>
@@ -685,7 +704,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="3" y="24" width="824" height="828" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19053708" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -695,7 +713,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744566" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19972827" sideWeight="0.4961915" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19972827" sideWeight="0.4961915" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39782017" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -844,7 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -949,7 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -963,8 +979,27 @@
     <entry file="file://$PROJECT_DIR$/notflix/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <marker date="1556808518186" expanded="true" signature="853:1052" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="1072:1435" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="1453:1850" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="1897:2415" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="1903:2412" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="2040:2405" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="2076:2394" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="2466:2540" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="2555:2681" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="2572:2679" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="2684:3163" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="3193:3587" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="3199:3296" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="3304:3391" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="3399:3487" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="3495:3584" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="3590:3709" ph="..." />
+            <marker date="1556808518186" expanded="true" signature="3805:3905" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1000,7 +1035,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,9 +1042,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#59#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1018,9 +1049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1035,15 +1063,15 @@
     <entry file="file://$PROJECT_DIR$/movies/templates/movies/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
-          <caret line="109" column="9" lean-forward="true" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
+          <caret line="109" column="9" lean-forward="false" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/movies/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="311" column="46" lean-forward="false" selection-start-line="311" selection-start-column="46" selection-end-line="311" selection-end-column="46" />
+        <state relative-caret-position="240">
+          <caret line="306" column="0" lean-forward="false" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -1053,7 +1081,7 @@
     <entry file="file://$PROJECT_DIR$/movies/templates/movies/review_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+          <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1071,7 +1099,7 @@
     <entry file="file://$PROJECT_DIR$/movies/templates/movies/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+          <caret line="48" column="24" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
           <folding />
         </state>
       </provider>

@@ -17,9 +17,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^orders/', include('orders.urls', namespace='orders')),
+    url(r'^users/', include('users.urls', namespace='users')),
+    url(r'^stats/', include('stats.urls', namespace='stats')),
     url(r'^', include('movies.urls', namespace='movies')),
    #url(r'^users/', include('users.urls')),
-    url(r'^users/', include('users.urls', namespace='users')),
 
 ]
 
