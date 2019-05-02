@@ -45,5 +45,22 @@
                 <button type="submit" class="btn #f44336 red"><i class="material-icons">add_shopping_cart</i> Add to Cart</button>
             </form></div>
     </div>
-</div>
+{#</div><h5>{{ movie.average_rating | floatformat }} average rating</h5>#}
+    {% if movie.review_set.all %}
+        <div class="row">
+            {% for review in movie.review_set.all %}
+                <div class="col-xs-6 col-lg-4">
+                    <em>{{ review.comment }}</em></br>
+                    <em> {{ review.rating }}</em>
+                    {{ review.user_name }}
+{#                    <h6>Rated {{ review.rating }} of 5 by <a href="{% url 'movies:user_review_list' review.user_name %}" >{{ review.user_name }}</a></h6>#}
+{#                    <h5><a href="{% url 'movies:review_detail' review.id %}">#}
+{#                        Read more#}
+{#                    </a></h5>#}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No reviews for this movie yet</p>
+    {% endif %}
 {% endblock %}

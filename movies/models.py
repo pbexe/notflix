@@ -1,6 +1,8 @@
 from django.contrib.auth.models import Permission, User
 from django.db import models
 from django.urls import reverse
+import numpy as np
+
 
 class Genre(models.Model):
     genre = models.CharField(max_length=50)
@@ -31,7 +33,13 @@ class Movie(models.Model):
     release_date = models.DateField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
 
-    #had to create on more field for video for trailer
+    def average_rating(self):
+        all_ratings = map(lambda x: x.rating, self.review_set.all())
+        return np.mean(all_ratings)
+
+    def __unicode__(self):
+        return self.movie_title
+
 
     def get_absolute_url(self):
         """Absolute url so it can be permalinked
@@ -69,6 +77,20 @@ class Movie(models.Model):
     #     """
     #     return self.dislikes.count()
 
+
+class Review(models.Model):
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    pub_date = models.DateTimeField('date published')
+    user_name = models.ForeignKey(User,on_delete=models.CASCADE)
+    comment = models.CharField(max_length=200)
+    rating = models.IntegerField(choices=RATING_CHOICES)
 
 class Rental(models.Model):
     """Model of many to many user to movie rental

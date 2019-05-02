@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404
 from .forms import MovieForm
-from .models import Movie, Genre, Like, Dislike
+from .models import Movie, Genre, Like, Dislike, Review
 from django.db.models import Q
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
@@ -304,5 +304,17 @@ def dislike_movie(request):
             Like.objects.get(user=request.user, movie=movie).delete()
         is_disliked = True
     return HttpResponseRedirect(movie.get_absolute_url())
+
+
+def review_list(request):
+    latest_review_list = Review.objects.order_by('-pub_date')[:9]
+    context = {'latest_review_list':latest_review_list}
+    return render(request, 'movies/review_list.html', context)
+
+
+def review_detail(request, review_id):
+    review = get_object_or_404(Review, pk=review_id)
+    return render(request, 'movies/review_detail.html', {'review': review})
+
 
 

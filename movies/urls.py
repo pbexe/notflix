@@ -19,6 +19,11 @@ urlpatterns = [
     url(r'^(?P<movie_id>[0-9]+)/favorite/$', views.favorite, name='favorite'),
     url(r'^like/$', views.like_movie, name='like_movie'),
     url(r'^dislike/$', views.dislike_movie, name='dislike_movie'),
+
+    url(r'^$', views.review_list, name='review_list'),
+    # ex: /review/5/
+    url(r'^review/(?P<review_id>[0-9]+)/$', views.review_detail, name='review_detail'),
+
     url(r'^(?P<genre_slug>[-\w]+)/$', views.index, name = 'movie_list_by_genre'),
 
 
