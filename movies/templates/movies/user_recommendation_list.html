@@ -1,7 +1,11 @@
-{% extends 'movies/index.html' %}
+{% extends 'movies/base.html' %}
 
 {% block title %}
 Recommendations for {{ username }}
 
+
+{% endblock %}
+
+{% block body %}
     {{ movie_list }}
 {% endblock %}
