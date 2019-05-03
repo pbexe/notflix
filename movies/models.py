@@ -2,6 +2,8 @@ from django.contrib.auth.models import Permission, User
 from django.db import models
 from django.urls import reverse
 import numpy as np
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 
 class Genre(models.Model):
@@ -90,7 +92,8 @@ class Review(models.Model):
     pub_date = models.DateTimeField('date published')
     user_name = models.ForeignKey(User,on_delete=models.CASCADE)
     comment = models.CharField(max_length=200)
-    rating = models.IntegerField(choices=RATING_CHOICES, default=4)
+    # rating = models.IntegerField(choices=RATING_CHOICES, default=4)
+    rating = models.IntegerField(default=3,validators=[MaxValueValidator(5), MinValueValidator(0)])
 
 class Cluster(models.Model):
     name = models.CharField(max_length=100)
