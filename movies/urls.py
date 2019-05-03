@@ -22,6 +22,7 @@ urlpatterns = [
 
     url(r'^$', views.review_list, name='review_list'),
     url(r'^movie/(?P<movie_id>[0-9]+)/add_review/$', views.add_review, name='add_review'),
+    url(r'^recommendation/$', views.user_recommendation_list, name='user_recommendation_list'),
 
     # ex: /review/5/
     # url(r'^review/(?P<review_id>[0-9]+)/$', views.review_detail, name='review_detail'),

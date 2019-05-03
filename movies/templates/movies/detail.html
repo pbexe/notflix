@@ -50,9 +50,9 @@
         <div class="row">
             {% for review in movie.review_set.all %}
                 <div class="col-xs-6 col-lg-4">
-                    <em>{{ review.comment }}</em></br>
-                    <em> {{ review.rating }}</em>
-                    {{ review.user_name }}
+                    <h5>{{ review.user_name }}</h5>
+                    <h6>Rated {{ review.rating }} of 5</h6>
+                    <h6>Comment: {{ review.comment }}</h6>
 {#                    <h6>Rated {{ review.rating }} of 5 by <a href="{% url 'movies:user_review_list' review.user_name %}" >{{ review.user_name }}</a></h6>#}
 {#                    <h5><a href="{% url 'movies:review_detail' review.id %}">#}
 {#                        Read more#}

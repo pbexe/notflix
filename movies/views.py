@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404
 from .forms import MovieForm, ReviewForm
-from .models import Movie, Genre, Like, Dislike, Review
+from .models import Movie, Genre, Like, Dislike, Review, Cluster
 from django.db.models import Q
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
@@ -12,7 +12,8 @@ from cart.forms import CartAddProductForm
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .suggestions import update_clusters
-
+# from django.contrib.auth.models import User
+from users.models import User
 import datetime
 
 
@@ -344,4 +345,43 @@ def add_review(request, movie_id):
 
     return render(request, 'movies/detail.html', {'movie': movie, 'form': form})
 
+
+def user_recommendation_list(request):
+    # get request user reviewed wines
+    user_reviews = Review.objects.filter(user_name=request.user.id).prefetch_related('movie')
+    user_reviews_movie_ids = set(map(lambda x: x.movie.id, user_reviews))
+
+    # get request user cluster name (just the first one righ now)
+    try:
+        user_cluster_name = \
+            User.objects.get(username=request.user.username).cluster_set.first().name
+    except:  # if no cluster assigned for a user, update clusters
+        update_clusters()
+        user_cluster_name = \
+            User.objects.get(username=request.user.username).cluster_set.first().name
+
+    # get usernames for other memebers of the cluster
+    user_cluster_other_members = \
+        Cluster.objects.get(name=user_cluster_name).users \
+            .exclude(username=request.user.username).all()
+    other_members_usernames = set(map(lambda x: x.id, user_cluster_other_members))
+
+    # get reviews by those users, excluding wines reviewed by the request user
+    other_users_reviews = Review.objects.\
+        filter(user_name__in=other_members_usernames).\
+        exclude(movie__id__in=user_reviews_movie_ids)
+    other_users_reviews_movie_ids = set(map(lambda x: x.movie.id, other_users_reviews))
+
+    # then get a wine list including the previous IDs, order by rating
+    movie_list = sorted(
+        list(Movie.objects.filter(id__in=other_users_reviews_movie_ids)),
+        key=lambda x: x.average_rating,
+        reverse=True
+    )
+
+    return render(
+        request,
+        'movies/user_recommendation_list.html',
+        {'username': request.user.username, 'movie_list': movie_list}
+    )
 
