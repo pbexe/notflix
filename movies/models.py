@@ -20,7 +20,7 @@ class Genre(models.Model):
 
     def get_absolute_url(self):
         return reverse('movies:movie_list_by_genre', args=[self.slug])
-
+from django.db.models import Avg
 class Movie(models.Model):
     """Model representing a movie in the DB
     
@@ -36,8 +36,7 @@ class Movie(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=10)
 
     def average_rating(self):
-        all_ratings = map(lambda x: x.rating, self.review_set.all())
-        return np.mean(all_ratings)
+        return self.review_set.aggregate(Avg('rating'))['rating__avg']
 
     def __unicode__(self):
         return self.movie_title

@@ -363,7 +363,7 @@ def user_recommendation_list(request):
     # get usernames for other memebers of the cluster
     user_cluster_other_members = \
         Cluster.objects.get(name=user_cluster_name).users \
-            .exclude(username=request.user.username).all()
+            .exclude(username=request.user.id).all()
     other_members_usernames = set(map(lambda x: x.id, user_cluster_other_members))
 
     # get reviews by those users, excluding wines reviewed by the request user
@@ -372,7 +372,7 @@ def user_recommendation_list(request):
         exclude(movie__id__in=user_reviews_movie_ids)
     other_users_reviews_movie_ids = set(map(lambda x: x.movie.id, other_users_reviews))
 
-    # then get a wine list including the previous IDs, order by rating
+    # then get a movie list including the previous IDs, order by rating
     movie_list = sorted(
         list(Movie.objects.filter(id__in=other_users_reviews_movie_ids)),
         key=lambda x: x.average_rating,
