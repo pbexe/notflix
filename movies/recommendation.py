@@ -5,6 +5,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 dfReviews = pd.DataFrame(list(Review.objects.values_list('movie_id', 'rating', 'user_name_id')))
 indices = pd.Series(dfReviews.index)
 
+dfLikes = pd.DataFrame(list(Like.objects.values_list('movie', 'user')))
+dfDislikes = pd.DataFrame(list(Dislike.objects.values_list('movie', 'user')))
 
 def recommending(title_id):
 

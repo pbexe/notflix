@@ -21,6 +21,8 @@ class Genre(models.Model):
     def get_absolute_url(self):
         return reverse('movies:movie_list_by_genre', args=[self.slug])
 from django.db.models import Avg
+
+
 class Movie(models.Model):
     """Model representing a movie in the DB
     
