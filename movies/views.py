@@ -410,7 +410,7 @@ def user_recommendation_list(request):
     # print (neighbors)
 
     for i in neighbors[:10]:
-        recommends = Movie.objects.get(movie_title=i)
+        # recommends = Movie.objects.get(movie_title=i)
         recommended.append(i)
         # movie = access.get_movie(str(recommends.imdb_id))
         # mvies.append(movie)
