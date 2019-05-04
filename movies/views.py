@@ -13,6 +13,12 @@ from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .suggestions import update_clusters
 # from django.contrib.auth.models import User
+from django.template import RequestContext, Context
+from .recommendation import *
+from django.shortcuts import render_to_response
+
+
+
 from users.models import User
 import datetime
 
@@ -133,13 +139,6 @@ def index(request, genre_slug=None):
         movies = paginator.page(1)
     except EmptyPage:
         movies = paginator.page(paginator.num_pages)
-
-
-
-
-
-
-
 
     else:
         return render(request, 'movies/index.html', {'genre': genre,
@@ -347,10 +346,11 @@ def add_review(request, movie_id):
 
 
 def user_recommendation_list(request):
-    # get request user reviewed wines
+    """# get request user reviewed wines
     user_reviews = Review.objects.filter(user_name=request.user.id).prefetch_related('movie')
+    #movie ids that were reviewed by the user
     user_reviews_movie_ids = set(map(lambda x: x.movie.id, user_reviews))
-
+    # print (user_reviews)
     # get request user cluster name (just the first one righ now)
     try:
         user_cluster_name = \
@@ -383,5 +383,53 @@ def user_recommendation_list(request):
         request,
         'movies/user_recommendation_list.html',
         {'username': request.user.username, 'movie_list': movie_list}
-    )
+    )"""
 
+    genre = None
+    genres = Genre.objects.all()
+    movies = recommend(request)
+    neighbors = []
+    recommended = []
+    results = []
+    posters = []
+    mvies = []
+    show_results = False
+
+    show_results = True
+    # access = imdb.IMDb()
+    #	titles = []
+    #	covers = []
+    #	for i in results:
+    #		movie_id = links.objects.get(movie_id=i.movie_id)
+    #		movie = access.get_movie(str(movie.imdb_id))
+    #		titles.append(movie['title'])
+    #		covers.append(movie['cover url'])
+    # print(results[0].movie_id)
+    results = Movie.objects.all()
+    neighbors = recommend(results[0].movie_title)
+    # print (neighbors)
+
+    for i in neighbors[:10]:
+        recommends = Movie.objects.get(movie_title=i)
+        recommended.append(i)
+        # movie = access.get_movie(str(recommends.imdb_id))
+        # mvies.append(movie)
+        # poster = links.objects.get(movie_id=i)
+        # posters.append(poster)
+
+
+# variables = Context({
+    # 'mvies': mvies,
+    # 'posters': posters,
+
+    # 'recommended': recommended,
+    # 'results': results,
+    # 'show_results': show_results
+    print (recommended)
+    return render(request, 'movies/user_recommendation_list.html', {
+        'recommended':recommended,
+        'genre': genre,
+        'genres': genres,
+        'movies': movies})
+
+# return render_to_response('movies/user_recommendation_list.html', {'recommended': recommend}, RequestContext(request))
