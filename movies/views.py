@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404
 from .forms import MovieForm, ReviewForm
-from .models import Movie, Genre, Like, Dislike, Review, Cluster
+from .models import Movie, Genre, Like, Dislike, Review
 from django.db.models import Q
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
@@ -11,7 +11,6 @@ from django.contrib.auth.decorators import login_required
 from cart.forms import CartAddProductForm
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .suggestions import update_clusters
 # from django.contrib.auth.models import User
 from django.template import RequestContext, Context
 from .recommendation import *
@@ -335,101 +334,24 @@ def add_review(request, movie_id):
         review.comment = comment
         review.pub_date = datetime.datetime.now()
         review.save()
-        update_clusters()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
+
         return HttpResponseRedirect(reverse('movies:detail', args=(movie.id,)))
-        # return HttpResponseRedirect(movie.get_absolute_url())
 
     return render(request, 'movies/detail.html', {'movie': movie, 'form': form})
 
 
 def user_recommendation_list(request):
-    """# get request user reviewed wines
-    user_reviews = Review.objects.filter(user_name=request.user.id).prefetch_related('movie')
-    #movie ids that were reviewed by the user
-    user_reviews_movie_ids = set(map(lambda x: x.movie.id, user_reviews))
-    # print (user_reviews)
-    # get request user cluster name (just the first one righ now)
-    try:
-        user_cluster_name = \
-            User.objects.get(username=request.user.username).cluster_set.first().name
-    except:  # if no cluster assigned for a user, update clusters
-        update_clusters()
-        user_cluster_name = \
-            User.objects.get(username=request.user.username).cluster_set.first().name
 
-    # get usernames for other memebers of the cluster
-    user_cluster_other_members = \
-        Cluster.objects.get(name=user_cluster_name).users \
-            .exclude(username=request.user.id).all()
-    other_members_usernames = set(map(lambda x: x.id, user_cluster_other_members))
-
-    # get reviews by those users, excluding wines reviewed by the request user
-    other_users_reviews = Review.objects.\
-        filter(user_name__in=other_members_usernames).\
-        exclude(movie__id__in=user_reviews_movie_ids)
-    other_users_reviews_movie_ids = set(map(lambda x: x.movie.id, other_users_reviews))
-
-    # then get a movie list including the previous IDs, order by rating
-    movie_list = sorted(
-        list(Movie.objects.filter(id__in=other_users_reviews_movie_ids)),
-        key=lambda x: x.average_rating,
-        reverse=True
-    )
-
-    return render(
-        request,
-        'movies/user_recommendation_list.html',
-        {'username': request.user.username, 'movie_list': movie_list}
-    )"""
-
-    genre = None
-    genres = Genre.objects.all()
-    movies = recommend(request)
-    neighbors = []
     recommended = []
-    results = []
-    posters = []
-    mvies = []
-    show_results = False
-
-    show_results = True
-    # access = imdb.IMDb()
-    #	titles = []
-    #	covers = []
-    #	for i in results:
-    #		movie_id = links.objects.get(movie_id=i.movie_id)
-    #		movie = access.get_movie(str(movie.imdb_id))
-    #		titles.append(movie['title'])
-    #		covers.append(movie['cover url'])
-    # print(results[0].movie_id)
     results = Movie.objects.all()
-    neighbors = recommend(results[0].movie_title)
-    # print (neighbors)
-
+    neighbors = recommending(results[0].pk)
     for i in neighbors[:10]:
-        # recommends = Movie.objects.get(movie_title=i)
-        recommended.append(i)
-        # movie = access.get_movie(str(recommends.imdb_id))
-        # mvies.append(movie)
-        # poster = links.objects.get(movie_id=i)
-        # posters.append(poster)
+        recommends = Movie.objects.get(id=i)
+        recommended.append(recommends)
 
 
-# variables = Context({
-    # 'mvies': mvies,
-    # 'posters': posters,
-
-    # 'recommended': recommended,
-    # 'results': results,
-    # 'show_results': show_results
-    print (recommended)
     return render(request, 'movies/user_recommendation_list.html', {
         'recommended':recommended,
-        'genre': genre,
-        'genres': genres,
-        'movies': movies})
+            })
 
 # return render_to_response('movies/user_recommendation_list.html', {'recommended': recommend}, RequestContext(request))

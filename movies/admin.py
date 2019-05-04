@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Movie, Genre, Review, Cluster
+from .models import Movie, Genre, Review
 from django.core import management
 from django.shortcuts import redirect
 
@@ -16,14 +16,10 @@ class ReviewAdmin(admin.ModelAdmin):
     list_filter = ['pub_date', 'user_name']
     search_fields = ['comment']
 
-class ClusterAdmin(admin.ModelAdmin):
-    model = Cluster
-    list_display = ['name', 'get_members']
 
 
 admin.site.register(Movie)
 admin.site.register(Review, ReviewAdmin)
-admin.site.register(Cluster, ClusterAdmin)
 
 
 # admin.site.register(Movie)

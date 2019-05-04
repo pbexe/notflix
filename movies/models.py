@@ -34,6 +34,7 @@ class Movie(models.Model):
     description = models.TextField(blank=True, null=True)
     release_date = models.DateField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
+    vectors = models.CharField(max_length=20)
 
     def average_rating(self):
         return self.review_set.aggregate(Avg('rating'))['rating__avg']
@@ -80,26 +81,13 @@ class Movie(models.Model):
 
 
 class Review(models.Model):
-    RATING_CHOICES = (
-        (1, '1'),
-        (2, '2'),
-        (3, '3'),
-        (4, '4'),
-        (5, '5'),
-    )
+
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     pub_date = models.DateTimeField('date published')
     user_name = models.ForeignKey(User,on_delete=models.CASCADE)
     comment = models.CharField(max_length=200)
     # rating = models.IntegerField(choices=RATING_CHOICES, default=4)
     rating = models.IntegerField(default=3,validators=[MaxValueValidator(5), MinValueValidator(0)])
-
-class Cluster(models.Model):
-    name = models.CharField(max_length=100)
-    users = models.ManyToManyField(User)
-
-    def get_members(self):
-        return "\n".join([u.username for u in self.users.all()])
 
 class Rental(models.Model):
     """Model of many to many user to movie rental
