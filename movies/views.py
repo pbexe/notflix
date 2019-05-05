@@ -339,13 +339,23 @@ def add_review(request, movie_id):
 
     return render(request, 'movies/detail.html', {'movie': movie, 'form': form})
 
-
+from orders.models import OrderItem
 def user_recommendation_list(request):
-
+    # user_id = request.user.id
     recommended = []
-    results = Movie.objects.all()
-    neighbors = recommending(results[0].pk)
-    for i in neighbors[:10]:
+    #make results to be the list of movies that have been ordered
+    results = OrderItem.objects.all()
+
+    field_name = 'movie'
+    obj = OrderItem.objects.last()
+    field_object = OrderItem._meta.get_field(field_name)
+    field_value = field_object.value_from_object(obj)
+
+    # all_users = Profile.objects.all()
+
+    neighbors = recommending(field_value)
+    # print(neighbors)
+    for i in neighbors:
         recommends = Movie.objects.get(id=i)
         recommended.append(recommends)
 
