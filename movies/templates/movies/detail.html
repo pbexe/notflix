@@ -46,4 +46,36 @@
             </form></div>
     </div>
 </div>
+<h3>Add your review</h3>
+
+        <form action="{% url 'movies:add_review' movie.id %}" method="post" style="display:inline;">
+            {{ form }}
+            {% csrf_token %}
+
+            <br>
+            <button type="submit" class="btn #f44336 red"><i class="material-icons"></i> Add Review</button>
+        </form>
+
+    {% if movie.review_set.all %}
+            <h5>{{ movie.average_rating }} average rating</h5>
+
+        <div class="row">
+            {% for review in movie.review_set.all %}
+                <div class="col-xs-6 col-lg-4">
+                    <h5>{{ review.user_name }}</h5>
+                    <h6>Rated {{ review.rating }} out of 5</h6>
+                    <h6>Comment: {{ review.comment }}</h6>
+{#                    <h6>Rated {{ review.rating }} of 5 by <a href="{% url 'movies:user_review_list' review.user_name %}" >{{ review.user_name }}</a></h6>#}
+{#                    <h5><a href="{% url 'movies:review_detail' review.id %}">#}
+{#                        Read more#}
+{#                    </a></h5>#}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No reviews for this movie yet</p>
+    {% endif %}
+
+
+
 {% endblock %}

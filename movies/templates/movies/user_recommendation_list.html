@@ -1,0 +1,39 @@
+{% extends 'movies/base.html' %}
+
+{% block title %}
+Recommendations for {{ username }}
+
+
+{% endblock %}
+
+{% block body %}
+
+<div class="col s12 m10 offset-m2">
+        <div class="main">
+            {% comment %} <h2>Movies </h2> {% endcomment %}
+            {% if recommended %}
+            <div class="row">
+                {% for movie in recommended %}
+                <div class="col s12 m7 l6">
+                    <div class="card large">
+                        <div class="card-image">
+                            {% comment %} <a href="{% url 'movies:detail' movie.id %}"><img class="index-img" src="{{ movie.movie_logo.url }}" > </a> {% endcomment %}
+                            <a href="{% url 'movies:detail' movie.id %}"><img class="index-img" src="https://placeimg.com/640/480/any?cache={{ movie.id }}" > </a>
+
+                        </div>
+
+                        <div class="card-content">
+                            <span class="card-title truncate">{{ movie.movie_title }} <span class="badge new red" data-badge-caption="£{{ movie.price }}"></span></span>
+                            <p class="truncate">{{ movie.description }}</p>
+                            <p class="truncate">{{ movie.genre }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'movies:detail' movie.id %}">Go to Movie</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+            </div>
+        </div></div>
+        {% endblock %}

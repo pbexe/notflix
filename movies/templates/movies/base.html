@@ -20,7 +20,9 @@
             <a href="{% url 'movies:index' %}" class="brand-logo"><img class="brand-logo" src="{% static 'movies/img/logo.png' %}" alt=""></a>
             <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                
+
+                <li><a href="{% url 'movies:user_recommendation_list' %}">Movie suggestions</a></li>
+
                 <li>
                     {% with total_items=cart|length %}
                     {% if cart|length > 0 %}
@@ -68,6 +70,8 @@
         </nav>
         
         <ul class="sidenav" id="mobile-nav">
+
+
             <li>{% with total_items=cart|length %}
                 {% if cart|length > 0 %}
                 
