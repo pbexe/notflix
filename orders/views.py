@@ -29,8 +29,12 @@ def order_create(request):
                 OrderItem.objects.create(order=order,
                                          movie=item['movie'],
                                          price=item['price'],)
-            cart.remove(movie=item['movie'])
-            return render(request, 'order/order/created.html', {'order': order})
+                # cart.remove(movie=item['movie'])
+
+            # cart.remove(movie=item['movie'])
+            cart.clear()
+
+            return render(request, 'order/order/created.html', {'order': order, 'cart': cart})
 
         else:
             return render(request, 'order/order/create.html', {'form': form})
