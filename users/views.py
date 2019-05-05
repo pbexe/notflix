@@ -7,6 +7,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 
 from django.contrib.auth import update_session_auth_hash
+from orders.models import OrderItem, Order
 
 
 
@@ -81,8 +82,12 @@ def logout_view(request):
         return render(request, 'users/logout.html')
 
 def detail_view(request):
+    movie_order = OrderItem.objects.all()
+    user_order = Order.objects.all()
 
-    return render(request, 'users/user_details.html')
+
+
+    return render(request, 'users/user_details.html', {'movie_order': movie_order, 'user_order':user_order})
 
 def change_password(request):
     if request.method == 'POST':

@@ -14,6 +14,15 @@
 
 </form>
 <h3>Order History</h3>
-    {{ user.profile.order }}
+{% for i in user_order %}
+    {% if i.user == user %}
+        {%  for i in movie_order|slice:":1" %}
+                {{ i.movie}}
+        {% endfor %}
+    {% endif %}
+
+    {% endfor %}
+
+
 
 {% endblock %}
