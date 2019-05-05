@@ -8,6 +8,10 @@ pep8 = "*"
 
 [packages]
 django-adminplus = "*"
+django = "*"
+numpy = "*"
+pandas = "*"
+sklearn = "*"
 
 [requires]
 python_version = "3.7"
