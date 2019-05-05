@@ -29,7 +29,7 @@ def signup_view(request):
             user.profile.city = form.cleaned_data.get('city')
             user.profile.postcode = form.cleaned_data.get('postcode')
             user.profile.date_birth = form.cleaned_data.get('date_birth')
-            user.profile.preferred_genre = form.cleaned_data.get('preferred_genre')
+            # user.profile.preferred_genre = form.cleaned_data.get('preferred_genre')
             user.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
