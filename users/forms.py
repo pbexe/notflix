@@ -25,7 +25,7 @@ class SignUpForm(UserCreationForm):
     city = forms.CharField(max_length=30)
     postcode = forms.CharField(max_length=30, help_text='postcode field')
     date_birth = forms.DateField()
-    preferred_genre = forms.ChoiceField(choices=FAVORITE_GENRE_CHOICES, widget=forms.RadioSelect)
+    # preferred_genre = forms.ChoiceField(choices=FAVORITE_GENRE_CHOICES, widget=forms.RadioSelect)
 
     # date_birth=fields.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
@@ -35,6 +35,6 @@ class SignUpForm(UserCreationForm):
                   'city', 'postcode', )
         widgets = {
             'date_birth': DateInput(),
-            'preferred_genre': ChoiceInput()
+            # 'preferred_genre': ChoiceInput()
 
         }
