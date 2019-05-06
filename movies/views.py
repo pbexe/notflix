@@ -16,24 +16,19 @@ from django.template import RequestContext, Context
 from .recommendation import *
 from django.shortcuts import render_to_response
 
-
-
 from users.models import User
 import datetime
 from orders.models import OrderItem
-
-
-
 
 IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 
 def create_movie(request):
     """View used with movie creation
-    
+
     Arguments:
         request {obj} -- The request
-    
+
     Returns:
         render -- Either the movie creation page or the movie details depending
                   on whether the movie has already been created or not
@@ -45,7 +40,7 @@ def create_movie(request):
     if form.is_valid():
         # If it is, take appropriate measures
         movie = form.save(commit=False)
-        #movie.user = request.user
+        # movie.user = request.user
         movie.movie_logo = request.FILES['movie_logo']
 
         file_type = movie.movie_logo.url.split('.')[-1]
@@ -65,14 +60,15 @@ def create_movie(request):
     # If the form isn't valid, ie get request, serve the form.
     return render(request, 'movies/create_movie.html', context)
 
+
 @login_required(login_url="/users/login")
 def detail(request, movie_id):
     """View showing details of a movie. The user must be logged in
-    
+
     Arguments:
         request {obj} -- The request
         movie_id {int} -- The primary key of the movie queried
-    
+
     Returns:
         render -- The details of the movie
     """
@@ -96,12 +92,13 @@ def detail(request, movie_id):
                                                   'total_dislikes': Dislike.objects.filter(movie=movie).count(),
                                                   'cart_movie_form': cart_movie_form})
 
+
 def index(request, genre_slug=None):
     """Directory of the site
-    
+
     Arguments:
         request {request} -- The request
-    
+
     Returns:
         render -- The home page
     """
@@ -110,7 +107,6 @@ def index(request, genre_slug=None):
     genres = Genre.objects.all()
     movies = recommend(request)
     query = request.GET.get('q')
-
 
     page = request.GET.get('page', 1)
 
@@ -122,8 +118,8 @@ def index(request, genre_slug=None):
             movies = movies.filter(genre=genre)
 
             return render(request, 'movies/index.html', {'genre': genre,
-                                                    'genres': genres,
-                                                    'movies': movies})
+                                                         'genres': genres,
+                                                         'movies': movies})
 
         if query:
             movies = movies.filter(
@@ -143,17 +139,18 @@ def index(request, genre_slug=None):
 
     else:
         return render(request, 'movies/index.html', {'genre': genre,
-                                                    'genres': genres,
-                                                    'movies': movies})
+                                                     'genres': genres,
+                                                     'movies': movies})
 
 
 def sort_name_asc(request):
-    genre=None
+    genre = None
     genres = Genre.objects.all()
     movies = Movie.objects.order_by("movie_title")
     return render(request, 'movies/index.html', {'genre': genre,
                                                  'genres': genres,
                                                  'movies': movies})
+
 
 def sort_name_dsc(request):
     genre = None
@@ -161,11 +158,13 @@ def sort_name_dsc(request):
     movies = Movie.objects.order_by("-movie_title")
     return render(request, 'movies/index.html', {'genre': genre, 'genres': genres, 'movies': movies})
 
+
 def sort_price_asc(request):
     genre = None
     genres = Genre.objects.all()
     movies = Movie.objects.order_by("price")
     return render(request, 'movies/index.html', {'genre': genre, 'genres': genres, 'movies': movies})
+
 
 def sort_price_dsc(request):
     genre = None
@@ -173,11 +172,13 @@ def sort_price_dsc(request):
     movies = Movie.objects.order_by("-price")
     return render(request, 'movies/index.html', {'genre': genre, 'genres': genres, 'movies': movies})
 
+
 def sort_date_asc(request):
     genre = None
     genres = Genre.objects.all()
     movies = Movie.objects.order_by("release_date")
     return render(request, 'movies/index.html', {'genre': genre, 'genres': genres, 'movies': movies})
+
 
 def sort_date_dsc(request):
     genre = None
@@ -191,13 +192,13 @@ def movie_upload(request):
     template = 'movies/movie_upload.html'
 
     prompt = {
-        'order' : 'Order of csv should be first name, last name, email and ip address'
+        'order': 'Order of csv should be first name, last name, email and ip address'
     }
     if request.method == "GET":
         return render(request, template)
 
     csv_file = request.FILES['file']
-    #check if it's a csv
+    # check if it's a csv
     if not csv_file.name.endswith('.csv'):
         messages.error(request, 'Not a csv file')
 
@@ -205,24 +206,21 @@ def movie_upload(request):
     io_string = io.StringIO(data_set)
     next(io_string)
     for column in csv.reader(io_string, delimiter=',', quotechar="|"):
-        _, created = Movie.objects.update_or_create( #contact is the model
+        _, created = Movie.objects.update_or_create(  # contact is the model
 
-          #  "genre", "movie_title", "movie_logo", "id", "description", "release_date", "price"
+            #  "genre", "movie_title", "movie_logo", "id", "description", "release_date", "price"
             genre=column[0],
-            movie_title = column[1],
-            movie_logo = column[2],
-            id = column[3],
-            description = column[4],
-            release_date = column[5],
-            price = column[6]
-
+            movie_title=column[1],
+            movie_logo=column[2],
+            id=column[3],
+            description=column[4],
+            release_date=column[5],
+            price=column[6]
 
         )
 
         context = {}
         return render(request, template, context)
-
-
 
 
 def recommend(request):
@@ -232,7 +230,7 @@ def recommend(request):
 
     Arguments:
         request {obj} -- request information for recommendation
-    """ 
+    """
 
     movies = Movie.objects.order_by('?')
     return movies
@@ -240,11 +238,11 @@ def recommend(request):
 
 def favorite(request, movie_id):
     """The view that handles the user favourite request
-    
+
     Arguments:
         request {obj} -- The request
         movie_id {int} -- The id of the movie to favourite
-    
+
     Returns:
         JsonResponse -- A response back to the web page
     """
@@ -262,13 +260,12 @@ def favorite(request, movie_id):
         return JsonResponse({'success': True})
 
 
-
 def like_movie(request):
     """The view that handles the user liking the movie
-    
+
     Arguments:
         request {obj} -- The request
-    
+
     Returns:
         HttpResponseRedirect -- Redirect to the liked movie
     """
@@ -286,12 +283,13 @@ def like_movie(request):
         is_liked = True
     return HttpResponseRedirect(movie.get_absolute_url())
 
+
 def dislike_movie(request):
     """The view that handles the user disliking the movie
-    
+
     Arguments:
         request {obj} -- The request
-    
+
     Returns:
         HttpResponseRedirect -- Redirect to the disliked movie
     """
@@ -312,7 +310,7 @@ def dislike_movie(request):
 
 def review_list(request):
     latest_review_list = Review.objects.order_by('-pub_date')[:9]
-    context = {'latest_review_list':latest_review_list}
+    context = {'latest_review_list': latest_review_list}
     return render(request, 'movies/review_list.html', context)
 
 
@@ -321,6 +319,7 @@ def review_list(request):
 #     return render(request, 'movies/review_detail.html', {'review': review})
 #
 from django.urls import reverse
+
 
 def add_review(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
@@ -342,30 +341,21 @@ def add_review(request, movie_id):
     return render(request, 'movies/detail.html', {'movie': movie, 'form': form})
 
 
+from .models import Like
+
 
 @login_required(login_url="/users/login")
 def user_recommendation_list(request):
-    # user_id = request.user.id
     recommended = []
-    #make results to be the list of movies that have been ordered
-    results = OrderItem.objects.all()
 
-    field_name = 'movie'
-    obj = OrderItem.objects.last()
-    field_object = OrderItem._meta.get_field(field_name)
-    field_value = field_object.value_from_object(obj)
-
-    # all_users = Profile.objects.all()
-
-    neighbors = recommending(field_value)
-    # print(neighbors)
+    neighbors = recommending()
     for i in neighbors:
-        recommends = Movie.objects.get(id=i)
+        print(i)
+        recommends = Movie.objects.get(id=i + 1)
         recommended.append(recommends)
 
-
     return render(request, 'movies/user_recommendation_list.html', {
-        'recommended':recommended,
-            })
+        'recommended': recommended,
+    })
 
 # return render_to_response('movies/user_recommendation_list.html', {'recommended': recommend}, RequestContext(request))
