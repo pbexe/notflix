@@ -20,6 +20,8 @@ from django.shortcuts import render_to_response
 
 from users.models import User
 import datetime
+from orders.models import OrderItem
+
 
 
 
@@ -339,7 +341,9 @@ def add_review(request, movie_id):
 
     return render(request, 'movies/detail.html', {'movie': movie, 'form': form})
 
-from orders.models import OrderItem
+
+
+@login_required(login_url="/users/login")
 def user_recommendation_list(request):
     # user_id = request.user.id
     recommended = []
