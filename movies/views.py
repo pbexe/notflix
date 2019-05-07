@@ -350,7 +350,7 @@ def user_recommendation_list(request):
 
     neighbors = recommending()
     for i in neighbors:
-        print(i)
+        # print(i)
         recommends = Movie.objects.get(id=i + 1)
         recommended.append(recommends)
 

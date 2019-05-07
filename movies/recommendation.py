@@ -8,16 +8,24 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 def recommending():
 	dfLikes = pd.DataFrame(list(Like.objects.values_list('movie', 'user')))
-	indices = pd.Series(dfLikes.index) #[0]index
-	results = cosine_similarity(dfLikes, dfLikes)
+	dfMovies = pd.DataFrame(list(Movie.objects.values_list('id', 'genre')))
+	#last liked movie id
+	# print("this is movie id  ", Like.objects.latest('id').movie.pk)
 
+	# print("here   ", dfLikes.get(0)[3])
+	indices = pd.Series(dfMovies.index) #[0]index
+	results = cosine_similarity(dfMovies, dfMovies)
+	# print(results)
 	similar_movies = []
+	#find movies similar to the last liked movie
 
-	idx = (indices.size)-1 #indices[indices == title_id].index[0] #(((indices.size)-1))
+	idx = Like.objects.latest('id').movie.pk #indices[indices == title_id].index[0] #(indices.size)-1
+	# print("this is idx  ", idx)
 	score_series = pd.Series(results[idx]).sort_values(ascending=False)
 	top_10_indexes = list(score_series.iloc[1:11].index)
+	# print (top_10_indexes)
 	for i in top_10_indexes:
-		similar_movies.append(list(dfLikes.index)[i])
+		similar_movies.append(dfMovies.get(0)[i])
 	return similar_movies
 
 
