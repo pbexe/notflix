@@ -347,12 +347,25 @@ from .models import Like
 @login_required(login_url="/users/login")
 def user_recommendation_list(request):
     recommended = []
+    # for i in range (0,10):
+    #     print(Like.objects.get(0)[i].movie.pk)
+    #find the last 10 liked movies
+    last_ten = Like.objects.all().order_by('-movie_id')[:10]
+    print(last_ten.all())
+    for i in last_ten:
+        # print (i.movie.pk)
 
-    neighbors = recommending()
-    for i in neighbors:
-        # print(i)
-        recommends = Movie.objects.get(id=i + 1)
-        recommended.append(recommends)
+        neighbors = recommending(i.movie.pk)
+        for i in neighbors:
+            # print(i)
+            recommends = Movie.objects.get(id=i + 1)
+            if recommends not in recommended:
+                recommended.append(recommends)
+
+
+    # last_ten_in_ascending_order = reversed(last_ten)
+    # print(last_ten_in_ascending_order)
+
 
     return render(request, 'movies/user_recommendation_list.html', {
         'recommended': recommended,
