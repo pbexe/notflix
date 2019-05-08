@@ -14,7 +14,7 @@ admin.autodiscover()
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^notflixadmin/', admin.site.urls),
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^orders/', include('orders.urls', namespace='orders')),
     url(r'^users/', include('users.urls', namespace='users')),
