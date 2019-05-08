@@ -11,21 +11,25 @@ def recommending(title_id):
 	dfMovies = pd.DataFrame(list(Movie.objects.values_list('id', 'genre')))
 	#last liked movie id
 	# print("this is movie id  ", Like.objects.latest('id').movie.pk)
-
+	# print(dfMovies)
 	# print("here   ", dfLikes.get(0)[3])
 	indices = pd.Series(dfMovies.index) #[0]index
 	results = cosine_similarity(dfMovies, dfMovies)
-	# print(results)
+	print(results)
 	similar_movies = []
-	#find movies similar to the last liked movie
 
 	idx = title_id #Like.objects.latest('id').movie.pk #indices[indices == title_id].index[0] #(indices.size)-1
 	# print("this is idx  ", idx)
 	score_series = pd.Series(results[idx]).sort_values(ascending=False)
-	top_10_indexes = list(score_series.iloc[1:5].index)
-	# print (top_10_indexes)
-	for i in top_10_indexes:
-		similar_movies.append(dfMovies.get(0)[i])
-	return similar_movies
+	top_5_indexes = list(score_series.iloc[1:6].index)
+	print (top_5_indexes)
+
+	return top_5_indexes
+
+	# # print (top_10_indexes)
+	# for i in top_5_indexes:
+	# 	similar_movies.append(list(dfMovies.index)[i])
+	# print(similar_movies)
+	# return similar_movies
 
 
